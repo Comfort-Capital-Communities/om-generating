@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comfort Capital · The Tax Advantage</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  /* ---- deck-local helpers (curated from the Comfort decks) ---- */
+  .cover__title{ letter-spacing:-.01em; }
+  .icn{ width:24px; height:24px; stroke:var(--cyan); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .value-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .slide--navy .value-card{ background:var(--navy-2); border-color:var(--line-dark); box-shadow:none; }
+  .value-card .vc__t{ font-family:var(--serif); font-weight:800; font-size:16px; color:var(--ink-strong); margin-top:12px; }
+  .slide--navy .vc__t{ color:#fff; }
+  .value-card .vc__d{ font-size:12px; line-height:1.5; color:var(--ink-muted); margin-top:7px; }
+  .slide--navy .value-card .vc__d{ color:var(--on-navy-mut); }
+  .callout{ border:1px solid var(--cyan); background:rgba(8,164,219,.06); border-radius:var(--radius); padding:16px 20px; }
+  .callout .co-lab{ font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); font-weight:800; margin-bottom:6px; }
+  .callout .co-big{ font-family:var(--display); font-weight:800; font-size:21px; color:var(--ink-strong); line-height:1.25; letter-spacing:-.01em; }
+  .slide--navy .callout{ background:rgba(8,164,219,.12); }
+  .slide--navy .callout .co-big{ color:#fff; }
+
+  /* recurring three-lever rail */
+  .leverrail{ display:flex; gap:8px; margin-top:8px; }
+  .leverrail .lr{ padding:5px 14px; border-radius:100px; background:var(--paper-2); border:1px solid var(--line); font-size:8.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+  .leverrail .lr.on{ background:var(--cyan); color:#fff; border-color:var(--cyan); }
+
+  /* three-lever columns (anchor) */
+  .lever-col{ background:var(--card); border:1px solid var(--line); border-top:4px solid var(--cyan); border-radius:8px; padding:22px 22px; box-shadow:var(--shadow); display:flex; flex-direction:column; height:100%; }
+  .lever-n{ font-family:var(--display); font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); }
+  .lever-stage{ font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin-top:4px; }
+  .lever-t{ font-family:var(--serif); font-weight:800; font-size:20px; color:var(--ink-strong); margin-top:12px; line-height:1.15; }
+  .lever-d{ font-size:11.5px; line-height:1.55; color:var(--ink-muted); margin-top:10px; flex:1; }
+  .lever-keep{ font-size:11px; font-weight:800; color:var(--cyan); margin-top:14px; letter-spacing:.01em; }
+
+  /* stacked composition bars */
+  .stackwrap{ display:flex; gap:56px; align-items:flex-end; justify-content:center; }
+  .stackcol{ text-align:center; }
+  .stackbar{ width:132px; height:316px; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); }
+  .stackbar .seg{ display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:#fff; text-align:center; line-height:1.1; padding:0 4px; }
+  .stacktitle{ font-family:var(--display); font-weight:800; font-size:15px; color:var(--ink-strong); margin-top:14px; }
+  .stacksub{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); font-weight:800; margin-top:4px; }
+  .seg-land{ background:#C8C0B0; color:#514b3f; } .seg-bldg{ background:var(--navy); } .seg-15{ background:var(--cyan); } .seg-57{ background:#7FD3EF; color:#0b3b4e; }
+  .leg{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:4px; font-size:10px; color:var(--ink-muted); }
+  .leg i{ width:11px; height:11px; border-radius:3px; display:inline-block; margin-right:5px; vertical-align:-1px; }
+
+  /* horizontal split bar (cost seg) */
+  .splitbar{ display:flex; height:66px; border-radius:8px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); }
+  .splitbar .sp{ display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:12px; text-align:center; line-height:1.15; }
+  .splitbar .sp small{ font-weight:600; font-size:8.5px; opacity:.9; letter-spacing:.04em; }
+
+  /* equation boxes */
+  .eqbox{ background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:16px 18px; text-align:center; min-width:150px; }
+  .eqbox .eb-n{ font-family:var(--display); font-weight:800; font-size:26px; color:var(--ink-strong); line-height:1; }
+  .eqbox .eb-n.cy{ color:var(--cyan); }
+  .eqbox .eb-l{ font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px; }
+  .eqop{ font-family:var(--display); font-weight:800; font-size:30px; color:var(--cyan); }
+
+  /* K-1 excerpt */
+  .k1{ background:#fff; border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); overflow:hidden; }
+  .k1-hd{ background:var(--navy); color:#fff; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .k1-hd b{ font-family:var(--display); font-weight:800; font-size:13px; letter-spacing:.03em; color:#fff; }
+  .k1-hd span{ font-size:9px; color:var(--on-navy-mut); letter-spacing:.08em; text-transform:uppercase; }
+  .k1-row{ display:flex; justify-content:space-between; align-items:center; padding:9px 16px; border-bottom:1px solid var(--line); font-size:12px; }
+  .k1-row .lab{ color:var(--ink-muted); } .k1-row .lab b{ color:var(--ink-strong); }
+  .k1-row .val{ font-family:'Courier New',monospace; font-weight:700; color:var(--ink-strong); font-size:13px; }
+  .k1-row.hi{ background:rgba(8,164,219,.10); }
+  .k1-row.hi .val{ color:#0d7196; }
+  .redact{ display:inline-block; height:12px; width:120px; background:#221E1F; border-radius:2px; vertical-align:middle; }
+  .redact.sm{ width:74px; }
+
+  /* generic process boxes + arrows */
+  .pbox{ background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:13px 15px; font-size:12px; line-height:1.4; color:var(--ink-strong); }
+  .pbox .pb-k{ font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); font-weight:800; margin-bottom:4px; }
+  .arrow-d{ font-family:var(--display); font-weight:800; color:var(--cyan); font-size:20px; text-align:center; line-height:1; }
+  .arrow-r{ font-family:var(--display); font-weight:800; color:var(--cyan); font-size:22px; align-self:center; }
+
+  /* comparison columns */
+  .cmp{ background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:20px 22px; height:100%; display:flex; flex-direction:column; }
+  .cmp.cy{ border-color:var(--cyan); border-top:4px solid var(--cyan); }
+  .cmp .cmp-h{ font-family:var(--display); font-weight:800; font-size:16px; color:var(--ink-strong); }
+  .cmp .cmp-tag{ font-size:9px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; margin-bottom:10px; }
+  .cmp ol,.cmp ul{ margin:0; padding-left:0; list-style:none; }
+  .cmp li{ display:flex; gap:9px; align-items:flex-start; font-size:12px; line-height:1.4; color:var(--ink-muted); padding:5px 0; }
+  .cmp li .st{ flex:none; width:18px; height:18px; border-radius:50%; background:var(--cyan); color:#fff; font-size:10px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+
+  /* scorecards */
+  .score{ background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:20px 22px; }
+  .score .sc-h{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); font-weight:800; }
+  .score .sc-row{ display:flex; justify-content:space-between; font-size:13px; padding:7px 0; border-bottom:1px solid var(--line); color:var(--ink-muted); }
+  .score .sc-row.tot{ border-bottom:0; border-top:2px solid var(--ink-faint); margin-top:4px; font-weight:800; color:var(--ink-strong); }
+  .score .sc-row .n{ font-family:'Courier New',monospace; font-weight:700; }
+
+  /* flywheel */
+  .wheel{ position:relative; width:430px; height:430px; margin:0 auto; }
+  .wheel .node{ position:absolute; transform:translate(-50%,-50%); width:126px; text-align:center; }
+  .wheel .node .dot{ width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;font-family:var(--display);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin:0 auto 5px; }
+  .wheel .node .nl{ font-size:10px; font-weight:700; line-height:1.25; color:var(--ink-strong); }
+  .wheel .hub{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:132px; height:132px; border-radius:50%; background:var(--navy); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:var(--shadow); }
+  .wheel .hub b{ font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:.02em; color:#fff; } .wheel .hub span{ font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-top:2px; }
+
+  /* page-level logo + footer */
+  .page-logo{ position:absolute; top:24px; right:26px; height:24px; opacity:.95; z-index:5; }
+  .footer__spacer{ min-width:60px; } .footer__pg{ text-align:right; }
+  .footer{ height:auto; min-height:40px; padding-top:6px; padding-bottom:8px; }
+  .footer__disc{ font-size:6.8px; line-height:1.32; }
+
+  /* worked-example: assumptions chips + comparison table */
+  .wx-assume{ display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin:2px 0 2px; }
+  .wx-assume span{ font-size:9px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); background:var(--paper-2); border:1px solid var(--line); border-radius:100px; padding:4px 12px; }
+  .ctab{ width:100%; border-collapse:collapse; font-size:12px; box-shadow:var(--shadow); border-radius:8px; overflow:hidden; }
+  .ctab th{ background:var(--navy); color:#fff; font-family:var(--display); font-weight:800; font-size:9px; letter-spacing:.1em; text-transform:uppercase; padding:9px 16px; text-align:right; }
+  .ctab th:first-child{ text-align:left; }
+  .ctab td{ padding:6.5px 16px; border-bottom:1px solid var(--line); text-align:right; color:var(--ink-strong); font-family:'Courier New',monospace; font-weight:700; font-size:12px; background:var(--card); }
+  .ctab td:first-child{ text-align:left; font-family:var(--display); font-weight:700; }
+  .ctab tr.star td{ background:rgba(8,164,219,.08); }
+  .ctab td.adv{ color:#0d7196; }
+  .ctab tr.tot td{ background:var(--navy); color:#fff; font-size:15px; padding:11px 16px; }
+  .ctab tr.tot td.adv{ color:var(--cyan); }
+  .ctab tr.sum td{ background:var(--paper-2); font-size:11px; color:var(--ink-muted); }
+  .ctab tr.sum td.adv{ color:#0d7196; }
+  .ctab .stmark{ color:var(--cyan); font-weight:800; margin-right:6px; font-family:var(--display); }
+
+  /* worked-example: key-metrics table */
+  .kmtab{ width:100%; border-collapse:collapse; box-shadow:var(--shadow); border-radius:8px; overflow:hidden; }
+  .kmtab td{ padding:12px 18px; border-bottom:1px solid var(--line); background:var(--card); }
+  .kmtab tr:last-child td{ border-bottom:0; }
+  .kmtab td.lab{ font-family:var(--display); font-weight:700; font-size:12.5px; color:var(--ink-strong); }
+  .kmtab td.val{ text-align:right; font-family:var(--display); font-weight:800; font-size:17px; color:var(--cyan); white-space:nowrap; }
+  .kmtab .vs{ color:var(--ink-faint); font-size:12px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 01 · COVER -->
+  <section class="slide no-footer">
+    <div class="cover">
+      <img class="cover__bg" src="./assets/cover-drone.jpg" alt="">
+      <div class="cover__scrim" style="background:linear-gradient(105deg, rgba(13,20,29,.94) 0%, rgba(13,20,29,.82) 46%, rgba(13,20,29,.55) 100%)"></div>
+      <div class="cover__in">
+        <div class="flex center"><span class="cover__eyebrow">Confidential · Investor Education</span></div>
+        <div class="mt-auto">
+          <div class="cover__title">The Tax <span class="accent">Advantage</span></div>
+          <div class="cover__sub" style="font-weight:700;color:#fff;font-size:18px;margin-top:6px">How high-net-worth investors use real estate to keep more capital working</div>
+          <div class="cover__sub" style="margin-top:10px;color:var(--cyan);font-weight:700;letter-spacing:.04em">Three Levers. One Long-Term Strategy.</div>
+        </div>
+        <div class="cover__foot">
+          <div>Comfort Capital, LLC · Educational use only — not tax advice · ComfortCapital.com</div>
+          <img class="cover__logo" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · WHAT YOU KEEP -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Premise</span><h1 class="headline headline--h2">It&rsquo;s not what you make. <span class="accent">It&rsquo;s what you keep.</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1.15fr 0.85fr">
+        <div class="col">
+          <p class="body" style="font-size:13.5px;line-height:1.6">Two investments can earn the <strong>exact same pre-tax return</strong> and leave you in completely different places. The difference isn&rsquo;t the headline number &mdash; it&rsquo;s how much of it survives the tax bill and stays invested.</p>
+          <p class="body" style="font-size:13.5px;line-height:1.6;margin-top:10px">Most of our investors have already figured out how to <strong>earn</strong>. This presentation is about keeping more of that capital working &mdash; and letting it compound.</p>
+          <div class="flex center" style="gap:10px;margin-top:20px">
+            <div class="eqbox" style="min-width:0;padding:12px 22px"><div class="eb-n cy">Earn</div></div>
+            <span class="eqop">&rarr;</span>
+            <div class="eqbox" style="min-width:0;padding:12px 22px"><div class="eb-n cy">Keep</div></div>
+            <span class="eqop">&rarr;</span>
+            <div class="eqbox" style="min-width:0;padding:12px 22px"><div class="eb-n cy">Compound</div></div>
+          </div>
+        </div>
+        <div class="col" style="justify-content:center">
+          <div class="label cyan" style="color:var(--cyan);margin-bottom:10px">Same $100K pre-tax gain &mdash; what you keep</div>
+          <div style="display:flex;gap:28px;align-items:flex-end;justify-content:center;height:230px">
+            <div style="text-align:center">
+              <div style="width:96px;height:160px;background:var(--paper-2);border:1px solid var(--line);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden"><div style="width:100%;height:63%;background:#C7CBC6;display:flex;align-items:center;justify-content:center;color:#514b3f;font-weight:800;font-size:15px">$63K</div></div>
+              <div style="font-weight:800;font-size:12px;margin-top:8px">Fully Taxed</div><div class="mono-cap" style="color:var(--ink-faint)">~37% + more</div>
+            </div>
+            <div style="text-align:center">
+              <div style="width:96px;height:160px;background:var(--paper-2);border:1px solid var(--line);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden"><div style="width:100%;height:100%;background:var(--cyan);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px">$100K</div></div>
+              <div style="font-weight:800;font-size:12px;margin-top:8px">Sheltered &amp; Deferred</div><div class="mono-cap" style="color:var(--cyan)">Stays invested</div>
+            </div>
+          </div>
+          <p class="mono-cap tc" style="text-align:center;margin-top:10px;color:var(--ink-faint)">Illustrative. The capital you keep is the capital that compounds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · THE THREE LEVERS (anchor) -->
+  <section class="slide" data-disc="Framework overview. Educational only; not tax advice. Outcomes depend on each investor's facts and circumstances. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Framework</span><h1 class="headline headline--h2">Three <span class="accent">levers</span>, one long-term strategy</h1></div>
+      <div class="grid grid-3 gap-lg center grow" style="align-content:center">
+        <div class="lever-col" style="padding:30px 26px">
+          <div class="chip" style="width:56px;height:56px"><svg class="icn" viewBox="0 0 24 24" style="width:28px;height:28px"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 20h16"/></svg></div>
+          <div class="lever-n" style="margin-top:16px">Lever 1</div><div class="lever-stage">Acquisition</div>
+          <div class="lever-t">Accelerate the Deduction</div>
+          <div class="lever-d">Cost segregation and bonus depreciation front-load deductions in year one &mdash; often a paper loss larger than the equity you invested.</div>
+          <div class="lever-keep">Keep more in Year 1</div>
+        </div>
+        <div class="lever-col" style="padding:30px 26px">
+          <div class="chip" style="width:56px;height:56px"><svg class="icn" viewBox="0 0 24 24" style="width:28px;height:28px"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 11l2 2 4-4"/></svg></div>
+          <div class="lever-n" style="margin-top:16px">Lever 2</div><div class="lever-stage">Ownership</div>
+          <div class="lever-t">Shelter the Cash Flow</div>
+          <div class="lever-d">Depreciation offsets income while the property distributes real cash &mdash; so much of what you receive during the hold arrives tax-advantaged.</div>
+          <div class="lever-keep">Keep more during ownership</div>
+        </div>
+        <div class="lever-col" style="padding:30px 26px">
+          <div class="chip" style="width:56px;height:56px"><svg class="icn" viewBox="0 0 24 24" style="width:28px;height:28px"><path d="M4 12a8 8 0 0 1 13-5.7"/><path d="M17 3v4h-4"/><path d="M20 12a8 8 0 0 1-13 5.7"/><path d="M7 21v-4h4"/></svg></div>
+          <div class="lever-n" style="margin-top:16px">Lever 3</div><div class="lever-stage">Exit</div>
+          <div class="lever-t">Defer the Tax</div>
+          <div class="lever-d">A 1031 exchange rolls eligible gain and recapture into the next property &mdash; keeping a larger principal balance compounding instead of paying it out.</div>
+          <div class="lever-keep">Keep more working at exit</div>
+        </div>
+      </div>
+      <p class="mono-cap tc" style="text-align:center;margin-top:10px;letter-spacing:.1em">The investment comes first. Tax efficiency makes a good investment more powerful.</p>
+    </div>
+  </section>
+
+  <!-- 04 · WHY MHC IS DIFFERENT -->
+  <section class="slide" data-disc="Illustrative, rounded basis allocations for comparison; actual allocations are determined by property-specific cost-segregation studies and vary. Educational only; not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Acquisition</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Why manufactured housing is <span class="accent">different</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1.05fr 0.95fr">
+        <div class="col" style="justify-content:center">
+          <div class="stackwrap">
+            <div class="stackcol">
+              <div class="stackbar">
+                <div class="seg seg-land" style="height:20%">Land 20%</div>
+                <div class="seg seg-bldg" style="height:5%"></div>
+                <div class="seg seg-15" style="height:70%">15-yr land<br>improvements 70%</div>
+                <div class="seg seg-57" style="height:5%"></div>
+              </div>
+              <div class="stacktitle">MHC</div><div class="stacksub">~75% Short-Life</div>
+            </div>
+            <div class="stackcol">
+              <div class="stackbar">
+                <div class="seg seg-land" style="height:20%">Land 20%</div>
+                <div class="seg seg-bldg" style="height:55%">Long-life<br>building 55%</div>
+                <div class="seg seg-15" style="height:15%">15-yr 15%</div>
+                <div class="seg seg-57" style="height:10%">5/7-yr</div>
+              </div>
+              <div class="stacktitle">Apartment</div><div class="stacksub" style="color:var(--ink-faint)">~25% Short-Life</div>
+            </div>
+          </div>
+          <div class="leg"><span><i class="seg-land" style="background:#C8C0B0"></i>Land</span><span><i style="background:var(--navy)"></i>Long-life building</span><span><i style="background:var(--cyan)"></i>15-yr improvements</span><span><i style="background:#7FD3EF"></i>5/7-yr property</span></div>
+        </div>
+        <div class="col" style="justify-content:center;gap:14px">
+          <p class="body" style="font-size:13px;line-height:1.6">An MHC is <strong>infrastructure-heavy</strong>, not building-heavy. We mostly own the land improvements &mdash; the stuff that depreciates on a fast, 15-year schedule.</p>
+          <div class="grid grid-3 gap-md" style="font-size:11px">
+            <div class="pbox" style="padding:8px 12px;text-align:center">Roads</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Utilities</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Pads</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Paving</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Drainage</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Lighting</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Fencing</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Landscaping</div>
+            <div class="pbox" style="padding:8px 12px;text-align:center">Site infra</div>
+          </div>
+          <div class="callout" style="padding:12px 16px"><div style="font-size:13px;color:var(--ink-strong);line-height:1.45">Roughly <strong class="cyan" style="color:var(--cyan)">three-quarters</strong> of an MHC&rsquo;s basis can be short-life &mdash; versus about a quarter for a typical apartment.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · COST SEGREGATION -->
+  <section class="slide" data-disc="Illustrative allocation; property-specific cost-segregation studies determine actual class lives and amounts. Bonus depreciation per §168(k). Educational only; not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Acquisition</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Cost segregation &mdash; <span class="accent">what actually happens</span></h1></div>
+      <div class="col grow" style="justify-content:center;gap:22px">
+        <div style="text-align:center"><span class="pbox" style="display:inline-block;font-family:var(--display);font-weight:800;font-size:16px;padding:10px 26px">One Property</span></div>
+        <div class="arrow-d">&darr;</div>
+        <div class="splitbar">
+          <div class="sp seg-land" style="width:20%">Land<br><small>Not depreciable</small></div>
+          <div class="sp seg-bldg" style="width:5%"></div>
+          <div class="sp seg-15" style="width:70%">15-Year Land Improvements<br><small>Accelerated &middot; bonus-eligible</small></div>
+          <div class="sp seg-57" style="width:5%"></div>
+        </div>
+        <div class="flex between" style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:700">
+          <span>Land</span><span>27.5-yr building</span><span style="color:var(--cyan)">15-yr improvements &mdash; and 5/7-yr property &mdash; carry the accelerated deductions</span>
+        </div>
+        <div class="callout" style="text-align:center;margin-top:6px"><div class="co-big" style="font-size:19px">Cost segregation doesn&rsquo;t create depreciation. <span class="accent" style="font-style:normal">It moves deductions forward.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · LOSS > EQUITY (leverage) -->
+  <section class="slide" data-disc="Illustrative and rounded. Depreciation is computed on the property's depreciable basis, which includes debt-financed basis, not solely investor equity. Actual results depend on leverage, land allocation and cost segregation. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Acquisition</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">How a $1M investment can create <span class="accent">more than $1M</span> of tax loss</h1></div>
+      <div class="col grow" style="justify-content:center;gap:20px">
+        <div class="flex center" style="justify-content:center;gap:16px;flex-wrap:wrap">
+          <div class="eqbox"><div class="eb-n">$1M</div><div class="eb-l">Investor Equity</div></div>
+          <span class="eqop">+</span>
+          <div class="eqbox"><div class="eb-n">$1M</div><div class="eb-l">Mortgage Debt</div></div>
+          <span class="eqop">=</span>
+          <div class="eqbox" style="border-color:var(--cyan)"><div class="eb-n cy">$2M</div><div class="eb-l">Property</div></div>
+          <span class="eqop">&rarr;</span>
+          <div class="eqbox" style="border-color:var(--cyan)"><div class="eb-n cy">~$1.6M</div><div class="eb-l">Depreciable Basis</div></div>
+        </div>
+        <div class="callout" style="text-align:center">
+          <div class="co-lab" style="text-align:center">The key idea</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--ink-strong)">Depreciation is calculated on the <strong>depreciable basis of the whole property</strong> &mdash; not just your equity check. Pair fresh basis with leverage and cost segregation, and a <strong>$1M investment can produce $1M, $1.2M, $1.3M or more</strong> of first-year tax loss.</div>
+        </div>
+        <div class="flex center" style="justify-content:center;gap:40px;margin-top:4px">
+          <div style="text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--cyan)">$1.0&ndash;1.3M+</div><div class="mono-cap" style="color:var(--ink-faint)">Illustrative Year-1 tax loss</div></div>
+          <div style="text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--ink-strong)">on $1M</div><div class="mono-cap" style="color:var(--ink-faint)">of invested equity</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · NOT HYPOTHETICAL (K-1) -->
+  <section class="slide" data-disc="Redacted excerpt from an actual investor Schedule K-1 (Form 1065); identifying details removed. A single real example, not a projection; individual results vary with facts, leverage and cost segregation. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Acquisition</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">This isn&rsquo;t <span class="accent">hypothetical</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1.1fr 0.9fr">
+        <div class="col" style="justify-content:center">
+          <div class="k1">
+            <div class="k1-hd"><b>Schedule K-1 (Form 1065)</b><span>Part III · Redacted</span></div>
+            <div class="k1-row"><span class="lab">Partner</span><span class="val"><span class="redact"></span></span></div>
+            <div class="k1-row"><span class="lab">Partnership (Comfort Capital deal LLC)</span><span class="val"><span class="redact sm"></span></span></div>
+            <div class="k1-row"><span class="lab"><b>Capital contributed during the year</b></span><span class="val">$1,585,000</span></div>
+            <div class="k1-row hi"><span class="lab"><b>Line 2 &middot; Net rental real estate income (loss)</b></span><span class="val">($1,956,000)</span></div>
+            <div class="k1-row"><span class="lab">Line 1 · Ordinary business income</span><span class="val">&mdash;</span></div>
+          </div>
+          <p class="mono-cap" style="margin-top:10px;color:var(--ink-faint)">Identifying information redacted. One real investor K-1.</p>
+        </div>
+        <div class="col" style="justify-content:center;gap:16px">
+          <div style="text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:58px;color:var(--cyan);line-height:1">~123%</div><div class="label" style="color:var(--ink-faint)">Tax loss relative to equity</div></div>
+          <div class="callout" style="padding:14px 18px"><div style="font-size:13.5px;color:var(--ink-strong);line-height:1.5">A <strong>$1.585M</strong> investment generated a <strong>$1.956M</strong> first-year rental real estate loss.</div></div>
+          <p class="body" style="font-size:12.5px;line-height:1.55;text-align:center"><strong>Cost segregation + leverage + fresh depreciable basis.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · LOSS IS STEP ONE -->
+  <section class="slide" data-disc="Simplified overview of income categories; actual characterization and usability of losses depend on the passive activity rules, material participation and each taxpayer's facts. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Acquisition</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Creating the loss is only <span class="accent">step one</span></h1></div>
+      <div class="grid grid-3 gap-md grow center">
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/></svg></div><div class="vc__t">Business / Nonpassive</div><div class="vc__d">Income from a business you actively run &mdash; and, for those who qualify, real estate treated as nonpassive.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M4 15l5-5 4 3 6-7"/><path d="M16 6h3v3"/></svg></div><div class="vc__t">Portfolio / Nonbusiness</div><div class="vc__d">Interest, dividends and capital gains from stocks and similar holdings.</div></div>
+        <div class="value-card" style="border-color:var(--cyan);border-top:3px solid var(--cyan)"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div><div class="vc__t">Passive Real Estate</div><div class="vc__d">Rental real estate income and loss &mdash; the default bucket for most investors, unless a status changes it.</div></div>
+      </div>
+      <div class="callout" style="text-align:center;margin-top:6px"><div style="font-size:14px;color:var(--ink-strong);line-height:1.5">The question isn&rsquo;t only &ldquo;how much depreciation did I get?&rdquo; It&rsquo;s <strong class="cyan" style="color:var(--cyan)">&ldquo;what income can I use it against?&rdquo;</strong></div></div>
+    </div>
+  </section>
+
+  <!-- 09 · REPS UNLOCK -->
+  <section class="slide" data-disc="Real Estate Professional Status (REPS) requires more than 750 hours and more than half of personal services in real property trades or businesses in which the taxpayer materially participates; on a joint return one spouse must independently satisfy the tests. Simplified. Not tax advice; consult your advisor. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · The Unlock</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">The real estate professional <span class="accent">unlock</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1fr 1fr">
+        <div class="col" style="gap:12px;justify-content:center">
+          <div class="grid grid-2 gap-md">
+            <div class="pbox"><div class="pb-k">Spouse A</div>Runs the operating business full time &mdash; the household&rsquo;s high W-2 / active income.</div>
+            <div class="pbox" style="border-color:var(--cyan)"><div class="pb-k">Spouse B</div>Leads the family&rsquo;s real estate &mdash; and can qualify as the Real Estate Professional.</div>
+          </div>
+          <div class="callout" style="padding:13px 16px"><div style="font-size:14px;color:var(--ink-strong);line-height:1.4"><strong>One spouse can change the tax picture for the entire household.</strong></div></div>
+        </div>
+        <div class="col" style="justify-content:center;gap:10px">
+          <div class="label cyan" style="color:var(--cyan)">What it takes (in plain English)</div>
+          <div class="pbox"><strong>750+ hours</strong> a year in qualifying real estate activity.</div>
+          <div class="pbox"><strong>More than half</strong> of personal working time in real estate.</div>
+          <div class="pbox"><strong>Only one spouse</strong> needs to independently qualify on a joint return.</div>
+          <div class="pbox"><strong>Material participation</strong> in the real estate activity also matters.</div>
+          <p class="mono-cap" style="color:var(--ink-faint);line-height:1.4">Qualifying reclassifies rental losses from passive to nonpassive &mdash; so they can offset active income.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · GROUPING -->
+  <section class="slide" data-disc="The §469 grouping/aggregation election lets a qualifying taxpayer treat interests in rental real estate as a single activity for material-participation purposes. Eligibility and mechanics depend on facts; elections have consequences. Not tax advice; consult your advisor. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · The Unlock</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">The grouping <span class="accent">strategy</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:0.95fr 0.1fr 0.95fr">
+        <div class="col" style="gap:7px;justify-content:center">
+          <div class="grid grid-2 gap-md" style="gap:7px">
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Rental #1</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Rental #2</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Rental #3</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Rental #4</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Rental #5</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px">Other rental K-1s</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px;border-color:var(--cyan)">Comfort investment</div>
+            <div class="pbox" style="padding:9px 12px;font-size:11px;border-color:var(--cyan)">Comfort investment</div>
+          </div>
+        </div>
+        <div class="arrow-r">&rarr;</div>
+        <div class="col" style="justify-content:center">
+          <div class="pbox" style="border-color:var(--cyan);border-top:4px solid var(--cyan);text-align:center;padding:26px 20px"><div class="pb-k" style="text-align:center">The grouping election</div><div style="font-family:var(--serif);font-weight:800;font-size:19px;color:var(--ink-strong);line-height:1.2">One Grouped Rental Real Estate Activity</div><div class="vc__d" style="font-size:11.5px;margin-top:10px;color:var(--ink-muted)">Qualifying rental interests are analyzed <strong>together</strong> for material participation &mdash; instead of proving it property by property.</div></div>
+        </div>
+      </div>
+      <div class="callout" style="padding:12px 16px;margin-top:4px"><div style="font-size:13px;color:var(--ink-strong);line-height:1.45">You don&rsquo;t need to manage our community in Phoenix. The spouse may manage the family&rsquo;s own rental portfolio &mdash; and the grouped activity can include private rental real estate investments like ours.</div></div>
+    </div>
+  </section>
+
+  <!-- 11 · NOL -->
+  <section class="slide" data-disc="Simplified. Current-year use of large nonpassive losses may be limited by the excess business loss rules (§461(l)); disallowed amounts generally carry forward as a net operating loss, with NOL deductions generally limited to 80% of taxable income. Timing and limits vary. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · Multi-Year Planning</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">A loss you can&rsquo;t use today can become <span class="accent">tomorrow&rsquo;s tax asset</span></h1></div>
+      <div class="col grow" style="justify-content:center;gap:30px">
+        <div class="flex" style="align-items:stretch;gap:16px">
+          <div class="pbox" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:18px 18px"><div class="pb-k">Year 1</div><div style="font-size:13.5px;font-weight:700;color:var(--ink-strong);line-height:1.4">A large nonpassive real estate loss</div></div>
+          <div class="arrow-r" style="font-size:38px;align-self:center">&rarr;</div>
+          <div class="pbox" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:18px 18px"><div class="pb-k">Same year</div><div style="font-size:13.5px;font-weight:700;color:var(--ink-strong);line-height:1.4">Use the amount you can this year</div></div>
+          <div class="arrow-r" style="font-size:38px;align-self:center">&rarr;</div>
+          <div class="pbox" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:18px 18px;border-color:var(--cyan)"><div class="pb-k">The excess</div><div style="font-size:13.5px;font-weight:700;color:var(--ink-strong);line-height:1.4">Carries forward as an NOL</div></div>
+          <div class="arrow-r" style="font-size:38px;align-self:center">&rarr;</div>
+          <div class="pbox" style="flex:1.3;display:flex;flex-direction:column;justify-content:center;padding:18px 18px;border-color:var(--cyan);border-top:4px solid var(--cyan)"><div class="pb-k">Year 2 / 3 · the payoff</div><div style="font-size:13.5px;font-weight:700;color:var(--ink-strong);line-height:1.4">A big income year &mdash; business sale, stock sale, Roth conversion &mdash; the NOL offsets it <span style="color:var(--ink-faint);font-weight:600">(generally up to 80%)</span></div></div>
+        </div>
+        <div class="callout" style="text-align:center"><div class="co-big">A loss you can&rsquo;t use today becomes <span class="accent" style="font-style:normal">tomorrow&rsquo;s tax asset.</span></div><div class="mono-cap" style="color:var(--cyan);margin-top:8px;letter-spacing:.08em">Tax planning for a 2028 business sale may start in 2026.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · LAZY EXCHANGE -->
+  <section class="slide" data-disc="Illustrative comparison. The 'lazy exchange' is NOT a §1031 exchange and does not defer gain; it relies on generating new deductions in the same tax year. Loss usability depends on character and the passive activity rules. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 1 · More Options</span><div class="leverrail"><span class="lr on">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">The &ldquo;lazy <span class="accent">exchange</span>&rdquo;</h1></div>
+      <div class="grid grid-2 gap-lg grow center">
+        <div class="cmp">
+          <div class="cmp-tag" style="color:var(--ink-faint)">Traditional</div>
+          <div class="cmp-h">1031 Exchange</div>
+          <ul style="margin-top:10px">
+            <li><span class="st">1</span>Sell the property</li>
+            <li><span class="st">2</span>Proceeds go to a qualified intermediary</li>
+            <li><span class="st">3</span>Identify replacement property on a clock</li>
+            <li><span class="st">4</span>Close on the replacement</li>
+            <li><span class="st">5</span>Defer the tax</li>
+          </ul>
+        </div>
+        <div class="cmp cy">
+          <div class="cmp-tag" style="color:var(--cyan)">Alternative</div>
+          <div class="cmp-h">&ldquo;Lazy Exchange&rdquo;</div>
+          <ul style="margin-top:10px">
+            <li><span class="st">1</span>Sell the rental &mdash; recognize the gain</li>
+            <li><span class="st">2</span>Reinvest in fresh depreciable rental real estate <strong>the same tax year</strong></li>
+            <li><span class="st">3</span>Generate new depreciation</li>
+            <li><span class="st">4</span>Use qualifying rental losses against qualifying rental gain</li>
+          </ul>
+          <div class="mono-cap" style="margin-top:auto;color:var(--cyan);font-weight:800;letter-spacing:.1em;padding-top:10px">Not a Section 1031 exchange</div>
+        </div>
+      </div>
+      <p class="mono-cap tc" style="text-align:center;margin-top:4px">Neither is always better &mdash; the point is you have more options than &ldquo;sell and pay the tax.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- 13 · CASH != TAXABLE -->
+  <section class="slide" data-disc="Illustrative. Cash distributions are funded by operations; taxable income is determined after depreciation and other items. A distribution may differ from taxable income and may include a return of capital. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 2 · Ownership</span><div class="leverrail"><span class="lr">Lever 1 · Accelerate</span><span class="lr on">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Cash flow does not equal <span class="accent">taxable income</span></h1></div>
+      <div class="col grow" style="justify-content:center;gap:30px">
+        <div class="flex center" style="justify-content:center;gap:40px">
+          <div class="eqbox" style="border-color:var(--cyan);min-width:300px;padding:28px 26px"><div class="eb-n cy" style="font-size:40px">$50,000</div><div class="eb-l">Cash Distribution &middot; from operations</div></div>
+          <div style="font-family:var(--display);font-weight:800;font-size:62px;color:var(--cyan)">&ne;</div>
+          <div class="eqbox" style="min-width:300px;padding:28px 26px"><div class="eb-n" style="font-size:40px">$50,000</div><div class="eb-l">Taxable Income &middot; after depreciation</div></div>
+        </div>
+        <div class="callout" style="text-align:center"><div class="co-big">Real cash can arrive <span class="accent" style="font-style:normal">alongside a paper tax loss.</span></div></div>
+        <p class="body tc" style="text-align:center;font-size:13.5px;max-width:880px;margin:0 auto;line-height:1.65">Distributions come from the property&rsquo;s cash flow. Taxable income is calculated <em>after</em> depreciation &mdash; which is why much of what you receive during the hold can be sheltered, and some of it can be treated as a non-taxable return of capital rather than ordinary income.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · CAPITAL ACCOUNT vs BASIS -->
+  <section class="slide" data-disc="Illustrative and simplified. Capital account and outside tax basis are distinct; basis includes a partner's share of partnership liabilities and governs loss deductibility (subject to at-risk and passive rules). Figures rounded. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 2 · Ownership</span><div class="leverrail"><span class="lr">Lever 1 · Accelerate</span><span class="lr on">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Two different <span class="accent">scorecards</span></h1></div>
+      <div class="grid grid-2 gap-lg grow center">
+        <div class="score">
+          <div class="sc-h">Capital Account</div>
+          <div class="sc-row"><span>Contribution</span><span class="n">$1,000,000</span></div>
+          <div class="sc-row"><span>Allocated tax loss</span><span class="n">($1,200,000)</span></div>
+          <div class="sc-row tot"><span>Balance</span><span class="n" style="color:#b4451f">($200,000)</span></div>
+          <p class="mono-cap" style="margin-top:12px;color:var(--ink-faint);line-height:1.4">Can go negative.</p>
+        </div>
+        <div class="score" style="border-color:var(--cyan);border-top:4px solid var(--cyan)">
+          <div class="sc-h">Outside Tax Basis</div>
+          <div class="sc-row"><span>Contribution</span><span class="n">$1,000,000</span></div>
+          <div class="sc-row"><span>+ Share of partnership debt</span><span class="n" style="color:#0d7196">$600,000</span></div>
+          <div class="sc-row"><span>Allocated tax loss</span><span class="n">($1,200,000)</span></div>
+          <div class="sc-row tot"><span>Basis</span><span class="n" style="color:#0d7196">~$400,000</span></div>
+          <p class="mono-cap" style="margin-top:12px;color:var(--cyan);line-height:1.4">Supports the deduction.</p>
+        </div>
+      </div>
+      <div class="callout" style="text-align:center;margin-top:4px"><div style="font-size:14px;color:var(--ink-strong)"><strong>Capital account can go negative. Tax basis cannot.</strong> Your share of partnership debt is one reason deductions can exceed the equity check.</div></div>
+    </div>
+  </section>
+
+  <!-- 15 · REFINANCE -->
+  <section class="slide" data-disc="Illustrative. Refinancing depends on asset performance, lender terms and market conditions and is not guaranteed; a return of capital via refinance is generally not a taxable event but affects basis. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 2 · Ownership</span><div class="leverrail"><span class="lr">Lever 1 · Accelerate</span><span class="lr on">Lever 2 · Shelter</span><span class="lr">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">Access equity <span class="accent">without selling</span></h1></div>
+      <div class="col grow" style="justify-content:center;gap:28px">
+        <div class="flex" style="align-items:stretch;gap:14px">
+          <div class="eqbox" style="flex:1;min-width:0;padding:22px 20px;text-align:left"><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:9px">Step 1</div><div style="font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink-strong);line-height:1.1">Value Grows</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.5;margin-top:8px">NOI growth and appreciation lift the property&rsquo;s value over the hold.</div></div>
+          <div class="arrow-r" style="font-size:34px;align-self:center">&rarr;</div>
+          <div class="eqbox" style="flex:1;min-width:0;padding:22px 20px;text-align:left;border-color:var(--cyan)"><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:9px">Step 2</div><div style="font-family:var(--display);font-weight:800;font-size:20px;color:var(--cyan);line-height:1.1">Refinance</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.5;margin-top:8px">A new loan is placed against the higher value.</div></div>
+          <div class="arrow-r" style="font-size:34px;align-self:center">&rarr;</div>
+          <div class="eqbox" style="flex:1;min-width:0;padding:22px 20px;text-align:left"><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:9px">Step 3</div><div style="font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink-strong);line-height:1.1">Return Capital</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.5;margin-top:8px">Pull equity out &mdash; generally not a taxable event.</div></div>
+          <div class="arrow-r" style="font-size:34px;align-self:center">&rarr;</div>
+          <div class="eqbox" style="flex:1;min-width:0;padding:22px 20px;text-align:left"><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:9px">Step 4</div><div style="font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink-strong);line-height:1.1">Keep Owning</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.5;margin-top:8px">Hold the asset and keep the cash flow.</div></div>
+        </div>
+        <div class="callout" style="text-align:center"><div class="co-big">You don&rsquo;t always have to sell a great asset <span class="accent" style="font-style:normal">to access the equity.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 · SELLING / TAX COMES BACK -->
+  <section class="slide" data-disc="Illustrative. A taxable sale triggers tax on gain and depreciation recapture; a §1031 exchange can defer eligible gain and recapture if requirements are met. Recapture and state treatment vary. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 3 · Exit</span><div class="leverrail"><span class="lr">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr on">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">The exit is where the tax bill <span class="accent">can come back</span></h1></div>
+      <div class="grid grid-2 gap-lg grow center">
+        <div class="cmp">
+          <div class="cmp-tag" style="color:var(--ink-faint)">Path A</div>
+          <div class="cmp-h">Taxable Sale</div>
+          <ul style="margin-top:10px">
+            <li><span class="st" style="background:#C7CBC6">1</span>Gain + depreciation recapture</li>
+            <li><span class="st" style="background:#C7CBC6">2</span>Pay the tax</li>
+            <li><span class="st" style="background:#C7CBC6">3</span>Reinvest only what&rsquo;s left</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:12px"><div style="font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink-strong)">Smaller principal</div></div>
+        </div>
+        <div class="cmp cy">
+          <div class="cmp-tag" style="color:var(--cyan)">Path B</div>
+          <div class="cmp-h">1031 Exchange</div>
+          <ul style="margin-top:10px">
+            <li><span class="st">1</span>Defer eligible gain &amp; recapture</li>
+            <li><span class="st">2</span>Reinvest a larger principal balance</li>
+            <li><span class="st">3</span>Keep compounding</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:12px"><div style="font-family:var(--display);font-weight:800;font-size:22px;color:var(--cyan)">Larger principal</div></div>
+        </div>
+      </div>
+      <p class="mono-cap tc" style="text-align:center;margin-top:4px">The question isn&rsquo;t just what the property is worth &mdash; it&rsquo;s how much capital survives the exit.</p>
+    </div>
+  </section>
+
+  <!-- 17 · 1031 COMPOUNDING -->
+  <section class="slide" data-disc="Illustrative projection to show the concept of deferral; not a forecast of any actual result. Assumes equal pre-tax returns and successful exchanges for Investor B. Actual outcomes vary; exchanges have requirements and risks. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Lever 3 · Exit</span><div class="leverrail"><span class="lr">Lever 1 · Accelerate</span><span class="lr">Lever 2 · Shelter</span><span class="lr on">Lever 3 · Defer</span></div><h1 class="headline headline--h2" style="margin-top:10px">1031 is a <span class="accent">compounding</span> strategy</h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1.3fr 0.7fr">
+        <div class="col" style="justify-content:center">
+          <svg viewBox="0 0 560 300" style="width:100%;max-height:300px">
+            <g stroke="#E7E1D4" stroke-width="1"><line x1="40" y1="40" x2="548" y2="40"/><line x1="40" y1="100" x2="548" y2="100"/><line x1="40" y1="160" x2="548" y2="160"/><line x1="40" y1="220" x2="548" y2="220"/></g>
+            <g font-family="Montserrat" font-size="9" fill="#8C8578" text-anchor="middle"><text x="110" y="245">Cycle 1</text><text x="240" y="245">Cycle 2</text><text x="370" y="245">Cycle 3</text><text x="500" y="245">Cycle 4</text></g>
+            <!-- Investor A (taxed): grey bars -->
+            <g fill="#C7CBC6">
+              <rect x="86" y="160" width="34" height="60" rx="3"/><rect x="216" y="140" width="34" height="80" rx="3"/><rect x="346" y="124" width="34" height="96" rx="3"/><rect x="476" y="110" width="34" height="110" rx="3"/>
+            </g>
+            <!-- Investor B (1031): cyan bars -->
+            <g fill="#08A4DB">
+              <rect x="120" y="150" width="34" height="70" rx="3"/><rect x="250" y="112" width="34" height="108" rx="3"/><rect x="380" y="74" width="34" height="146" rx="3"/><rect x="510" y="36" width="34" height="184" rx="3"/>
+            </g>
+            <g font-family="Montserrat" font-size="9" font-weight="700"><text x="103" y="150" fill="#8C8578" text-anchor="middle">A</text><text x="137" y="140" fill="#08A4DB" text-anchor="middle">B</text></g>
+          </svg>
+          <div class="leg"><span><i style="background:#C7CBC6"></i>Investor A &mdash; sells &amp; pays tax each cycle</span><span><i style="background:var(--cyan)"></i>Investor B &mdash; exchanges &amp; keeps tax dollars invested</span></div>
+        </div>
+        <div class="col" style="justify-content:center;gap:16px">
+          <div style="text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:44px;color:var(--cyan);line-height:1">Bigger</div><div class="label" style="color:var(--ink-faint);margin-top:4px">principal every cycle</div></div>
+          <div class="callout"><div style="font-size:13.5px;color:var(--ink-strong);line-height:1.55">The value of deferral isn&rsquo;t just the tax bill you postponed. It&rsquo;s <strong class="cyan" style="color:var(--cyan)">what those tax dollars earn</strong> while they stay invested.</div></div>
+          <div class="pbox" style="font-size:12px;line-height:1.5">Investor B keeps the tax dollars working through each exchange &mdash; so the gap widens with every cycle.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 · WHY OUR STRUCTURE -->
+  <section class="slide slide--navy" data-disc="Describes Comfort Capital's typical structure; specific terms are governed by each deal's offering documents. Not an offer or tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Why It Fits</span><h1 class="headline headline--h2">Built for <span class="accent">HNW investors</span></h1></div>
+      <div class="grid grid-3 gap-md grow" style="align-content:center">
+        <div class="value-card" style="padding:26px 24px;display:flex;flex-direction:column;justify-content:center"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div><div class="vc__t" style="font-family:var(--display);font-size:15px;margin-top:14px;color:#fff">The Asset</div><div class="vc__d" style="font-size:12.5px;margin-top:9px">Infrastructure-heavy MHCs · large short-life depreciable basis · durable cash flow · long-term ownership mindset.</div></div>
+        <div class="value-card" style="padding:26px 24px;display:flex;flex-direction:column;justify-content:center"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 17l8 4 8-4"/></svg></div><div class="vc__t" style="font-family:var(--display);font-size:15px;margin-top:14px;color:#fff">The Structure</div><div class="vc__d" style="font-size:12.5px;margin-top:9px">Deal-by-deal LLCs taxed as partnerships · Schedule K-1 · rental income/loss on Line 2 · partnership-debt allocation · fresh cost segregation · no blind-pool dependency.</div></div>
+        <div class="value-card" style="padding:26px 24px;display:flex;flex-direction:column;justify-content:center"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13-5.7"/><path d="M17 3v4h-4"/><path d="M20 12a8 8 0 0 1-13 5.7"/><path d="M7 21v-4h4"/></svg></div><div class="vc__t" style="font-family:var(--display);font-size:15px;margin-top:14px;color:#fff">The Life Cycle</div><div class="vc__d" style="font-size:12.5px;margin-top:9px">Monthly distributions · conservative leverage · potential refinance · 1031 continuity · TIC where appropriate · long-term generational ownership.</div></div>
+      </div>
+      <div class="callout" style="text-align:center;margin-top:6px"><div class="co-big" style="color:#fff">The investment comes first. <span class="accent" style="font-style:normal">Tax efficiency makes a good investment more powerful.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 19 · THREE LEVERS TOGETHER -->
+  <section class="slide" data-disc="Illustrative combination on a $1M investment using rounded assumptions; not a projection of any actual result. Each lever's availability depends on the investor's facts, participation status and a specific transaction. Federal focus; state treatment (e.g., California) differs — see appendix. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Payoff</span><h1 class="headline headline--h2">Put the three levers <span class="accent">together</span></h1><p class="dek" style="font-size:12px;margin-top:6px">Illustrative $1M investment</p></div>
+      <div class="grid grid-3 gap-md grow center">
+        <div class="lever-col" style="justify-content:center"><div class="chip" style="width:52px;height:52px"><svg class="icn" viewBox="0 0 24 24" style="width:26px;height:26px"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 20h16"/></svg></div><div class="lever-n" style="margin-top:14px">Lever 1</div><div class="lever-t" style="font-size:17px">Year-One Shield</div><div style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--cyan);margin:10px 0 2px">~$1.0&ndash;1.3M</div><div class="lever-d" style="flex:0">First-year depreciation loss on $1M invested &mdash; usable against the right income.</div></div>
+        <div class="lever-col" style="justify-content:center"><div class="chip" style="width:52px;height:52px"><svg class="icn" viewBox="0 0 24 24" style="width:26px;height:26px"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 11l2 2 4-4"/></svg></div><div class="lever-n" style="margin-top:14px">Lever 2</div><div class="lever-t" style="font-size:17px">Sheltered Cash Flow</div><div style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--cyan);margin:10px 0 2px">Tax-advantaged</div><div class="lever-d" style="flex:0">Distributions during the hold, much of it sheltered by ongoing depreciation.</div></div>
+        <div class="lever-col" style="justify-content:center"><div class="chip" style="width:52px;height:52px"><svg class="icn" viewBox="0 0 24 24" style="width:26px;height:26px"><path d="M4 12a8 8 0 0 1 13-5.7"/><path d="M17 3v4h-4"/><path d="M20 12a8 8 0 0 1-13 5.7"/><path d="M7 21v-4h4"/></svg></div><div class="lever-n" style="margin-top:14px">Lever 3</div><div class="lever-t" style="font-size:17px">Deferred Exit</div><div style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--cyan);margin:10px 0 2px">1031</div><div class="lever-d" style="flex:0">Roll gain and recapture forward &mdash; keep a larger balance compounding.</div></div>
+      </div>
+      <div class="callout" style="text-align:center;margin-top:6px"><div class="co-big">More capital stays <span class="accent" style="font-style:normal">invested &mdash; and compounding.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 20 · WORKED EXAMPLE — DOLLAR FOR DOLLAR -->
+  <section class="slide" data-disc="Illustrative worked example on a $1M investment; figures rounded and simplified for comparison — not a projection, guarantee or offer. Assumes equal pre-tax results for both paths and successful qualification and 1031 exchange; individual outcomes depend on facts, participation status, leverage and a specific transaction. State figures shown for a California resident. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">A Worked Example · The Proof</span><h1 class="headline headline--h2">Same dollar, same return &mdash; <span class="accent">a very different outcome</span></h1></div>
+      <div class="wx-assume">
+        <span>$1M invested</span><span>10-yr hold</span><span>5% cash-on-cash</span><span>15% avg annual return</span><span>CA resident</span><span>37% fed + 13.3% CA</span><span>1031 at exit</span>
+      </div>
+      <table class="ctab" style="margin-top:6px">
+        <thead><tr><th>Line Item</th><th>Taxed Investment</th><th>MHC Investment</th><th>Advantage</th></tr></thead>
+        <tbody>
+          <tr><td>Gross Investment</td><td>$1,000,000</td><td>$1,000,000</td><td class="adv">&mdash;</td></tr>
+          <tr class="star"><td><span class="stmark">&#9733;</span>Year 1 Tax Shield</td><td>$0</td><td>+$370,000</td><td class="adv">+$370,000</td></tr>
+          <tr><td>Gross Cash Distributions (10 yrs)</td><td>$500,000</td><td>$500,000</td><td class="adv">&mdash;</td></tr>
+          <tr class="star"><td><span class="stmark">&#9733;</span>Tax on Distributions (37% fed + 13.3% CA)</td><td>&ndash;$251,500</td><td>$0 <span style="color:var(--ink-faint);font-family:var(--display);font-weight:600;font-size:10px">return of capital</span></td><td class="adv">+$251,500</td></tr>
+          <tr><td>Net Cash Kept After Tax</td><td>$248,500</td><td>$500,000</td><td class="adv">&mdash;</td></tr>
+          <tr><td>Exit Value at Year 10</td><td>$2,000,000</td><td>$2,000,000</td><td class="adv">&mdash;</td></tr>
+          <tr class="star"><td><span class="stmark">&#9733;</span>Exit Tax (37% cap-gain rate)</td><td>&ndash;$370,000</td><td>$0 <span style="color:var(--ink-faint);font-family:var(--display);font-weight:600;font-size:10px">1031 exchange</span></td><td class="adv">+$370,000</td></tr>
+          <tr><td>Net Exit Proceeds</td><td>$1,653,250</td><td>$2,000,000</td><td class="adv">&mdash;</td></tr>
+          <tr class="tot"><td>Total Net Return</td><td>$1,878,500</td><td>$2,870,000</td><td class="adv">+$991,500</td></tr>
+          <tr class="sum"><td>Return on Invested Capital</td><td>87%</td><td>187%</td><td class="adv">+100 pts</td></tr>
+          <tr class="sum"><td>Net Annualized Return</td><td>~8.7%</td><td>~18.7%</td><td class="adv">+10 pts</td></tr>
+          <tr class="sum"><td>Total Lost to Tax</td><td>&ndash;$621,500</td><td>$0</td><td class="adv">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 21 · KEY METRICS AT A GLANCE -->
+  <section class="slide" data-disc="Illustrative metrics for the $1M worked example; rounded and simplified, not a projection or guarantee. Tax-equivalent yield assumes a 50.3% combined marginal rate. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">A Worked Example · Key Metrics</span><h1 class="headline headline--h2">The same story, <span class="accent">at a glance</span></h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:1.3fr 0.7fr;align-items:center">
+        <table class="kmtab">
+          <tr><td class="lab">Net Capital at Risk (after Yr 1 shield)</td><td class="val">$630K <span class="vs">vs</span> $1.0M</td></tr>
+          <tr><td class="lab">Effective Cash Yield on At-Risk Capital</td><td class="val">7.9% <span class="vs">vs</span> 5%</td></tr>
+          <tr><td class="lab">Tax-Equivalent Yield (50.3% combined rate)</td><td class="val">16% <span class="vs">vs</span> 2.5%</td></tr>
+          <tr><td class="lab">Annual Distribution</td><td class="val">$50,000</td></tr>
+          <tr><td class="lab">Taxable-Equivalent Income Required (fed + CA)</td><td class="val">$100,603</td></tr>
+          <tr><td class="lab">Total Tax Avoided on Distributions (10 yrs)</td><td class="val">$251,500</td></tr>
+          <tr><td class="lab">Exit Tax via 1031 Exchange</td><td class="val">$0</td></tr>
+        </table>
+        <div class="col" style="gap:12px">
+          <div class="lever-col" style="padding:15px 18px"><div class="lever-n" style="font-size:11px">Lever 1 · Year 1</div><div class="lever-t" style="font-size:15px;margin-top:6px">Depreciation Shield</div><div class="lever-d" style="flex:0;font-size:11px;margin-top:7px">~$370K back in year one; net capital at risk drops to ~$630K.</div></div>
+          <div class="lever-col" style="padding:15px 18px"><div class="lever-n" style="font-size:11px">Lever 2 · Years 1&ndash;10</div><div class="lever-t" style="font-size:15px;margin-top:6px">Tax-Free Cash Flow</div><div class="lever-d" style="flex:0;font-size:11px;margin-top:7px">$50K/yr as return of capital; ~16.7% tax-equivalent yield.</div></div>
+          <div class="lever-col" style="padding:15px 18px"><div class="lever-n" style="font-size:11px">Lever 3 · Exit</div><div class="lever-t" style="font-size:15px;margin-top:6px">1031 Perpetual Deferral</div><div class="lever-d" style="flex:0;font-size:11px;margin-top:7px">$0 tax at exit &mdash; no capital gains, no depreciation recapture.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 · FLYWHEEL -->
+  <section class="slide" data-disc="Conceptual framework. Each step depends on asset performance, financing, market conditions and investor circumstances and is not guaranteed. Not tax advice. Comfort Capital, LLC.">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Flywheel</span><h1 class="headline headline--h2">The Comfort Capital <span class="accent">tax flywheel</span></h1></div>
+      <div class="grow flex center" style="justify-content:center;align-items:center">
+        <div class="wheel">
+          <svg viewBox="0 0 430 430" style="position:absolute;inset:0;width:100%;height:100%">
+            <circle cx="215" cy="215" r="150" fill="none" stroke="#08A4DB" stroke-width="2.5" stroke-dasharray="6 7" opacity=".55"/>
+            <g fill="#08A4DB">
+              <polygon points="215,55 210,67 220,67"/><polygon points="375,215 363,210 363,220"/><polygon points="215,375 220,363 210,363"/><polygon points="55,215 67,220 67,210"/>
+            </g>
+          </svg>
+          <div class="node" style="left:50%;top:5%"><div class="dot">1</div><div class="nl">Buy a great asset</div></div>
+          <div class="node" style="left:88%;top:22%"><div class="dot">2</div><div class="nl">Cost seg + depreciate</div></div>
+          <div class="node" style="left:97%;top:62%"><div class="dot">3</div><div class="nl">Keep capital working</div></div>
+          <div class="node" style="left:70%;top:94%"><div class="dot">4</div><div class="nl">Receive cash flow</div></div>
+          <div class="node" style="left:30%;top:94%"><div class="dot">5</div><div class="nl">Grow NOI + value</div></div>
+          <div class="node" style="left:3%;top:62%"><div class="dot">6</div><div class="nl">Refinance or 1031</div></div>
+          <div class="node" style="left:12%;top:22%"><div class="dot">7</div><div class="nl">Redeploy</div></div>
+          <div class="hub"><b>Compound.</b><span>Repeat</span></div>
+        </div>
+      </div>
+      <p class="mono-cap tc" style="text-align:center;margin-top:2px;max-width:860px;margin-left:auto;margin-right:auto">The goal isn&rsquo;t the biggest tax deduction. It&rsquo;s a portfolio of high-quality real assets that can compound for decades.</p>
+    </div>
+  </section>
+
+  <!-- 21 · CLOSING -->
+  <section class="slide slide--navy" data-disc="Educational only; not tax, legal or accounting advice. Consult your own advisors before acting. Comfort Capital, LLC.">
+    <div class="slide__body col center" style="justify-content:center;text-align:center">
+      <span class="eyebrow" style="justify-content:center">Before the Transaction</span>
+      <h1 class="headline" style="font-size:52px;margin-top:8px">Plan before the <span class="accent">money moves.</span></h1>
+      <div class="flex center" style="justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;max-width:900px">
+        <span class="pbox" style="background:var(--navy-2);border-color:var(--line-dark);color:#fff;font-size:12px">Business sale coming?</span>
+        <span class="pbox" style="background:var(--navy-2);border-color:var(--line-dark);color:#fff;font-size:12px">Selling rentals?</span>
+        <span class="pbox" style="background:var(--navy-2);border-color:var(--line-dark);color:#fff;font-size:12px">Large stock position?</span>
+        <span class="pbox" style="background:var(--navy-2);border-color:var(--line-dark);color:#fff;font-size:12px">Big income year?</span>
+        <span class="pbox" style="background:var(--navy-2);border-color:var(--line-dark);color:#fff;font-size:12px">Spouse considering REP status?</span>
+      </div>
+      <p class="body" style="color:var(--on-navy-mut);font-size:14px;margin-top:26px;max-width:760px">The best time to have the tax conversation is <strong style="color:#fff">before</strong> the transaction &mdash; not the following April.</p>
+      <div class="mono-cap" style="color:var(--on-navy-mut);margin-top:24px">Invest@ComfortCapital.com &nbsp;·&nbsp; (619) 922-7954 &nbsp;·&nbsp; ComfortCapital.com</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var DISC = 'For educational purposes only. Comfort Capital, LLC does not provide tax, legal or accounting advice. Examples are illustrative and rounded; actual outcomes depend on each investor’s facts and circumstances, leverage, and property-specific cost-segregation studies, and are not guaranteed. Consult your own advisors. Comfort Capital, LLC (2027).';
+  var LOGO = '../../../Design File/brand/logo';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  slides.forEach(function(s, i){
+    if (s.classList.contains('no-footer')) return;
+    var pg = String(i+1).padStart(2,'0');
+    var logo = s.classList.contains('slide--navy') ? 'cc-lockup-h-white' : 'cc-lockup-h-color';
+    var disc = s.getAttribute('data-disc') || DISC;
+    s.insertAdjacentHTML('beforeend', '<img class="page-logo" src="'+LOGO+'/'+logo+'.png" alt="">');
+    var html = '<div class="footer"><div class="footer__spacer"></div>'+
+               '<div class="footer__disc">'+disc+'</div>'+
+               '<div class="footer__pg">'+pg+' / '+total+'</div></div>';
+    s.insertAdjacentHTML('beforeend', html);
+  });
+})();
+</script>
+</body>
+</html>

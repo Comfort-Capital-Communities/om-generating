@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Sunday Special — USS Abraham Lincoln & The ROAD Act</title>
+<link rel="stylesheet" href="../../../Design File/brand/fonts.css">
+<style>
+/* =======================================================================
+   THE SUNDAY SPECIAL — weekly brief (portrait letter document)
+   Reuses the Comfort Capital brand tokens (navy/cyan/paper + Montserrat)
+   from Design File/brand, laid out as a flowing document rather than 16:9.
+   ======================================================================= */
+:root{
+  --cyan:#08A4DB; --cyan-deep:#0784B0; --navy:#172331; --navy-2:#223247;
+  --charcoal:#221E1F; --white:#fff;
+  --paper:#FFFFFF; --paper-2:#F1F3F5; --card:#fff; --line:#E4E7EB;
+  --ink:#2A2622; --ink-strong:#151A22; --ink-muted:#5C574E; --ink-faint:#8C8578;
+  --on-navy:#EAF1F6; --on-navy-mut:#9FB2C4;
+  --sans:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ background:#3a3a3a; }
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--paper);
+  -webkit-font-smoothing:antialiased; text-rendering:geometricPrecision;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  font-size:15.5px; line-height:1.7;
+}
+img{ display:block; max-width:100%; }
+a{ color:var(--cyan-deep); text-decoration:none; }
+
+/* ---- page + running footer ---- */
+@page{ size:8.5in 11in; margin:46px 0 44px 0; }
+@page :first{ margin:0 0 44px 0; }
+@media print{ html,body{ background:var(--paper); } }
+.doc{ width:100%; margin:0 auto; padding:0 40px; }
+@media screen{
+  html{ padding:26px 0; background:#3a3a3a; }
+  .doc{ width:816px; background:var(--paper); padding:0 40px 42px; box-shadow:0 10px 40px rgba(0,0,0,.35); }
+}
+/* end-of-document footer (flowed once, after the sign-off) */
+.endfoot{
+  margin-top:26px; padding:18px 0 4px; border-top:1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:9px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); font-weight:600; break-inside:avoid;
+}
+.endfoot img{ height:20px; width:auto; opacity:.92; }
+.endfoot .mid{ letter-spacing:.28em; }
+
+/* ---- masthead ---- */
+.mast{
+  background:var(--navy); color:#fff;
+  padding:44px 40px 30px; margin:0 -40px 30px; position:relative; overflow:hidden;
+}
+.mast::after{ content:""; position:absolute; right:-70px; top:-70px; width:230px; height:230px;
+  border-radius:50%; background:radial-gradient(circle at center, rgba(8,164,219,.22), rgba(8,164,219,0) 70%); }
+.mast__top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; position:relative; z-index:1; }
+.mast__top img{ height:26px; }
+.mast__tag{ border:1px solid rgba(255,255,255,.34); color:#fff; border-radius:100px;
+  padding:5px 14px; font-size:9.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+.mast__title{ font-weight:800; font-size:52px; line-height:.98; letter-spacing:-.03em; position:relative; z-index:1; }
+.mast__title .accent{ color:var(--cyan); font-style:italic; }
+.mast__sub{ margin-top:14px; color:#CFDDE8; font-size:13px; letter-spacing:.02em; position:relative; z-index:1; }
+.mast__sub b{ color:#fff; font-weight:600; }
+.mast__by{ margin-top:9px; font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--cyan); position:relative; z-index:1; }
+.mast__author{ position:absolute; top:80px; right:40px; width:82px; height:82px; border-radius:50%;
+  object-fit:cover; object-position:center 22%; border:2px solid rgba(255,255,255,.6); z-index:2; }
+.mast__subject{ margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.16);
+  font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--on-navy-mut); position:relative; z-index:1; }
+.mast__subject b{ color:var(--cyan); font-weight:600; }
+
+/* ---- contents ---- */
+.toc{ margin-bottom:38px; }
+.toc__lab{ font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; }
+.toc__row{ display:flex; align-items:baseline; gap:14px; padding:9px 0; border-bottom:1px solid var(--line); }
+.toc__row:last-child{ border-bottom:0; }
+.toc__n{ font-weight:800; font-size:13px; color:var(--cyan); min-width:26px; letter-spacing:.02em; }
+.toc__t{ font-weight:600; font-size:13.5px; color:var(--ink-strong); }
+
+/* ---- section headers ---- */
+.sec{ margin-top:12px; }
+.sec__head{ margin:40px 0 20px; padding-top:26px; border-top:2px solid var(--navy); break-after:avoid; break-inside:avoid; }
+.sec__eyebrow{ display:flex; align-items:center; gap:12px; font-size:10.5px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; }
+.sec__eyebrow .num{ background:var(--cyan); color:#fff; border-radius:4px; padding:2px 8px; letter-spacing:.06em; }
+.sec__title{ font-weight:800; font-size:30px; line-height:1.08; letter-spacing:-.02em; color:var(--ink-strong); }
+.sec__title .accent{ color:var(--cyan); }
+.subhead{ font-weight:800; font-size:18px; letter-spacing:-.01em; color:var(--navy);
+  margin:30px 0 10px; break-after:avoid; }
+.subhead::before{ content:""; display:inline-block; width:20px; height:3px; background:var(--cyan);
+  vertical-align:middle; margin-right:11px; border-radius:2px; }
+/* sections that start their own page */
+.sec--break{ break-before:page; }
+.sec--break .sec__head{ margin-top:0; padding-top:0; border-top:0; }
+/* compressed section (fits a full sub-section on one page) */
+.sec--tight .sec__head{ margin-bottom:16px; }
+.sec--tight p{ margin-bottom:9px; }
+.sec--tight .lead{ margin-bottom:4px; }
+
+/* ---- body copy ---- */
+.lead{ font-size:16px; color:var(--ink-strong); font-weight:600; letter-spacing:.01em; margin-bottom:6px; }
+p{ margin-bottom:13px; color:var(--ink); }
+p.tight{ margin-bottom:8px; }
+.muted{ color:var(--ink-muted); }
+strong{ font-weight:700; color:var(--ink-strong); }
+a.inline{ color:var(--cyan-deep); font-weight:600; border-bottom:1.5px solid rgba(8,164,219,.4); padding-bottom:1px; white-space:nowrap; }
+
+/* ---- my-take callout ---- */
+.take{ background:rgba(8,164,219,.07); border:1px solid rgba(8,164,219,.22); border-left:4px solid var(--cyan);
+  border-radius:6px; padding:16px 20px; margin:18px 0; break-inside:avoid; }
+.take__lab{ font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan-deep); margin-bottom:6px; }
+.take p{ margin:0; font-size:14px; color:var(--ink); line-height:1.66; }
+
+/* ---- pull quote ---- */
+.pull{ border-left:4px solid var(--cyan); padding:4px 0 4px 20px; margin:22px 0;
+  font-weight:800; font-size:21px; line-height:1.28; letter-spacing:-.01em; color:var(--navy); break-inside:avoid; }
+.pull--break{ break-before:page; }
+
+/* ---- lists ---- */
+ul.brand{ list-style:none; margin:8px 0 14px; }
+ul.brand li{ position:relative; padding-left:24px; margin-bottom:8px; color:var(--ink); line-height:1.6; }
+ul.brand li::before{ content:""; position:absolute; left:2px; top:.62em; width:8px; height:8px;
+  border:2px solid var(--cyan); border-radius:50%; }
+
+/* ---- figures / photo gallery ---- */
+.gallery{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px auto 8px; max-width:548px; break-inside:avoid; }
+.figure{ break-inside:avoid; }
+.figure__frame{ border-radius:6px; overflow:hidden; border:1px solid var(--line); background:var(--paper-2); box-shadow:0 2px 10px rgba(23,35,49,.08); aspect-ratio:4/3; }
+.figure__frame img{ width:100%; height:100%; object-fit:cover; }
+.figure__frame.tall{ aspect-ratio:3/4; }
+.figure__cap{ display:flex; gap:8px; margin-top:8px; font-size:10.5px; line-height:1.4; color:var(--ink-faint); letter-spacing:.01em; }
+.figure__cap b{ color:var(--cyan-deep); font-weight:700; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
+
+/* ---- video card ---- */
+.video{ display:block; background:#0f1722; border-radius:8px;
+  overflow:hidden; margin:20px 0; position:relative; break-inside:avoid; border:1px solid var(--navy-2); }
+.video__stage{ aspect-ratio:16/8; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.video__thumb{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.video__scrim{ position:absolute; inset:0; background:radial-gradient(circle at center, rgba(15,23,33,.25) 0%, rgba(15,23,33,.55) 100%); }
+.video__play{ position:relative; z-index:2; width:60px; height:60px; border-radius:50%; background:var(--cyan);
+  display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(8,164,219,.55); }
+.video__play::after{ content:""; width:0; height:0; margin-left:5px;
+  border-left:20px solid #fff; border-top:12px solid transparent; border-bottom:12px solid transparent; }
+.video__bar{ display:flex; align-items:center; justify-content:space-between;
+  padding:12px 18px; background:rgba(0,0,0,.28); }
+.video__ttl{ color:#fff; font-weight:700; font-size:13px; letter-spacing:.01em; }
+.video__meta{ color:var(--cyan); font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+
+/* ---- CTA button ---- */
+.cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin:18px 0; }
+.btn{ display:inline-flex; align-items:center; gap:10px; border-radius:100px; padding:14px 26px;
+  font-weight:700; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; }
+.btn--cyan{ background:var(--cyan); color:#fff; }
+.btn--navy{ background:var(--navy); color:#fff; }
+.btn .arw{ font-size:13px; }
+
+/* ---- fundraising progress ---- */
+.swim-cta{ break-inside:avoid; }
+.sec--tight .raise{ margin:14px 0 12px; padding:16px 20px; }
+.video--sm{ max-width:480px; margin-left:auto; margin-right:auto; }
+.raise{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:20px 22px;
+  margin:20px 0 14px; box-shadow:0 2px 10px rgba(23,35,49,.06); break-inside:avoid; }
+.raise__top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }
+.raise__now{ font-weight:800; font-size:24px; color:var(--cyan); letter-spacing:-.01em; }
+.raise__goal{ font-size:12px; font-weight:600; color:var(--ink-faint); letter-spacing:.04em; }
+.raise__track{ height:12px; border-radius:100px; background:var(--paper-2); border:1px solid var(--line); overflow:hidden; }
+.raise__fill{ height:100%; width:53%; border-radius:100px; background:linear-gradient(90deg,var(--cyan),var(--cyan-deep)); }
+.raise__bottom{ margin-top:14px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.raise__cap{ font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; }
+.raise .btn{ padding:12px 24px; }
+
+/* ---- stat tiles ---- */
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:20px 0; break-inside:avoid; }
+.stat{ padding-top:12px; border-top:2px solid var(--cyan); }
+.stat__num{ font-weight:800; font-size:27px; line-height:1; color:var(--navy); letter-spacing:-.02em; }
+.stat__lab{ font-size:9.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin-top:8px; line-height:1.35; }
+
+/* ---- acquired / sold ---- */
+.deal2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; break-inside:avoid; }
+.dealc{ border:1px solid var(--line); border-radius:8px; padding:18px 20px; background:var(--card); box-shadow:0 2px 10px rgba(23,35,49,.05); }
+.dealc.sold{ background:var(--navy); border-color:var(--navy); color:#fff; }
+.dealc__lab{ font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.dealc__price{ font-weight:800; font-size:26px; letter-spacing:-.02em; color:var(--ink-strong); }
+.dealc.sold .dealc__price{ color:#fff; }
+.dealc__meta{ margin-top:6px; font-size:12px; color:var(--ink-muted); }
+.dealc.sold .dealc__meta{ color:var(--on-navy-mut); }
+
+/* ---- key/value investor box ---- */
+.kv{ width:100%; border-collapse:collapse; margin:16px 0; font-size:13.5px; break-inside:avoid; }
+.kv td{ padding:10px 2px; border-bottom:1px solid var(--line); }
+.kv td:last-child{ text-align:right; font-weight:700; color:var(--ink-strong); }
+.kv td:first-child{ color:var(--ink-muted); }
+.kv tr.hi td{ color:var(--cyan-deep); }
+.kv tr.hi td:last-child{ color:var(--cyan-deep); }
+
+/* ---- comparison table ---- */
+.tblwrap{ margin:16px 0; border-radius:8px; overflow:hidden; border:1px solid var(--line); break-inside:avoid; box-shadow:0 2px 10px rgba(23,35,49,.06); }
+table.cmp{ width:100%; border-collapse:collapse; font-size:12.5px; }
+table.cmp thead th{ background:var(--navy); color:#fff; font-weight:600; font-size:10px;
+  letter-spacing:.06em; text-transform:uppercase; text-align:right; padding:11px 14px; }
+table.cmp thead th:first-child{ text-align:left; }
+table.cmp thead th.delta{ background:#0d3247; color:var(--cyan); }
+table.cmp tbody td{ padding:11px 14px; text-align:right; color:var(--ink-muted); border-bottom:1px solid var(--line); }
+table.cmp tbody td:first-child{ text-align:left; font-weight:700; color:var(--ink-strong); }
+table.cmp tbody td.delta{ color:var(--cyan-deep); font-weight:700; background:rgba(8,164,219,.05); }
+table.cmp tbody tr:nth-child(even) td{ background:rgba(23,35,49,.025); }
+table.cmp tbody tr:nth-child(even) td.delta{ background:rgba(8,164,219,.08); }
+table.cmp tbody tr:last-child td{ border-bottom:0; }
+
+/* ---- sign-off ---- */
+.signoff{ margin-top:120px; padding-top:24px; border-top:2px solid var(--navy); break-inside:avoid; }
+.signoff .thanks{ font-weight:800; font-size:17px; color:var(--navy); margin-bottom:16px; }
+.sig__photo{ width:78px; height:78px; border-radius:50%; object-fit:cover; object-position:center 22%;
+  border:2px solid var(--line); margin-bottom:12px; }
+.sig__name{ font-weight:800; font-size:18px; color:var(--ink-strong); letter-spacing:-.01em; }
+.sig__role{ font-size:12.5px; color:var(--cyan-deep); font-weight:600; letter-spacing:.04em; margin-top:2px; }
+.sig__book{ margin-top:18px; }
+.sig__contact{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:11.5px; color:var(--ink-muted); letter-spacing:.02em; display:flex; flex-wrap:wrap; gap:6px 14px; }
+.sig__contact span{ display:inline-flex; align-items:center; gap:8px; }
+.sig__contact .dot{ width:4px; height:4px; border-radius:50%; background:var(--cyan); }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="mast">
+    <div class="mast__top">
+      <img src="../../../Design File/brand/logo/lockup-h-white.png" alt="Comfort Capital">
+      <span class="mast__tag">Weekly Brief</span>
+    </div>
+    <img class="mast__author" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+    <div class="mast__title">The Sunday <span class="accent">Special</span></div>
+    <div class="mast__sub"><b>Markets. Strategy. Leadership.</b> &nbsp;A weekly brief from Comfort Capital.</div>
+    <div class="mast__by">By Morgan Hampel</div>
+    <div class="mast__subject">In this issue &nbsp;·&nbsp; <b>USS Abraham Lincoln</b> &nbsp;·&nbsp; A Closer Look at MHC</div>
+  </header>
+
+  <!-- ============ INTRO / GREETING ============ -->
+  <p class="lead">Good morning warfighters,</p>
+  <p>My first commanding officer in the Navy, Commander Manny Hernandez, used to walk into a room and greet us the same way: &ldquo;Warfighters.&rdquo;</p>
+  <p>Sometimes it was serious. Sometimes it was sarcastic. Usually it was a little of both. But underneath it was a reminder that regardless of our individual roles, we were all responsible for the mission and for the people beside us.</p>
+  <p>Manny was the first leader I really looked up to in the Navy and had a tremendous impact on me as a 22-year-old officer fresh out of school. He has since passed away, but that phrase and the lesson behind it have stuck with me.</p>
+  <p>So, warfighters, welcome to my first Sunday Special.</p>
+  <p>Ben kicked this off last week, and for my first turn I wanted to start with something that has been all over the news lately and that I happen to know pretty well.</p>
+
+  <!-- ============ 01 · USS ABRAHAM LINCOLN ============ -->
+  <section class="sec sec--break">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">01</span> The Brief</div>
+      <h2 class="sec__title">USS Abraham <span class="accent">Lincoln</span></h2>
+    </div>
+
+    <p>The USS Abraham Lincoln has received a lot of attention recently around the conditions sailors are facing while deployed.</p>
+    <p>This one hits close to home for me.</p>
+    <p>I served aboard Lincoln from 2019 to 2021 as a Nuclear Surface Warfare Officer and Reactor Mechanical Division Officer, leading sailors responsible for operating and maintaining one of the ship&rsquo;s reactor plants. During that tour, we completed a roughly 11-month deployment to the Arabian Gulf and North Arabian Sea.</p>
+    <p>I&rsquo;m not aboard Lincoln today, so I&rsquo;m not going to pretend to know every detail of what is happening or tell you which report is right or wrong. Legitimate concerns around food, sanitation, exhaustion and mental health should always be taken seriously.</p>
+    <p>But the coverage reminded me of something I learned very quickly in the Navy:</p>
+
+    <p class="pull">Things are going to go wrong.</p>
+
+    <p>Equipment breaks. Supplies arrive late. People get tired. Plans change. Conditions deteriorate. And when you are operating a 100,000-ton nuclear-powered aircraft carrier thousands of miles from home, the mission does not stop while everyone waits for perfect conditions.</p>
+    <p><strong>Someone has to solve the problem.</strong></p>
+    <p>That was a huge part of our job as officers and leaders. We were not there because we believed nothing would ever go wrong. Quite the opposite.</p>
+    <p>We raised our hands knowing that problems would come and that it would be our responsibility to deal with them when they did.</p>
+    <p>On Lincoln, that meant understanding what was happening, identifying the root cause, getting the right people involved, prioritizing resources and making decisions under pressure.</p>
+    <p>Sometimes the fix was straightforward. Sometimes it took hours or days. Sometimes you had incomplete information and still had to make the best decision you could.</p>
+    <p>The mission kept moving either way.</p>
+    <p>I think about our responsibility at Comfort in much the same way.</p>
+
+    <h3 class="subhead">Real estate has problems</h3>
+    <p>Water lines break. Residents move out unexpectedly. Collections get harder. Insurance premiums jump. Contractors miss deadlines. Equipment fails. Property taxes increase. You get the point.</p>
+    <p>None of those things should surprise a good operator.</p>
+
+    <p class="pull">Our job isn&rsquo;t to promise investors that property problems will never happen. Our job is to make sure property problems don&rsquo;t become investor problems.</p>
+
+    <p>That distinction matters to me.</p>
+    <p>When you invest with Comfort, you are trusting us with capital that took you years &mdash; sometimes decades &mdash; to build. Part of what you are hiring us to do is deal with the messiness of owning and operating real estate so you don&rsquo;t have to.</p>
+    <p><strong>You don&rsquo;t want another job.</strong></p>
+    <p>You shouldn&rsquo;t have to manage the contractor who didn&rsquo;t show up, figure out why collections softened or deal with a resident issue on a Saturday night.</p>
+    <p>That&rsquo;s what we signed up for.</p>
+    <p>Our team has to identify problems early, make decisions, allocate resources, hold people accountable, protect the asset, preserve cash flow and keep the business plan moving forward.</p>
+    <p>And manufactured housing adds another layer of responsibility.</p>
+    <p>These aren&rsquo;t just properties we own. They are communities where thousands of people live. Residents trust us with the place they call home, and investors trust us with capital they worked hard to create.</p>
+    <p>We take both responsibilities seriously.</p>
+    <p>On a ship, someone is always standing the watch. Most of the crew doesn&rsquo;t need to know about every mechanical issue, every supply-chain problem or every decision happening below deck. They need to know the right people are there handling it so the larger mission can continue.</p>
+    <p>I think our investors should be able to expect something similar from us.</p>
+    <p>You should know what matters. You should hear from us when something materially changes. You should understand how your investment is performing.</p>
+    <p>But you shouldn&rsquo;t have to worry about the broken water line at 2:00 AM.</p>
+    <p><strong>That&rsquo;s our problem.</strong></p>
+    <p>And I think this becomes even more important when conditions get difficult.</p>
+    <p>When the economy is strong and everything is going according to plan, operating real estate can look pretty easy. It&rsquo;s when occupancy softens, expenses increase, financing gets tighter or something unexpected breaks that you find out whether there is a real operating company behind the investment.</p>
+    <p>Those are the moments when good operations matter most.</p>
+    <p>The sailors aboard Lincoln today are dealing with a much more serious version of that reality. They are far from home, tired, operating in difficult conditions and still doing the job they volunteered to do.</p>
+    <p>They deserve our support.</p>
+    <p>And if there is one lesson from my time aboard Lincoln that has followed me into business, it is this:</p>
+
+    <p class="pull">You don&rsquo;t raise your hand because you expect the mission to be easy. You raise your hand because you&rsquo;re willing to take responsibility when it isn&rsquo;t.</p>
+
+    <p>That is a responsibility I took seriously in the Navy, and it is one I take seriously today at Comfort.</p>
+
+    <div class="gallery" style="break-before:page; max-width:730px; gap:18px;">
+      <figure class="figure">
+        <div class="figure__frame tall"><img src="assets/fig1-in-port-oman.jpg" alt="In port, Duqm, Oman 2019"></div>
+        <figcaption class="figure__cap"><b>Fig. 1</b><span>In Port Duqm, Oman (2019).</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame tall"><img src="assets/fig2-homecoming.jpg" alt="Seeing my mom after deployment"></div>
+        <figcaption class="figure__cap"><b>Fig. 2</b><span>Seeing my mom after returning from a 2019–2020 deployment.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig3-promotion.jpg" alt="After promotion to LT / O-3"></div>
+        <figcaption class="figure__cap"><b>Fig. 3</b><span>Shortly after my promotion ceremony to LT / O-3, Oct 2019.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig4-reenlistment.jpg" alt="Reenlisting a sailor on the fantail"></div>
+        <figcaption class="figure__cap"><b>Fig. 4</b><span>Reenlisting one of my MMN3 sailors on the fantail of USS Abraham Lincoln in the North Arabian Sea.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 02 · ROAD ACT ============ -->
+  <section class="sec sec--break">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">02</span> Policy</div>
+      <h2 class="sec__title">21st Century <span class="accent">ROAD to Housing Act</span></h2>
+    </div>
+
+    <p>On July 11, the 21st Century ROAD to Housing Act became law. It&rsquo;s one of the most significant pieces of federal housing legislation in years for our corner of the market, with several provisions that directly touch manufactured housing.</p>
+    <p>Let&rsquo;s walk through them and what I think they could mean for our business and investors.</p>
+
+    <h3 class="subhead">Cheaper Homes</h3>
+    <p>The law removes the decades-old requirement that every manufactured home be built on a permanent steel chassis. That can save an estimated $5,000 to $10,000 per home and allow for more design flexibility.</p>
+    <div class="take"><div class="take__lab">My take</div><p>This is probably the cleanest near-term win in the bill. Lower factory costs should flow directly into new home orders and make it cheaper for operators like us to fill vacant lots.</p></div>
+
+    <h3 class="subhead">Better Financing</h3>
+    <p>The law also raises FHA manufactured-housing loan limits and addresses one of the biggest structural challenges in our business, financing a relatively inexpensive home.</p>
+    <p>Today, most residents in land-lease communities use chattel loans. They own the home but lease the land, so the home is treated as personal property. That usually means higher rates and shorter terms than a traditional mortgage.</p>
+    <p>The bigger opportunity is getting more manufactured homes access to mortgage-like financing. Homes can qualify as real property when they are permanently affixed to land the homeowner also owns. That opens the door to longer terms and more traditional mortgage pricing.</p>
+    <p>The ROAD Act does not change that structure for land-lease communities like ours. Our residents still own the home and lease the lot, so chattel financing remains the primary option.</p>
+    <p>Still, higher FHA limits and a broader federal push toward better MH financing are meaningful steps in the right direction.</p>
+    <p class="tight">Here is why that matters on a $70,000 home:</p>
+
+    <div class="tblwrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>$70,000 Home</th><th>Chattel Financing Today</th><th>Real-Property Financing Example</th><th class="delta">Delta</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Home Price</td><td>$70,000</td><td>$70,000</td><td class="delta">&mdash;</td></tr>
+          <tr><td>Loan Term</td><td>20 years</td><td>30 years</td><td class="delta">+10 years</td></tr>
+          <tr><td>Illustrative Rate</td><td>9.0%</td><td>6.5%</td><td class="delta">&minus;2.5%</td></tr>
+          <tr><td>Monthly Payment</td><td>~$625</td><td>~$440</td><td class="delta">&minus;$225</td></tr>
+          <tr><td>Annual Payment Savings</td><td>&mdash;</td><td>&mdash;</td><td class="delta">~$2,700</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>That is roughly $225 a month of added household capacity on the same $70,000 home. Lower financing costs make ownership more attainable, expand the buyer pool, and give residents more breathing room each month.</p>
+    <div class="take"><div class="take__lab">My take</div><p>This may be one of the highest leverage provisions in the bill for manufactured housing, but it is important to be precise about who it helps. Because our residents own their homes but lease the land, those homes remain personal property. The ROAD Act does not immediately unlock conventional mortgage financing for our tenants.</p></div>
+    <p>The bigger opportunity is market wide. Cheaper homes, higher FHA loan limits, and better financing can expand demand for manufactured housing overall. That includes developers building new communities and buyers placing homes on land they own. More volume through the factories should help lower costs and further normalize manufactured housing as mainstream affordable housing. That is good for the entire ecosystem, including the communities we own.</p>
+
+    <h3 class="subhead">Homes are not for Corporations</h3>
+    <p>The bill also includes a provision restricting institutional investors that control 350 or more single-family homes from buying additional homes.</p>
+    <p>Importantly, manufactured homes are expressly excluded, and there is no comparable restriction on manufactured housing communities.</p>
+    <p>That is notable. As housing policy becomes more interventionist, Washington appears to be treating manufactured housing more as part of the affordability solution than part of the problem.</p>
+  </section>
+
+  <!-- ============ 03 · SWIM FOR SOF ============ -->
+  <section class="sec sec--tight">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">03</span> One Last Thing</div>
+      <h2 class="sec__title">Swim for <span class="accent">SOF</span></h2>
+    </div>
+
+    <p>For the second year in a row, I&rsquo;m participating in the Swim for SOF, a 3.3-mile open-water swim across San Diego Harbor benefiting The Honor Foundation (<a class="inline" href="https://www.honor.org/">honor.org</a>).</p>
+    <p>The Honor Foundation helps members of the Special Operations community transition from military service into their next chapter &mdash; a mission that means a lot to me personally.</p>
+    <p class="tight">My goal this year is to raise $30,000 and beat my time from last year. If you&rsquo;d like to support the swim, click the link below.</p>
+
+    <div class="swim-cta">
+      <div class="raise">
+        <div class="raise__top"><span class="raise__now">$16,000</span><span class="raise__goal">of $30,000 goal</span></div>
+        <div class="raise__track"><div class="raise__fill"></div></div>
+        <div class="raise__bottom">
+          <span class="raise__cap">Swim for SOF · The Honor Foundation</span>
+          <a class="btn btn--cyan" href="https://email.comfortcapital.com/c/eJxsk0t3ujwXxT8NzNoVgtwGDLSK9VIvqK06YcUkQDQkmAQo_fTv0n_Xu55BpyfJOWfv7B_OGIkHfdUtNz8f0dJMv5PmoL_8g01i5-KFGNlEVoiJGMsql8pgVDOD-CuW1e9JJjtBlS5ZnZm-pjEqqMD9s0psGjtBOHA8CENg0woxnlVUa1TQx-CpEX17OgeT46H8nC6CYanb31vPVhhVNWKF-E_t8cxHXpDnIKTB5XJBA5pDEob5YGBT0TIlRUWFiWslSYMNk8IuYwAIAWFEMYo84gMX0hBcUA4jkEcOcHybxRBAHwSOBx3PgeAVRGGQezkM3CAEuT-wBuAPB5jOdIkUJdmvF7mSVYYIUVTrTNEcYSMVJbFRDbV5XBpTa8sdWjCxYMKZuL1WutCCqEc7CyZPoS9GIXxjorBgAhF1fOR5IYaWm2ApDMJmRix3_LGZlMuR461Hq93eV_MyJdzmOPvnFROGKoF4fICJJtPP29GJFvn-MeLo7dzTtjjDKO0smBTXtbe4_RjdDO-qHd1v4ANcPbicXlxyt2CiDu_bk9nzQ-eV7pd29Mqv91Fu2uUyqkoLjnZ0XPEzmJjAgskCFTpNSLI-j07-7H1VjcFWV82QyD79aq-7dN-t3IeuHt3mh8VsgVAA1zyS8gotmHy6ZxNitM-vG8gn6phWHm-SFI03o5Tc-eoaHHK2yO97d37U99keLWsLjt7r2c-2B0v2MwnPQ_IxWqfGP5XB-q6aPvG69RvfK37_suDo7WxS9wQ-LJiEk1Jt58OdKA_j4_fOVG_X3t-tVke0iMhKVTIaTP3l-1zdwIKcpvvDpph9WzBxuuGIT0Aj4KqmtyA9R8lq087V29Zyx5Y7trl8YtUv5-WmcPPyPudYYZF8Txu7oqaUJEY1s6ViBRPxpeG3l-en2bWSLSNUxZwigqUQ9BEfW8Ud47y3BqCgLVW6o4ib8hlALRuFafwvNky3L51UN6psEz-W-HMD80A5-5N5E1OT_R-6Nob_CwAA__-HhGhO">Donate <span class="arw">→</span></a>
+        </div>
+      </div>
+      <a class="video video--sm" href="https://email.comfortcapital.com/c/eJxsk0t3-iwXxT8NmbWLkPsgA63GeqmXqK06ycJAEpRABBKbfvp36b_rXc-g0wOcs9ln__KMkdjt6_ti_fMRLczkO2n3-svfWyS2z16YY4vIGjMR57IupDI5bpjB_DWX9e9JJu-CKl2xJjN9Q2NcUpH3zyqxaGwHoWt7CIXQojVmPKup1rikj8ETI_rueArGh331OZkHg0p3v7eerXJcN5iV4j-1xzMfe0FRwJAG5_MZu7RAJAwL17Wo6JiSoqbCxI2SpM0Nk8KqYtsJAuIVuevbGEY2hRTZxCkgjfy8wNC1WIwg8mFge8j2bARfYRQGhVegwAlCWPgucOEfDjCd6QorSrJfLwol6wwToqjWmaIFzo1UlMRGtdTicWVMo4EzACgBKOFMXF9rXWpB1KMdQMnzoy9G4fzKRAlQ4kbQpV5UENcGTpJLYXBupgQ4o4_1uFoMbW81XG53vppVKeEWz7N_XjFhqBKYx3uUaDL5vB7saF7sHiMO3tY5bsoTitI7QEl5WXnz64_R7eCmuuHtCj_gxUOLydkhN4AStX_fHM2O7-9e5XxpWy_9ZhcVplssoroCaLilo5qf4NgEACVzXOo0IcnqNDz60_dlPYIbXbcDIvv0q7ts09196QCUoB5fZ_v5dI5xgFY8kvKCAEo-nZMJc7wrLmvEx-qQ1h5vkxSP1sOU3PjyEuwLNi9uO2d20LfpDi8agIbvzfRn08MF-xmHpwH5GK5S4x-rYHVTbZ9499Ub3yl--wJo-HYyqXOEHwAl4bhSm9lgK6r96PC9NfXbpfe3y-UBzyOyVLWM3Im_eJ-pK5yT42S3X5fTb4AS-z4Y8jFsBVo29BqkpyhZrruZetsAZwSckcXlE6t-MavWpVNUtxnPVS6S70lr1dRUksS4YZZUrGQiPrf8-vJcmtUo2TFCVcwpJrkUgj7iY6n4zjjvgQtL2lGl7xRzUz0DqGWrchr_iw3T3ctdqitVlokfIv5UYB4oZ38yb2Jqsv9D18XofwEAAP__uSloWQ">
+        <div class="video__stage">
+          <img class="video__thumb" src="assets/thumb-swim.jpg" alt="">
+          <div class="video__scrim"></div>
+          <div class="video__play"></div>
+        </div>
+        <div class="video__bar"><span class="video__ttl">Swim for SOF — Event Video</span><span class="video__meta">Watch on Vimeo ↗</span></div>
+      </a>
+    </div>
+    <p>Thank you to everyone who has supported thus far, and thank you so much for your time and consideration!</p>
+  </section>
+
+  <!-- ============ SIGN-OFF ============ -->
+  <div class="signoff">
+    <div class="thanks">Thanks for reading my first Sunday Special. Ben will be back next week.</div>
+    <p class="tight">Until then,</p>
+    <img class="sig__photo" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+    <div class="sig__name">Morgan Hampel</div>
+    <div class="sig__role">VP of Capital Formation</div>
+    <div><a class="btn btn--navy sig__book" href="https://api.leadconnectorhq.com/widget/group/zjnxgL0Tbf2DwpcEOsBg">Book a Call with Morgan <span class="arw">→</span></a></div>
+    <div class="sig__contact">
+      <span><span class="dot"></span>619-639-0313</span>
+      <span><span class="dot"></span><a href="mailto:mhampel@comfortcapital.com">mhampel@comfortcapital.com</a></span>
+      <span><span class="dot"></span>2081 N. Marshall Ave., El Cajon, CA 92020</span>
+    </div>
+  </div>
+
+  <div class="endfoot">
+    <img src="../../../Design File/brand/logo/lockup-h-charcoal.png" alt="Comfort Capital">
+    <span class="mid">The Sunday Special</span>
+    <span>Comfort Capital</span>
+  </div>
+
+</div>
+</body>
+</html>

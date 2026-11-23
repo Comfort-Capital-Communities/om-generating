@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comfort Capital · Homestead MHC Offering Memorandum</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  /* ---- deck-local helpers (charts, small custom bits) ---- */
+  /* Ease the cover title tracking so "Comfort" (r+t) doesn't smash together */
+  .cover__title{ letter-spacing:-.008em; }
+  .chart{ width:100%; height:auto; }
+  .grid-auto{ display:grid; gap:20px; }
+  .value-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .slide--navy .value-card{ background:var(--navy-2); border-color:var(--line-dark); box-shadow:none; }
+  .value-card .vc__t{ font-family:var(--serif); font-weight:700; font-size:16px; color:var(--ink-strong); margin-top:14px; }
+  .slide--navy .vc__t{ color:#fff; }
+  .value-card .vc__d{ font-size:12px; line-height:1.5; color:var(--ink-muted); margin-top:7px; }
+  .slide--navy .value-card .vc__d{ color:var(--on-navy-mut); }
+  .icn{ width:24px; height:24px; stroke:var(--cyan); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .headshot{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius); background:var(--paper-2); }
+  /* team roster grid (fits 5x2 above the footer) */
+  .tgrid{ display:grid; grid-template-columns:repeat(5,150px); justify-content:space-between; row-gap:14px; margin:6px 0 14px; }
+  .tcell{ text-align:center; }
+  .tshot{ width:150px; height:162px; object-fit:cover; object-position:center 20%; border-radius:var(--radius); background:var(--paper-2); }
+  .tph{ width:150px; height:184px; border-radius:var(--radius); border:1px dashed var(--line);
+    background:repeating-linear-gradient(45deg,#EDE8DC 0 14px,#F2EEE4 14px 28px);
+    display:flex; align-items:center; justify-content:center; }
+  .tph svg{ width:40px; height:40px; stroke:#C8C0B0; fill:none; stroke-width:1.4; }
+  .tname{ font-weight:600; font-size:12px; color:var(--ink-strong); margin-top:9px; }
+  .trole{ font-size:9.5px; letter-spacing:.06em; color:var(--ink-faint); margin-top:2px; }
+  /* dense table for the full portfolio list */
+  .table--compact{ font-size:9.5px; }
+  .table--compact thead th{ padding:6px 10px; }
+  .table--compact tbody td{ padding:3px 10px; }
+  .stat-strip{ display:flex; gap:34px; align-items:baseline; padding:12px 0 14px; border-bottom:1px solid var(--line); margin-bottom:14px; }
+  .stat-strip .s-num{ font-family:var(--serif); font-weight:700; font-size:24px; color:var(--cyan); }
+  .stat-strip .s-lab{ font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-left:8px; }
+  /* communities-under-management photo grid */
+  .pgrid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px 18px; }
+  .pcell .thumb-lab{ margin-top:7px; font-size:11px; }
+  .pcell .thumb-sub{ font-size:9.5px; }
+  .pcell .placeholder span{ font-size:9px; }
+  /* enlarged Acquisition Criteria */
+  .acq .chip{ width:54px; height:54px; }
+  .acq .chip svg{ width:27px; height:27px; }
+  .acq .vc__t{ font-size:19px !important; font-weight:800; color:var(--ink-strong); margin-bottom:6px; }
+  .acq .vc__d{ font-size:13px; line-height:1.55; }
+  .acq hr.rule-cyan{ width:56px; height:3px; }
+  /* enlarged Why-MHC cards */
+  .why .value-card{ padding:26px 22px; display:flex; flex-direction:column; }
+  .why .chip{ width:52px; height:52px; }
+  .why .chip svg{ width:26px; height:26px; }
+  .why .value-card{ padding:22px 18px; }
+  .why .vc__t{ font-size:16px !important; font-weight:800; margin-top:14px; }
+  .why .vc__d{ font-size:11.5px; line-height:1.5; margin-top:8px; }
+  /* all definitions on one page */
+  .defs3{ display:grid; grid-template-columns:repeat(3,1fr); gap:0 40px; align-content:start; }
+  .defs3 .def{ margin-bottom:13px; }
+  .defs3 .def__t{ font-size:13px; }
+  .defs3 .def__d{ font-size:10px; line-height:1.42; }
+  /* leadership: smaller headshots, room for fuller bios */
+  .lead .headshot{ width:150px; height:186px; aspect-ratio:auto; object-fit:cover; }
+  .lead .vc__d{ font-size:11.5px; line-height:1.52; }
+  .lead .label{ font-size:10px; letter-spacing:.05em; white-space:nowrap; }
+  /* states map + uniform table rows */
+  .us-map{ width:100%; height:auto; display:block; }
+  .table td{ white-space:nowrap; }
+  .map-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow); }
+  .map-card .mc-t{ font-family:var(--display); font-weight:700; font-size:14px; color:var(--ink-strong); margin-bottom:8px; }
+  /* acquisition criteria — numbered editorial list */
+  .acq2{ display:grid; grid-template-columns:1fr 1fr; gap:0 36px; }
+  .acq2-item{ display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .acq2-n{ font-family:var(--display); font-weight:800; font-size:22px; color:var(--cyan); min-width:32px; line-height:1; }
+  .acq2-t{ font-weight:800; font-size:14.5px; color:var(--ink-strong); }
+  .acq2-d{ font-size:11.5px; line-height:1.46; color:var(--ink-muted); margin-top:4px; }
+  /* distributions quarterly bars */
+  .qbar{ display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+  .qbar-l{ width:30px; font-weight:700; font-size:12px; letter-spacing:.06em; color:var(--ink-strong); }
+  .qbar-track{ flex:1; height:16px; background:var(--paper-2); border-radius:100px; overflow:hidden; }
+  .qbar-fill{ height:100%; background:var(--cyan); border-radius:100px; }
+  .qbar-v{ width:70px; text-align:right; font-weight:700; font-size:14px; color:var(--ink-strong); }
+  /* realized returns table: left-align the market column + summary bar */
+  .rtable td:nth-child(2), .rtable th:nth-child(2){ text-align:left; }
+  .sumbar{ display:flex; border:1px solid var(--line); border-radius:var(--radius); }
+  .sumbar > div{ flex:1; text-align:center; padding:14px 8px; border-left:1px solid var(--line); }
+  .sumbar > div:first-child{ border-left:0; }
+  .sumbar > div{ padding:11px 8px; }
+  .sumbar .sb-n{ font-family:var(--display); font-weight:800; font-size:24px; color:var(--cyan); }
+  .rtable tbody td{ padding:5.5px 12px; }
+  .rtable thead th{ padding:8px 12px; }
+  .sumbar .sb-l{ font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:5px; }
+  /* AUM regional portfolio list (Conroe style) */
+  .pl-h{ font-weight:700; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); padding-bottom:6px; border-bottom:1px solid var(--line); margin-bottom:6px; }
+  .pl-row{ display:flex; align-items:baseline; gap:6px; padding:3px 0; border-bottom:1px solid var(--line); font-size:9.5px; }
+  .pl-row .pl-n{ flex:1; min-width:0; color:var(--ink-strong); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pl-num{ flex:none; text-align:right; color:var(--ink-muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .pl-sp{ width:24px; }
+  .pl-lp{ width:44px; }
+  .pl-px{ width:46px; color:var(--ink-strong); font-weight:600; }
+  .pl-colh{ display:flex; align-items:baseline; gap:6px; padding:0 0 3px; margin-bottom:2px; border-bottom:1.5px solid var(--ink-faint); }
+  .pl-colh span{ font-size:7px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; white-space:nowrap; text-align:right; }
+  .pl-colh .pl-n{ flex:1; min-width:0; text-align:left; }
+  .pl-row .pl-v{ color:var(--ink-muted); white-space:nowrap; }
+  .thumb{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:var(--radius); }
+  .thumb-lab{ font-weight:600; font-size:11px; color:var(--ink-strong); margin-top:8px; }
+  .thumb-sub{ font-size:10px; color:var(--ink-faint); letter-spacing:.04em; }
+  .bar-row{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .bar-q{ width:44px; height:44px; border-radius:50%; background:var(--cyan); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+  .bar-v{ font-family:var(--serif); font-weight:700; font-size:30px; color:var(--ink-strong); }
+  .qa{ padding:14px 0; border-bottom:1px solid var(--line); }
+  .qa__q{ font-family:var(--serif); font-weight:700; font-size:14.5px; color:var(--ink-strong); }
+  .qa__a{ font-size:12px; line-height:1.5; color:var(--ink-muted); margin-top:6px; }
+  .def{ margin-bottom:15px; }
+  .def__t{ font-family:var(--serif); font-weight:700; font-size:13.5px; color:var(--ink-strong); }
+  .slide--navy .def__t{ color:#fff; }
+  .def__d{ font-size:10.5px; line-height:1.45; color:var(--ink-muted); margin-top:3px; }
+  .slide--navy .def__d{ color:var(--on-navy-mut); }
+  .contact-line{ display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line-dark); }
+  .contact-line svg{ width:18px; height:18px; stroke:var(--cyan); fill:none; stroke-width:1.6; }
+  .contact-line .cl-v{ color:#fff; font-size:14px; font-weight:500; }
+  /* ===== data helpers (PGIM report insights) ===== */
+  .why .vc__stat{ margin-top:14px; }
+  .why .vc__stat b{ display:block; font-family:var(--display); font-weight:800; font-size:27px; color:var(--cyan); line-height:1; letter-spacing:-.02em; }
+  .why .vc__stat span{ display:block; font-size:9px; letter-spacing:.07em; color:var(--ink-faint); margin-top:5px; line-height:1.35; text-transform:uppercase; }
+  .why .vc__d{ margin-top:10px; }
+  /* horizontal cost bars */
+  .hbars{ display:flex; flex-direction:column; gap:13px; }
+  .hbar-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; }
+  .hbar-lab{ font-size:11px; color:var(--ink-strong); font-weight:600; }
+  .hbar-val{ font-size:13px; font-weight:800; color:var(--ink-strong); font-family:var(--display); }
+  .hbar-track{ height:15px; background:var(--paper-2); border-radius:100px; overflow:hidden; }
+  .hbar-fill{ height:100%; border-radius:100px; background:#C7CBC6; }
+  .hbar-fill.hi{ background:var(--cyan); }
+  /* thesis slide: three data columns */
+  .datacol{ display:flex; flex-direction:column; }
+  .datacol .mini-t{ font-family:var(--display); font-weight:800; font-size:15px; color:var(--ink-strong); }
+  .datacol .mini-s{ font-size:9.5px; color:var(--cyan); font-weight:700; letter-spacing:.11em; text-transform:uppercase; margin-top:3px; }
+  .datacol .mini-cap{ font-size:13.5px; line-height:1.62; color:var(--ink-muted); margin-top:20px; }
+  .datacol .mini-cap b{ color:var(--ink-strong); font-weight:700; }
+  /* home-sales listing cards */
+  .lgrid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; }
+  .listing{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+  .listing img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+  .listing__b{ padding:8px 11px 11px; }
+  .listing__price{ font-family:var(--display); font-weight:800; font-size:17px; color:var(--cyan); line-height:1; }
+  .listing__name{ font-weight:700; font-size:10.5px; color:var(--ink-strong); margin-top:6px; }
+  .listing__spec{ font-size:9px; letter-spacing:.03em; color:var(--ink-faint); margin-top:3px; }
+  /* page-level logo (top-right) + footer with page number on the right */
+  .page-logo{ position:absolute; top:24px; right:26px; height:24px; opacity:.95; z-index:5; }
+  .footer__spacer{ min-width:60px; }
+  .footer__pg{ text-align:right; }
+  /* ===== deal-specific helpers (Homestead) ===== */
+  /* big dashed placeholder block for photos/maps we don't have yet */
+  .ph-block{ width:100%; height:100%; min-height:120px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    background:repeating-linear-gradient(45deg,#EDE8DC 0 16px,#F2EEE4 16px 32px);
+    color:var(--ink-faint); border:1px dashed var(--line); border-radius:var(--radius); text-align:center; }
+  .ph-block svg{ width:30px; height:30px; stroke:#C3BBAB; fill:none; stroke-width:1.4; }
+  .ph-block span{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
+  .ph-block small{ font-size:9px; letter-spacing:.06em; color:var(--ink-faint); text-transform:none; }
+  .deal-kv{ width:100%; border-collapse:collapse; font-size:12px; }
+  .deal-kv td{ padding:5px 0; border-bottom:1px solid var(--line); }
+  .deal-kv td:last-child{ text-align:right; font-weight:700; color:var(--ink-strong); }
+  .deal-kv td:first-child{ color:var(--ink-muted); }
+  .tbd{ display:inline-block; font-size:8.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan);
+    border:1px solid var(--cyan); border-radius:100px; padding:2px 8px; vertical-align:middle; }
+  .bizstep{ display:flex; gap:13px; padding:8px 0; border-bottom:1px solid var(--line); }
+  .bizstep:last-child{ border-bottom:0; }
+  .bizstep .step__t{ font-size:13px; }
+  .bizstep .step__d{ font-size:11px; line-height:1.4; margin-top:2px; }
+  .bizstep .step__n{ flex:none; color:#fff; font-family:var(--display); font-weight:800; font-size:16px; }
+  .bizstep .step__n.chip{ width:38px; height:38px; }
+  /* full detailed pro forma (mirrors model OM Page 2) */
+  .pf{ width:100%; border-collapse:collapse; font-size:8.6px; table-layout:fixed; }
+  .pf th,.pf td{ padding:2.2px 7px; text-align:right; white-space:nowrap; overflow:hidden; font-variant-numeric:tabular-nums; }
+  .pf thead th{ background:var(--navy); color:#fff; font-size:7.7px; letter-spacing:.02em; text-transform:uppercase; padding:5px 7px; }
+  .pf thead th:first-child{ text-align:left; }
+  .pf col.c0{ width:170px; }
+  .pf tbody td:first-child{ text-align:left; color:var(--ink-muted); font-weight:600; font-size:8.3px; }
+  .pf tbody tr:nth-child(even){ background:rgba(0,0,0,.022); }
+  .pf .pf-sec td{ background:var(--paper-2); color:var(--cyan); font-weight:800; font-size:7px; letter-spacing:.16em; text-transform:uppercase; text-align:left; padding:2px 7px; }
+  .pf .pf-tot td{ border-top:1px solid var(--ink-faint); font-weight:800; color:var(--ink-strong); }
+  .pf .pf-tot td:first-child{ color:var(--ink-strong); }
+  .pf .pf-noi td{ background:rgba(8,164,219,.12); font-weight:800; color:var(--ink-strong); }
+  .pf .pf-noi td:first-child{ color:var(--ink-strong); }
+  .pf .pf-coc td{ background:var(--navy); color:#fff; font-weight:800; }
+  .pf .pf-coc td:first-child{ color:#fff; }
+  /* investor-returns KPI cards + data columns (Conroe template) */
+  .ret-card{ background:var(--card); border:1px solid var(--line); border-top:3px solid var(--cyan); border-radius:6px; padding:11px 16px; box-shadow:var(--shadow); }
+  .ret-card .rc-tag{ font-size:8px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); font-weight:700; }
+  .ret-card .rc-num{ font-family:var(--display); font-weight:800; font-size:30px; color:var(--cyan); line-height:1; margin:5px 0 7px; letter-spacing:-.01em; }
+  .ret-card .rc-num small{ font-size:15px; font-weight:700; }
+  .ret-card .rc-lab{ font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-strong); font-weight:800; }
+  .ret-card .rc-sub{ font-size:9.5px; color:var(--ink-faint); margin-top:4px; }
+  .ret-col .rc-h{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); font-weight:800; padding-bottom:7px; border-bottom:2px solid var(--line); margin-bottom:2px; }
+  .ret-col .rc-sub2{ font-size:8.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint); font-weight:800; margin:11px 0 1px; }
+  /* Phoenix portfolio map */
+  .map-wrap{ position:relative; width:100%; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .map-wrap > img{ width:100%; display:block; }
+  .map-attr{ position:absolute; right:4px; bottom:3px; font-size:6.5px; color:#9a948a; letter-spacing:.02em; }
+  .mdot{ position:absolute; width:11px; height:11px; border-radius:50%; background:var(--cyan); border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,.3); transform:translate(-50%,-50%); z-index:2; }
+  .mhome{ position:absolute; width:18px; height:18px; border-radius:50%; background:var(--navy); border:3px solid var(--cyan); box-shadow:0 2px 6px rgba(0,0,0,.45); transform:translate(-50%,-50%); z-index:4; }
+  .mhome-lab{ position:absolute; transform:translate(-50%,-168%); background:var(--navy); color:#fff; font-size:9px; font-weight:800; letter-spacing:.03em; padding:3px 8px; border-radius:4px; white-space:nowrap; z-index:5; }
+  .mhome-lab::after{ content:""; position:absolute; left:50%; bottom:-4px; transform:translateX(-50%); border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid var(--navy); }
+  .map-legend{ display:flex; gap:22px; align-items:center; margin-top:12px; font-size:11px; color:var(--ink-muted); }
+  .map-legend .lg{ display:inline-flex; align-items:center; gap:7px; }
+  .map-legend .lg i{ width:12px; height:12px; border-radius:50%; display:inline-block; }
+  .poi{ position:absolute; width:9px; height:9px; border-radius:50%; background:#fff; border:2.5px solid var(--cyan); box-shadow:0 1px 3px rgba(0,0,0,.6); transform:translate(-50%,-50%); z-index:3; }
+  .poi-lab{ position:absolute; transform:translate(9px,-50%); background:rgba(23,35,49,.82); color:#fff; font-size:8.5px; font-weight:700; letter-spacing:.02em; padding:2px 6px; border-radius:3px; white-space:nowrap; z-index:3; }
+  .poi-lab.left{ transform:translate(calc(-100% - 9px),-50%); }
+</style>
+</head>
+<body>
+
+<!-- ===== inline icon sprite ===== -->
+<div class="deck">
+
+  <!-- 01 COVER -->
+  <section class="slide no-footer">
+    <div class="cover">
+      <img class="cover__bg" src="./assets/hs-cover.jpg" alt="">
+      <div class="cover__scrim" style="background:linear-gradient(105deg, rgba(13,20,29,.92) 0%, rgba(13,20,29,.74) 48%, rgba(13,20,29,.52) 100%)"></div>
+      <div class="cover__in">
+        <div class="flex center">
+          <span class="cover__eyebrow">Confidential · Offering Memorandum</span>
+        </div>
+        <div class="mt-auto">
+          <div class="cover__title">Homestead <span class="accent">MHC</span></div>
+          <div class="cover__sub">16601 N 29th St, Phoenix, AZ 85032<br>116-Space Manufactured-Housing Community</div>
+        </div>
+        <div class="cover__foot">
+          <div>16601 N 29th St, Phoenix, AZ 85032 · Maricopa County · ComfortCapital.com</div>
+          <img class="cover__logo" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 DISCLOSURES -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block">
+        <span class="eyebrow eyebrow--plain">Important Information</span>
+        <h1 class="headline headline--h2">Disclosures</h1>
+      </div>
+      <div class="grid grid-3 gap-md mb24">
+        <div><div class="label cyan" style="color:var(--cyan)">Blake Comfort</div><div class="mono-cap">Co-Founder · Principal</div><div class="mono-cap">Blake@ComfortCapital.com</div></div>
+        <div><div class="label cyan" style="color:var(--cyan)">Jennifer Purcell</div><div class="mono-cap">Co-Founder · Principal</div><div class="mono-cap">Jen@ComfortCapital.com</div></div>
+        <div><div class="label cyan" style="color:var(--cyan)">Benjamin Schuster</div><div class="mono-cap">Partner · Capital Formation</div><div class="mono-cap">Ben@ComfortCapital.com</div></div>
+      </div>
+      <hr class="rule mb24">
+      <div class="grid grid-2 gap-lg grow" style="font-size:11px; line-height:1.68; color:var(--ink-faint)">
+        <div>
+          <p>This presentation (the "Presentation") has been prepared solely for use by qualified, accredited investors considering an investment in vehicles managed by Comfort Capital, LLC (together with its affiliates, "Comfort Communities") and shall be maintained in strict confidence. The recipient agrees that the contents are a trade secret, the disclosure of which is likely to cause substantial and irreparable competitive harm to Comfort Capital. Any reproduction or distribution of this Presentation, in whole or in part, without the prior written consent of Comfort Capital is prohibited.</p>
+          <p style="margin-top:14px">Past performance is not necessarily indicative of future results. The Presentation does not constitute an offer to sell, or a solicitation of an offer to purchase, any securities. Any such offer or solicitation will be made only by means of definitive offering documents and only in accordance with the applicable securities laws. No representation or warranty, express or implied, is made as to the accuracy or completeness of the information contained herein.</p>
+          <p style="margin-top:14px">This Presentation is intended solely for sophisticated investors who qualify as "accredited investors" as defined under Regulation D of the Securities Act of 1933, as amended. Nothing contained herein constitutes legal, tax, accounting or investment advice, and recipients should not rely on it as such.</p>
+        </div>
+        <div>
+          <p>Certain statements presented herein may constitute forward-looking statements. These are based on current expectations, estimates and projections about the markets in which Comfort Capital operates, and are not guarantees of future performance; actual results may differ materially from those expressed or implied. Comfort Capital undertakes no obligation to update any forward-looking statements.</p>
+          <p style="margin-top:14px">The views, opinions and assumptions expressed in this Presentation are as of the date hereof, are subject to change without notice, and do not represent a recommendation of any particular security, strategy or investment. Certain information has been obtained from sources deemed reliable, but no liability is assumed for its accuracy.</p>
+          <p style="margin-top:14px">An investment in the securities described herein is illiquid, involves a high degree of risk, and is suitable only for persons who can bear the economic risk of the loss of their entire investment. Prospective investors should consult their own legal, tax and financial advisors before making any investment decision. Source: Comfort Capital, LLC (2026).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART 01 · COMFORT CAPITAL  (company intro — kept from overview) -->
+  <!-- ============================================================= -->
+
+  <!-- 04 DIVIDER: PART 01 -->
+  <section class="slide no-footer">
+    <div class="divider">
+      <div class="divider__media"><img src="./assets/hs-aerial.jpg" alt=""></div>
+      <div class="divider__body">
+        <img class="divider__mark" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        <span class="divider__eyebrow">Part 01</span>
+        <div class="divider__title">Comfort <span class="accent">Capital</span></div>
+        <div class="divider__inthis"><span class="lead">In this part</span>Mission &nbsp;·&nbsp; Executive Summary &nbsp;·&nbsp; Vertical Integration</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 COMPANY OVERVIEW (Mission + Executive Summary, combined) -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Comfort Capital</span><h1 class="headline headline--h2">Built On A <span class="accent">Rock-Solid</span> Foundation</h1></div>
+      <div class="grid gap-lg grow center" style="grid-template-columns:0.9fr 1.1fr">
+        <div class="col" style="justify-content:center">
+          <img src="./assets/founders.jpg" style="width:100%;height:336px;object-fit:cover;border-radius:var(--radius)" alt="Blake Comfort and Jennifer Purcell">
+          <div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Blake Comfort &amp; Jennifer Purcell</div>
+          <div class="label" style="color:var(--ink-faint)">Co-Founders · Principals · Siblings</div>
+        </div>
+        <div class="col" style="gap:18px;justify-content:center">
+          <p class="body" style="font-size:12px;line-height:1.55">Comfort Capital is a family-owned, vertically integrated manufactured housing community (MHC) investment firm. Since 2009, we've acquired, improved and operated MHCs, managing capital for more than 400 investors and operating our communities through our in-house management company, Comfort Communities.</p>
+          <p class="body" style="font-size:12px;line-height:1.55">Our firm was built on a simple belief: lasting success begins with a rock-solid foundation. For our family, that foundation is our faith in God. It guides how we steward our investors' capital, build relationships rooted in trust, and operate with integrity while creating safe, clean and affordable communities residents are proud to call HOME.</p>
+          <p class="body" style="font-size:12px;line-height:1.55">That commitment is reflected in our track record. In 17 years, we've never issued a capital call or lost investor capital.</p>
+          <div class="grid grid-3 gap-md">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">3,170+</div><div class="stat__label">Spaces Under Mgmt</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">$435M+</div><div class="stat__label">Gross Asset Value</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">$220M+</div><div class="stat__label">Equity Under Mgmt</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">30</div><div class="stat__label">Communities Managed</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">2.44x</div><div class="stat__label">Avg Gross Equity Multiple</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">28%</div><div class="stat__label">Avg Gross Annual Return</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 VERTICAL INTEGRATION (Property Management + Home Sales, combined) -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Comfort Capital Advantage</span><h1 class="headline headline--h2">Vertical <span class="accent">Integration</span></h1><p class="dek" style="font-size:12.5px;max-width:1040px;margin-top:8px;line-height:1.55">Comfort Capital sets itself apart through vertical integration. We own the two functions most operators outsource, property management and home sales, through our in-house arm, Comfort Communities. Owning the management function gives us complete control over the day-to-day operations of every community, driving operational efficiencies and sharper strategic decisions. As a licensed manufactured-home dealer we also control home sales in every market, protecting pricing, quality and pace while we convert residents into long-term homeowners. That control captures value others hand to third parties, and compounds returns for our investors.</p></div>
+      <div class="grid grid-2 gap-lg grow" style="align-content:start">
+        <div class="value-card" style="padding:28px 26px;display:flex;flex-direction:column">
+          <div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="vc__t" style="font-size:19px;margin-top:14px">Property Management</div>
+          <div class="vc__d" style="font-size:12.5px;line-height:1.6;margin-top:10px">Our own management company gives us complete control over the day-to-day operations of every community. On-the-ground teams handle rent collection, maintenance, capital projects and resident relations. We manage costs directly, increase NOI, and implement value-add strategies in-house to deliver strong, consistent returns.</div>
+          <div class="grid grid-2 gap-md" style="margin-top:20px">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">50+</div><div class="stat__label">Comfort Communities Employees</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">4 Regions</div><div class="stat__label">On-The-Ground Teams</div></div>
+          </div>
+        </div>
+        <div class="value-card" style="padding:28px 26px;display:flex;flex-direction:column">
+          <div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
+          <div class="vc__t" style="font-size:19px;margin-top:14px">Home Sales</div>
+          <div class="vc__d" style="font-size:12.5px;line-height:1.6;margin-top:10px">Unlike most operators, we own the sale. Every market has a dedicated sales team, and as a licensed manufactured-home dealer we order factory-direct from Cavco, Clayton and others at wholesale. We sell homes rather than rent them, turning residents into sticky, lot-paying homeowners and converting park-owned homes toward a pure land-lease model that strips out overhead and drives NOI.</div>
+          <div class="grid grid-2 gap-md" style="margin-top:20px">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">Every Market</div><div class="stat__label">Dedicated Sales Teams</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">POH &rarr; TOH</div><div class="stat__label">Lower Overhead, Higher NOI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART 02 · HOMESTEAD MHC  (deal-specific; placeholders)          -->
+  <!-- ============================================================= -->
+
+  <!-- 10 DIVIDER: PART 02 · THE DEAL -->
+  <section class="slide no-footer">
+    <div class="divider">
+      <div class="divider__media"><img src="./assets/hs-divider.jpg" alt=""></div>
+      <div class="divider__body">
+        <img class="divider__mark" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        <span class="divider__eyebrow">Part 02</span>
+        <div class="divider__title">Homestead <span class="accent">MHC</span></div>
+        <div class="divider__inthis"><span class="lead">In this part</span>Investment Summary &nbsp;·&nbsp; Investment Highlights &nbsp;·&nbsp; Property Gallery &nbsp;·&nbsp; Business Plan &nbsp;·&nbsp; Operating Pro Forma &nbsp;·&nbsp; Projected Returns &nbsp;·&nbsp; Market &amp; Location</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 INVESTMENT SUMMARY · AT A GLANCE -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:14px"><span class="eyebrow">Homestead MHC · Investment Summary</span><h1 class="headline headline--h2">Homestead <span class="accent">MHC</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:1.05fr 0.95fr">
+        <div class="col" style="gap:12px">
+          <img src="./assets/hs-aerial.jpg" style="width:100%;height:388px;object-fit:cover;object-position:center 58%;border-radius:var(--radius)" alt="Aerial of Homestead MHC">
+          <div class="mono-cap" style="color:var(--ink-faint)">16601 N 29th St, Phoenix, AZ 85032</div>
+        </div>
+        <div class="col" style="gap:14px">
+          <table class="deal-kv">
+            <tr><td>Property</td><td>Homestead MHC</td></tr>
+            <tr><td>Address</td><td>16601 N 29th St, Phoenix, AZ 85032</td></tr>
+            <tr><td>Purchase Price</td><td>$15,000,000</td></tr>
+            <tr><td>Community Type</td><td>All-Ages</td></tr>
+            <tr><td>Total Sites</td><td>116</td></tr>
+            <tr><td>Occupancy</td><td>96%</td></tr>
+            <tr><td>Avg In-Place Lot Rent</td><td>$675 / mo</td></tr>
+            <tr><td>Embedded Rent Upside</td><td>40%+ (Day 1)</td></tr>
+            <tr><td>Home Ownership</td><td style="white-space:nowrap">115 TOH · 1 POH</td></tr>
+            <tr><td>Utilities</td><td>Public · billed back to residents</td></tr>
+            <tr><td>Acreage</td><td>9 acres</td></tr>
+            <tr><td>Year Built · Flood Zone</td><td>1963 · None</td></tr>
+          </table>
+          <div class="grid grid-4 gap-md">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">116</div><div class="stat__label">Sites</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">96%</div><div class="stat__label">Occupancy</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">$675</div><div class="stat__label">Avg Lot Rent</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">~$950</div><div class="stat__label">Market Rent (Comps)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 INVESTMENT HIGHLIGHTS -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Homestead MHC · Why Homestead</span><h1 class="headline headline--h2">Investment <span class="accent">Highlights</span></h1></div>
+      <div class="grid grid-3 gap-md grow" style="align-content:center">
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="vc__t">Located In The Phoenix MSA</div><div class="vc__d">The 10th-largest metro in the country, and a market we know intimately. Comfort Capital already owns and operates 17 other communities across the Phoenix MSA, giving Homestead an in-place regional team from day one.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9a3 3 0 0 0-3-2c-1.7 0-3 1-3 2.3 0 3 6 1.7 6 4.7 0 1.4-1.3 2.3-3 2.3a3 3 0 0 1-3-2"/><path d="M12 5v14"/></svg></div><div class="vc__t">Below-Market Rents</div><div class="vc__d">In-place lot rents average $675, well below comparable Phoenix communities. That gap is a clear, market-supported runway to grow revenue as we bring rents to market over the hold.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div><div class="vc__t">Nearly All Resident-Owned Homes</div><div class="vc__d">Just 1 park-owned home across all 116 sites. A highly efficient, near-pure land-lease operating model with minimal home maintenance, turnover and capital-expenditure exposure.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M4 6h16M4 18h16"/><path d="M9 6v12M15 6v12"/></svg></div><div class="vc__t">Public Utilities, Billed Back</div><div class="vc__d">Public water, sewer and electric are billed back to residents, reducing ownership's utility burden and streamlining day-to-day operations.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="vc__t">Stabilized, Turnkey Asset</div><div class="vc__d">At 96% occupancy, Homestead delivers immediate in-place cash flow from day one. A turnkey acquisition rather than a heavy lease-up or operational turnaround.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11l6 6M15 11l-6 6"/></svg></div><div class="vc__t">Tax-Efficient Investment</div><div class="vc__d">Manufactured housing is among the most tax-advantaged real estate there is. A cost-segregation study paired with 100% bonus depreciation can generate a first-year paper loss of roughly 100% or more of invested equity, sheltering distributions and, for many investors, income well beyond this deal.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 PROPERTY GALLERY -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:14px"><span class="eyebrow">Homestead MHC · Property Gallery</span><h1 class="headline headline--h2">The <span class="accent">Community</span></h1></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;flex:1">
+        <img src="./assets/hs-aerial-top.jpg" style="grid-row:span 2;width:100%;height:100%;object-fit:cover;border-radius:var(--radius)" alt="Aerial of community layout">
+        <img src="./assets/hs-community.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)" alt="Homestead MHC community">
+        <img src="./assets/hs-sign.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)" alt="Homestead MHC entrance signage">
+        <img src="./assets/hs-street.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)" alt="Interior street">
+        <img src="./assets/hs-homes.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)" alt="Typical homes">
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 BUSINESS PLAN -->
+  <section class="slide">
+    <div class="slide__body" style="padding-bottom:84px">
+      <div class="head-block"><span class="eyebrow">Homestead MHC · Strategy</span><h1 class="headline headline--h2">Business <span class="accent">Plan</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:1fr 1fr">
+        <div class="col" style="justify-content:center">
+          <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">1</div><div><div class="step__t" style="font-weight:700">Mark Rents To Market</div><div class="step__d">In-place lot rents average just $675 against a comp-set market of roughly $950 today — over 40% of embedded upside on day one. Five of Homestead's thirteen direct rent comps are our own parks among the 17 communities we operate across the Phoenix MSA, so we know what the market bears and have a proven playbook for closing the gap. Over the first three years we plan to bring rents toward a stabilized $1,100.</div></div></div>
+          <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">2</div><div><div class="step__t" style="font-weight:700">Targeted Capital Improvements</div><div class="step__d">Deploy ~$860K of budgeted capital into roads, signage, common areas and infrastructure. These selective upgrades lift curb appeal and resident pride, support higher rents, and protect long-term value across the community.</div></div></div>
+          <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">3</div><div><div class="step__t" style="font-weight:700">Operational Efficiencies</div><div class="step__d">Homestead plugs directly into the regional team already running our 17 nearby Phoenix communities, drawing on the same in-house management, maintenance crews and sales staff. It scales onto existing infrastructure with little added overhead, and combined with full public-utility billbacks, that operating leverage widens margins and grows NOI from day one.</div></div></div>
+          <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">4</div><div><div class="step__t" style="font-weight:700">Floor Inventory</div><div class="step__d">Floor 8 homes across the community, 4 on currently vacant pads and 4 replacing temporary RVs occupying mobile-home lots. As a licensed dealer we source these factory-direct from Cavco and Clayton at wholesale, then sell them to residents, converting transient RV and vacant spaces into stabilized, lot-paying homeowner sites that add durable lot revenue and push occupancy toward 100%.</div></div></div>
+          <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">5</div><div><div class="step__t" style="font-weight:700">Distribute Cash Flow</div><div class="step__d">Pay investors monthly cash distributions beginning June 10, 2027. Cash-on-cash starts at 5%, averages roughly 5.2% across the five-year hold, and climbs to roughly 5.6% by year 5 as rents reach market and the property stabilizes.</div></div></div>
+        </div>
+        <div class="col" style="gap:14px;justify-content:center">
+          <img src="./assets/hs-sign.jpg" style="width:100%;height:252px;object-fit:cover;border-radius:var(--radius)" alt="Homestead MHC entrance signage">
+          <div class="grid grid-2 gap-md">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">5 Years</div><div class="stat__label">Target Hold Period</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:20px">$1,100</div><div class="stat__label">Stabilized Lot Rent Target</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 16 PROJECTED INVESTOR RETURNS -->
+  <section class="slide">
+    <div class="slide__body" style="padding-bottom:80px">
+      <div class="head-block" style="margin-bottom:10px"><span class="eyebrow">Homestead MHC &middot; Investor Returns</span><h1 class="headline headline--h2">Investment Return <span class="accent">Summary</span></h1></div>
+      <div class="grid grid-5 gap-md">
+        <div class="ret-card"><div class="rc-tag">Targeted</div><div class="rc-num">11.88<small>%</small></div><div class="rc-lab">IRR</div><div class="rc-sub">Net to investors</div></div>
+        <div class="ret-card"><div class="rc-tag">Targeted</div><div class="rc-num">14.05<small>%</small></div><div class="rc-lab">AAR</div><div class="rc-sub">Avg annual return</div></div>
+        <div class="ret-card"><div class="rc-tag">Targeted</div><div class="rc-num">1.70<small>x</small></div><div class="rc-lab">Equity Multiple</div><div class="rc-sub">$1 &rarr; $1.70 projected</div></div>
+        <div class="ret-card"><div class="rc-tag">Targeted</div><div class="rc-num">5.00<small>%</small></div><div class="rc-lab">Starting CoC</div><div class="rc-sub">Year-1 cash yield</div></div>
+        <div class="ret-card"><div class="rc-tag">Targeted</div><div class="rc-num">5.18<small>%</small></div><div class="rc-lab">Avg CoC</div><div class="rc-sub">Net to LP, 5-yr avg</div></div>
+      </div>
+      <div class="grid grid-4 gap-lg grow" style="align-content:start;margin-top:6px">
+        <div class="ret-col">
+          <div class="rc-h">Sources &amp; Uses</div>
+          <div class="rc-sub2" style="margin-top:4px">Uses</div>
+          <table class="deal-kv" style="font-size:11px">
+            <tr><td>Purchase Price</td><td>$15,000,000</td></tr>
+            <tr><td>Capital Improvements</td><td>$860,000</td></tr>
+            <tr><td>Operating Reserve</td><td>$758,000</td></tr>
+            <tr><td>Acquisition &amp; Closing</td><td>$555,000</td></tr>
+            <tr><td>Loan Fees &amp; Costs</td><td>$459,880</td></tr>
+            <tr><td><strong>Total Uses</strong></td><td><strong>$17,632,880</strong></td></tr>
+          </table>
+          <div class="rc-sub2">Sources</div>
+          <table class="deal-kv" style="font-size:11px">
+            <tr><td>Senior Loan (44% LTV)</td><td>$6,569,712</td></tr>
+            <tr><td>Investor Equity</td><td>$11,063,167</td></tr>
+            <tr><td><strong>Total Sources</strong></td><td><strong style="color:var(--cyan)">$17,632,880</strong></td></tr>
+          </table>
+        </div>
+        <div class="ret-col">
+          <div class="rc-h">Loan</div>
+          <table class="deal-kv" style="font-size:11px">
+            <tr><td>Interest Rate</td><td>5.95%</td></tr>
+            <tr><td>LTV</td><td>44%</td></tr>
+            <tr><td>Loan Amount</td><td>$6,569,712</td></tr>
+            <tr><td>Term</td><td>5 Years</td></tr>
+            <tr><td>Interest-Only</td><td>5 Years</td></tr>
+            <tr><td>Loan Fees &amp; Costs</td><td>$459,880</td></tr>
+          </table>
+        </div>
+        <div class="ret-col">
+          <div class="rc-h">Fees &amp; Promote</div>
+          <table class="deal-kv" style="font-size:11px">
+            <tr><td>Acquisition Fee</td><td>2.00%</td></tr>
+            <tr><td>Asset Mgmt (% EGI)</td><td>3.00%</td></tr>
+            <tr><td>Disposition Fee</td><td>2.00%</td></tr>
+            <tr><td>LP / GP</td><td>80% / 20%</td></tr>
+            <tr><td>Distribution Start</td><td>June 10, 2027</td></tr>
+          </table>
+        </div>
+        <div class="ret-col">
+          <div class="rc-h">Sale &amp; Exit</div>
+          <table class="deal-kv" style="font-size:11px">
+            <tr><td>In-Place Cap Rate</td><td>4.27%</td></tr>
+            <tr><td>Mark-to-Market Cap (Yr 3)</td><td>7.28%</td></tr>
+            <tr><td>Exit Cap Rate</td><td>5.00%</td></tr>
+            <tr><td>Sale Price</td><td>$25,618,518</td></tr>
+            <tr><td>$ / Space</td><td>$266,860</td></tr>
+            <tr><td>Hold Period</td><td>60 Mo.</td></tr>
+            <tr><td>Cost to Sell</td><td>4.00%</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="grid grid-4 gap-md" style="margin-top:6px">
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:18px">$675 &rarr; $1,100</div><div class="stat__label">In-Place &rarr; Stabilized Lot Rent (by Yr 3)</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:18px">~4.0%/yr</div><div class="stat__label">Stabilized Annual Rent Growth</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:18px">+63%</div><div class="stat__label">Total Mark-To-Market Rent Uplift</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:18px">4.27% &rarr; 5.00%</div><div class="stat__label">In-Place &rarr; Exit Cap Rate</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 OPERATING PRO FORMA (full model - OM Page 2) -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-top:-18px;margin-bottom:12px"><h1 class="headline headline--h2">Operating <span class="accent">Pro Forma</span></h1></div>
+      <table class="pf">
+        <colgroup><col class="c0"><col><col><col><col><col><col></colgroup>
+        <thead><tr><th>Line Item ($)</th><th>In-Place 2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th></tr></thead>
+        <tbody>
+          <tr class="pf-sec"><td colspan="7">Assumptions</td></tr>
+          <tr><td>MH Market Rent ($/mo)</td><td>$675</td><td>$925</td><td>$1,100</td><td>$1,166</td><td>$1,224</td><td>$1,286</td></tr>
+          <tr><td>Rent Growth (%)</td><td></td><td>37.0%</td><td>18.9%</td><td>6.0%</td><td>5.0%</td><td>5.0%</td></tr>
+          <tr><td>Physical Vacancy</td><td>4.3%</td><td>9.4%</td><td>6.6%</td><td>4.9%</td><td>4.9%</td><td>4.9%</td></tr>
+          <tr><td>Delinquency</td><td>2.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td></tr>
+          <tr><td>Total Economic Vacancy</td><td>6.3%</td><td>12.4%</td><td>9.6%</td><td>7.9%</td><td>7.9%</td><td>7.9%</td></tr>
+          <tr><td>Income Growth (%)</td><td></td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td><td>3.0%</td></tr>
+          <tr><td>Expense Growth (%)</td><td></td><td>10.6%</td><td>8.9%</td><td>6.2%</td><td>4.4%</td><td>4.2%</td></tr>
+          <tr class="pf-sec"><td colspan="7">Income</td></tr>
+          <tr><td>MH Rent Income</td><td>$730,296</td><td>$789,459</td><td>$1,092,656</td><td>$1,271,224</td><td>$1,343,086</td><td>$1,410,241</td></tr>
+          <tr><td>RV Rent Income</td><td>$153,503</td><td>$130,525</td><td>$126,100</td><td>$141,232</td><td>$153,842</td><td>$161,534</td></tr>
+          <tr><td>Utility Income</td><td>$80,693</td><td>$82,594</td><td>$91,333</td><td>$95,571</td><td>$97,962</td><td>$100,425</td></tr>
+          <tr><td>Other Income</td><td>$14,000</td><td>$14,420</td><td>$14,853</td><td>$15,298</td><td>$15,757</td><td>$16,230</td></tr>
+          <tr class="pf-tot"><td>Total Park Income</td><td>$978,493</td><td>$1,016,998</td><td>$1,324,942</td><td>$1,523,325</td><td>$1,610,647</td><td>$1,688,429</td></tr>
+          <tr class="pf-sec"><td colspan="7">Expenses</td></tr>
+          <tr><td>Professional Fees</td><td>$7,500</td><td>$9,000</td><td>$9,360</td><td>$9,734</td><td>$10,124</td><td>$10,529</td></tr>
+          <tr><td>Repairs &amp; Maintenance</td><td>$2,612</td><td>$33,000</td><td>$34,320</td><td>$35,693</td><td>$37,121</td><td>$38,605</td></tr>
+          <tr><td>Contractor Services</td><td>$0</td><td>$30,000</td><td>$31,200</td><td>$32,448</td><td>$33,746</td><td>$35,096</td></tr>
+          <tr><td>Utilities</td><td>$103,126</td><td>$104,434</td><td>$115,583</td><td>$122,728</td><td>$127,637</td><td>$132,742</td></tr>
+          <tr><td>Payroll</td><td>$124,000</td><td>$75,000</td><td>$78,000</td><td>$81,120</td><td>$84,365</td><td>$87,739</td></tr>
+          <tr><td>Insurance</td><td>$15,776</td><td>$23,880</td><td>$24,835</td><td>$25,829</td><td>$26,862</td><td>$27,936</td></tr>
+          <tr><td>Real Estate Taxes</td><td>$21,375</td><td>$22,668</td><td>$24,040</td><td>$25,494</td><td>$27,036</td><td>$28,672</td></tr>
+          <tr><td>General &amp; Administrative</td><td>$24,076</td><td>$34,878</td><td>$36,273</td><td>$37,724</td><td>$39,233</td><td>$40,803</td></tr>
+          <tr><td>Property Management Fee</td><td>$39,140</td><td>$40,680</td><td>$52,998</td><td>$60,933</td><td>$64,426</td><td>$67,537</td></tr>
+          <tr class="pf-tot"><td>Total Expenses</td><td>$337,605</td><td>$373,540</td><td>$406,609</td><td>$431,703</td><td>$450,549</td><td>$469,660</td></tr>
+          <tr class="pf-noi"><td>Park NOI</td><td>$640,888</td><td>$643,458</td><td>$918,333</td><td>$1,091,622</td><td>$1,160,098</td><td>$1,218,770</td></tr>
+          <tr class="pf-sec"><td colspan="7">Below NOI &middot; Cash Flow</td></tr>
+          <tr><td>POH Income</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td></tr>
+          <tr><td>POH Expenses</td><td>($1,862)</td><td>($7,145)</td><td>($9,584)</td><td>($5,641)</td><td>($5,810)</td><td>($5,985)</td></tr>
+          <tr><td>Home Sales Proceeds</td><td>$0</td><td>$45,000</td><td>$75,000</td><td>$0</td><td>$0</td><td>$0</td></tr>
+          <tr><td>Interest Income</td><td>$0</td><td>$18,000</td><td>$18,000</td><td>$18,000</td><td>$18,000</td><td>$18,000</td></tr>
+          <tr class="pf-tot"><td>Overall Net Income</td><td>$639,026</td><td>$699,313</td><td>$1,001,749</td><td>$1,103,981</td><td>$1,172,288</td><td>$1,230,785</td></tr>
+          <tr><td>Asset Management Fees</td><td></td><td>($30,510)</td><td>($39,748)</td><td>($45,700)</td><td>($48,319)</td><td>($50,653)</td></tr>
+          <tr class="pf-tot"><td>Cash Flow Before Debt Service</td><td></td><td>$668,803</td><td>$962,001</td><td>$1,058,281</td><td>$1,123,968</td><td>$1,180,132</td></tr>
+          <tr><td>Debt Service</td><td></td><td>($440,902)</td><td>($409,413)</td><td>($408,327)</td><td>($408,327)</td><td>($408,327)</td></tr>
+          <tr class="pf-tot"><td>Cash Flow After Debt Service</td><td></td><td>$227,901</td><td>$552,588</td><td>$649,954</td><td>$715,641</td><td>$771,805</td></tr>
+          <tr><td>Supplemental Cash Flow</td><td></td><td>$117,823</td><td>$138,860</td><td>$47,569</td><td>$4,229</td><td>$0</td></tr>
+          <tr class="pf-tot"><td>Total Cash Flow</td><td></td><td>$345,724</td><td>$691,448</td><td>$697,523</td><td>$719,870</td><td>$771,805</td></tr>
+          <tr class="pf-coc"><td>Cash-on-Cash Return</td><td></td><td>5.00%</td><td>5.00%</td><td>5.04%</td><td>5.21%</td><td>5.58%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 18a MARKET RENT COMPS -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:12px"><span class="eyebrow">Homestead MHC · Market Rent Comps</span><h1 class="headline headline--h2">Priced Well Below The <span class="accent">Market</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:1.12fr 0.88fr;align-items:start">
+        <div>
+          <div class="map-wrap">
+            <img src="./assets/mkt-rent-comps-map.jpg" alt="Map of Homestead MHC and rent comparables across metro Phoenix">
+            <span class="map-attr">Source: Berkadia</span>
+          </div>
+          <div class="map-legend">
+            <span class="lg"><i style="background:#9A1B1B;border:2px solid #fff"></i> Homestead MHC (subject)</span>
+            <span class="lg"><i style="background:var(--navy);border:2px solid #fff"></i> Rent comparable</span>
+          </div>
+          <div class="grid grid-3 gap-md" style="margin-top:14px">
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">$675</div><div class="stat__label">Homestead In-Place</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">$951</div><div class="stat__label">Comp Set Average</div></div>
+            <div class="stat stat--sm"><div class="stat__num" style="font-size:22px">40%+</div><div class="stat__label">Embedded Rent Upside</div></div>
+          </div>
+        </div>
+        <div>
+          <table class="table table--compact" style="font-size:9.3px">
+            <thead><tr><th style="width:12px">#</th><th>Community</th><th>City</th><th class="net">Lot Rent</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Shadow Hills</td><td>Phoenix</td><td class="net">$1,150</td></tr>
+              <tr><td>2</td><td>Vista Del Sol</td><td>Mesa</td><td class="net">$1,095</td></tr>
+              <tr><td>3</td><td>Sonora Trails</td><td>Phoenix</td><td class="net">$1,095</td></tr>
+              <tr><td>4</td><td>Glendale Cascade</td><td>Glendale</td><td class="net">$1,002</td></tr>
+              <tr><td>5</td><td>Solara Sands</td><td>Peoria</td><td class="net">$1,000</td></tr>
+              <tr><td>6</td><td>Sunshine Valley</td><td>Chandler</td><td class="net">$988</td></tr>
+              <tr><td>7</td><td>Carefree Manor</td><td>Phoenix</td><td class="net">$944</td></tr>
+              <tr><td>8</td><td>Moon Valley <span style="color:var(--cyan)">&#9733;</span></td><td>Phoenix</td><td class="net">$895</td></tr>
+              <tr><td>9</td><td>Christown <span style="color:var(--cyan)">&#9733;</span></td><td>Phoenix</td><td class="net">$890</td></tr>
+              <tr><td>10</td><td>Bonaventure</td><td>Phoenix</td><td class="net">$850</td></tr>
+              <tr><td>11</td><td>Villa Carmel <span style="color:var(--cyan)">&#9733;</span></td><td>Phoenix</td><td class="net">$840</td></tr>
+              <tr><td>12</td><td>Villa Cielo <span style="color:var(--cyan)">&#9733;</span></td><td>Phoenix</td><td class="net">$835</td></tr>
+              <tr><td>13</td><td>Phoenix West <span style="color:var(--cyan)">&#9733;</span></td><td>Phoenix</td><td class="net">$775</td></tr>
+              <tr class="pf-tot" style="font-weight:800"><td></td><td>Comp Average</td><td>&mdash;</td><td class="net">$951</td></tr>
+              <tr style="background:rgba(8,164,219,.14);font-weight:800"><td>S</td><td>Homestead MHC</td><td>Phoenix</td><td class="net">$675</td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:11px;font-size:10px;line-height:1.5;color:var(--ink-muted)"><span style="color:var(--cyan);font-weight:800">&#9733;</span> Five of the thirteen rent comps are Comfort Capital communities. We already set the market across North Phoenix, which underwrites a confident mark-to-market at Homestead toward a stabilized $1,100.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 18c LOCAL PRESENCE -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:14px"><span class="eyebrow">Homestead MHC · Local Presence</span><h1 class="headline headline--h2">A Deep <span class="accent">Local Presence</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:0.76fr 1.24fr;align-items:start">
+        <div class="col" style="gap:18px">
+          <p class="body" style="font-size:12px;line-height:1.55">Phoenix is our backyard. Since 2009, Comfort Capital has acquired, improved and operated manufactured housing communities throughout the Valley. Today, we own and operate 17 Phoenix-area communities, supported by an established local team and deep market relationships.</p>
+          <p class="body" style="font-size:12px;line-height:1.55">Our portfolio currently averages approximately $850 in-place lot rents, with many recently acquired communities still progressing toward $900+ as we execute their business plans. Homestead's premier North Phoenix location and current $675 lot rents present significant upside relative to the approximately $950 average of comparable communities. Our existing management, maintenance and home-sales infrastructure positions us to execute this opportunity from day one.</p>
+          <div class="grid grid-2 gap-md">
+            <div class="stat stat--sm"><div class="stat__num">17</div><div class="stat__label">Phoenix-Area Communities</div></div>
+            <div class="stat stat--sm"><div class="stat__num">~1,575</div><div class="stat__label">Phoenix Spaces Operated</div></div>
+            <div class="stat stat--sm"><div class="stat__num">~$850</div><div class="stat__label">Current In-Place Lot Rent</div></div>
+            <div class="stat stat--sm"><div class="stat__num">$950+</div><div class="stat__label">Portfolio Rent Target</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="map-wrap">
+            <img src="./assets/mkt-phoenix-map.png" alt="Map of Comfort Capital Phoenix communities">
+            <span class="mdot" style="left:41.87%;top:49.63%"></span>
+            <span class="mdot" style="left:27.11%;top:29.97%"></span>
+            <span class="mdot" style="left:27.18%;top:30.04%"></span>
+            <span class="mdot" style="left:50.94%;top:15.06%"></span>
+            <span class="mdot" style="left:40.49%;top:43.98%"></span>
+            <span class="mdot" style="left:47.90%;top:13.07%"></span>
+            <span class="mdot" style="left:29.37%;top:41.93%"></span>
+            <span class="mdot" style="left:35.41%;top:41.01%"></span>
+            <span class="mdot" style="left:33.51%;top:45.86%"></span>
+            <span class="mdot" style="left:11.52%;top:68.93%"></span>
+            <span class="mdot" style="left:49.55%;top:24.51%"></span>
+            <span class="mdot" style="left:38.58%;top:41.84%"></span>
+            <span class="mdot" style="left:88.53%;top:69.16%"></span>
+            <span class="mdot" style="left:46.41%;top:86.97%"></span>
+            <span class="mdot" style="left:53.37%;top:83.11%"></span>
+            <span class="mdot" style="left:87.08%;top:78.69%"></span>
+            <span class="mdot" style="left:75.52%;top:83.36%"></span>
+            <span class="mhome" style="left:52.21%;top:14.20%"></span>
+            <span class="mhome-lab" style="left:52.21%;top:14.20%">Homestead</span>
+            <span class="map-attr">&copy; Esri</span>
+          </div>
+          <div class="map-legend">
+            <span class="lg"><i style="background:var(--navy);border:2px solid var(--cyan)"></i> Homestead MHC</span>
+            <span class="lg"><i style="background:var(--cyan);border:2px solid #fff"></i> Our 17 Phoenix communities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18b MARKET OVERVIEW (combined) -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:14px"><span class="eyebrow">Homestead MHC &middot; Market &amp; Location</span><h1 class="headline headline--h2">Phoenix, A Market On The <span class="accent">Rise</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:1.08fr 0.92fr;align-items:center">
+        <div class="col" style="gap:14px">
+          <img src="./assets/mkt-phoenix.jpg" style="width:100%;height:300px;object-fit:cover;object-position:center 32%;border-radius:var(--radius)" alt="Downtown Phoenix skyline">
+          <p class="body" style="font-size:12px;line-height:1.56">Homestead sits in North Phoenix within the Phoenix-Mesa-Scottsdale MSA, the 10th-most-populous metro in the country and one of its fastest-growing regions for more than two decades. Greater Phoenix is projected to grow another 8.1% over the next five years and add roughly 156,000 net new residents between 2026 and 2030, drawing households and employers from higher-cost coastal states.</p>
+          <p class="body" style="font-size:12px;line-height:1.56">Its economy has diversified far beyond tourism into semiconductors, aerospace, healthcare and advanced manufacturing, anchored by nine Fortune 500 headquarters and tens of billions in new corporate investment. Yet with a median home price near $453,000, ownership remains out of reach for many households, sustaining deep, durable demand for the attainable housing Homestead provides.</p>
+        </div>
+        <div class="grid grid-2" style="align-content:center;gap:30px 30px">
+          <div class="stat stat--sm"><div class="stat__num">5.3M</div><div class="stat__label">MSA Population</div></div>
+          <div class="stat stat--sm"><div class="stat__num">+8.1%</div><div class="stat__label">Proj. 5-Yr Pop. Growth</div></div>
+          <div class="stat stat--sm"><div class="stat__num">$300B+</div><div class="stat__label">County GDP</div></div>
+          <div class="stat stat--sm"><div class="stat__num">9</div><div class="stat__label">Fortune 500 Headquarters</div></div>
+          <div class="stat stat--sm"><div class="stat__num">$453K</div><div class="stat__label">Median Home Price</div></div>
+          <div class="stat stat--sm"><div class="stat__num">+35%</div><div class="stat__label">Income Growth To 2031</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- 18e NEW AREA DEVELOPMENTS (combined — all four) -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Homestead MHC · Area Developments</span><h1 class="headline headline--h2">Major New Developments <span class="accent">Nearby</span></h1><p class="dek" style="font-size:13px;max-width:980px;margin-top:8px">Tens of billions in new investment are landing minutes from Homestead, deepening the high-wage employment base that drives housing demand across North Phoenix.</p></div>
+      <div class="grid grid-4 gap-lg grow" style="align-content:center">
+        <div class="value-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+          <img src="./assets/mkt-tsmc.jpg" style="width:100%;height:136px;object-fit:cover;object-position:center 64%;display:block" alt="TSMC semiconductor facility">
+          <div style="padding:16px 18px">
+            <div class="vc__t" style="margin-top:0;font-size:15px">TSMC Semiconductor Campus</div>
+            <div class="vc__d" style="font-size:11px;line-height:1.5">A $165B+ multi-fab semiconductor campus in North Phoenix; three plants expected to create 6,000+ direct, high-wage jobs and tens of thousands more through suppliers.</div>
+            <div class="label cyan" style="color:var(--cyan);margin-top:10px;font-size:9px">Semiconductors · North Phoenix</div>
+          </div>
+        </div>
+        <div class="value-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+          <img src="./assets/mkt-pv2.jpg" style="width:100%;height:136px;object-fit:cover;object-position:center 42%;display:block" alt="Upscale mixed-use lifestyle center">
+          <div style="padding:16px 18px">
+            <div class="vc__t" style="margin-top:0;font-size:15px">"PV" At Paradise Valley</div>
+            <div class="vc__d" style="font-size:11px;line-height:1.5">The $1B+ redevelopment of the former Paradise Valley Mall, minutes from Homestead, bringing new housing, offices, retail and dining to the immediate submarket.</div>
+            <div class="label cyan" style="color:var(--cyan);margin-top:10px;font-size:9px">Mixed-Use · North Phoenix</div>
+          </div>
+        </div>
+        <div class="value-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+          <img src="./assets/mkt-amkor.png" style="width:100%;height:136px;object-fit:cover;display:block" alt="Semiconductor cleanroom">
+          <div style="padding:16px 18px">
+            <div class="vc__t" style="margin-top:0;font-size:15px">Amkor Technology</div>
+            <div class="vc__d" style="font-size:11px;line-height:1.5">A $2B+ advanced semiconductor packaging and test campus in Peoria, expected to create roughly 2,000 high-wage jobs and anchor the Valley's chip-supply ecosystem.</div>
+            <div class="label cyan" style="color:var(--cyan);margin-top:10px;font-size:9px">Semiconductors · Peoria / Phoenix MSA</div>
+          </div>
+        </div>
+        <div class="value-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+          <img src="./assets/mkt-mayo.jpg" style="width:100%;height:136px;object-fit:cover;object-position:center 38%;display:block" alt="Mayo Clinic Phoenix campus">
+          <div style="padding:16px 18px">
+            <div class="vc__t" style="margin-top:0;font-size:15px">Mayo Clinic Phoenix</div>
+            <div class="vc__d" style="font-size:11px;line-height:1.5">Mayo Clinic's flagship Arizona campus is advancing its multi-billion-dollar "Bold. Forward. Unbound." expansion, adding hospital capacity and thousands of healthcare jobs minutes from Homestead.</div>
+            <div class="label cyan" style="color:var(--cyan);margin-top:10px;font-size:9px">Healthcare · North Phoenix</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART 03 · THE MHC OPPORTUNITY  (kept — case studies removed)   -->
+  <!-- ============================================================= -->
+
+  <!-- 19 DIVIDER: PART 03 · THE OPPORTUNITY -->
+  <section class="slide no-footer">
+    <div class="divider">
+      <div class="divider__media"><img src="./assets/hs-backcover.jpg" alt=""></div>
+      <div class="divider__body">
+        <img class="divider__mark" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        <span class="divider__eyebrow">Part 03</span>
+        <div class="divider__title">The MHC <span class="accent">Opportunity</span></div>
+        <div class="divider__inthis"><span class="lead">In this part</span>Why MHCs &nbsp;·&nbsp; Tax Benefits &nbsp;·&nbsp; Bonus Depreciation &nbsp;·&nbsp; Illustrative Tax Impact</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 WHY MHC -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Why Manufactured Housing</span><h1 class="headline headline--h2">Five Reasons MHCs Are On The <span class="accent">Rise</span></h1></div>
+      <div class="grid grid-5 why grow" style="align-content:center;gap:20px">
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9a3 3 0 0 0-3-2c-1.7 0-3 1-3 2.3 0 3 6 1.7 6 4.7 0 1.4-1.3 2.3-3 2.3a3 3 0 0 1-3-2"/><path d="M12 5v14"/></svg></div><div class="vc__t">Solution to the Affordability Crisis</div><div class="vc__stat"><b>≈50%</b><span>MH cost per sq. ft. vs. site-built</span></div><div class="vc__d">One of the most realistic answers to America&rsquo;s affordability crisis: quality factory-built homes at roughly half the per-square-foot cost, already serving nearly 8 million U.S. households.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M4 6h16M4 18h16"/><path d="M9 6v12M15 6v12"/></svg></div><div class="vc__t">Recession-Resilient Assets</div><div class="vc__stat"><b>+87%</b><span>MHC operating-income growth, 2004–2018</span></div><div class="vc__d">Property income has stayed positive through every recession since 2000. In 2008, MHC space rents grew 3%+ while multifamily rents fell more than 6%.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M12 4v16"/><path d="M6 8h12"/><path d="M6 8l-3 6h6l-3-6zM18 8l-3 6h6l-3-6z"/></svg></div><div class="vc__t">Asymmetric, Resilient Returns</div><div class="vc__stat"><b>7–10%</b><span>CapEx as a % of NOI, among the lowest in real estate</span></div><div class="vc__d">Land-based ownership and low capital needs have delivered strong historical returns with low volatility, a rare risk/return profile among core real-estate sectors.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11l6 6M15 11l-6 6"/></svg></div><div class="vc__t">Superior Tax Advantages</div><div class="vc__stat"><b>15-yr</b><span>Accelerated depreciation schedule</span></div><div class="vc__d">MHCs depreciate on an accelerated 15-year schedule versus 27.5–39 years for other real estate, and year-one bonus depreciation on land improvements enhances investor returns.</div></div>
+        <div class="value-card"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5v10l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v10"/></svg></div><div class="vc__t">Limited New &amp; Existing Supply</div><div class="vc__stat"><b>43,000+</b><span>U.S. communities, net supply shrinking since 2000</span></div><div class="vc__d">Zoning, land cost and multi-year lease-up choke new development. With ~4.3 million homesites and net supply falling since 2000, demand for affordable lots keeps climbing.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22 TAX BENEFITS -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">The Most Tax-Advantaged Real Estate</span><h1 class="headline headline--h2">Tax Benefits</h1></div>
+      <div class="grid grid-3 gap-md grow" style="align-content:center">
+        <div class="card"><div class="card__title">Cost-Segregation Analysis</div><div class="card__body">We commission detailed, engineering-based cost-segregation studies on our acquisitions to identify and reclassify components into shorter depreciation lives (5-, 7- and 15-year). This front-loads depreciation, improves projected after-tax cash flow, and sharpens our underwriting.</div></div>
+        <div class="card"><div class="card__title">Bonus Depreciation</div><div class="card__body">A large portion of an MHC's value sits in land improvements such as roads, utilities and pads, depreciated over 15 years. Bonus-depreciation rules allow a significant first-year deduction on those components, creating meaningful paper losses in year one.</div></div>
+        <div class="card"><div class="card__title">Offset Passive Income</div><div class="card__body">Depreciation is a non-cash "paper loss" that can offset passive income from this and other investments. Investors who qualify as Real Estate Professionals may be able to offset active income as well; consult your advisor.</div></div>
+        <div class="card"><div class="card__title">Tax-Efficient Distributions</div><div class="card__body">Because depreciation often exceeds taxable income in the early years, a meaningful share of the monthly distributions investors receive can be treated as a non-taxable return of capital rather than ordinary income.</div></div>
+        <div class="card"><div class="card__title">1031 Exchanges</div><div class="card__body">On disposition we frequently roll proceeds into a larger up-leg property through a 1031 exchange, deferring capital-gains tax and compounding investor capital across successive deals.</div></div>
+        <div class="card"><div class="card__title">Long-Term Capital Gains</div><div class="card__body">Communities held longer than a year are taxed at favorable long-term capital-gains rates upon exit, rather than higher ordinary-income rates, which enhances net, after-tax investor returns.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25 BONUS DEPRECIATION -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:16px"><span class="eyebrow">Tax Strategy · Bonus Depreciation</span><h1 class="headline headline--h2">100% Bonus Depreciation, <span class="accent">Working For You</span></h1></div>
+      <div class="grid gap-lg" style="grid-template-columns:0.86fr 1.14fr;margin-bottom:16px;align-items:center">
+        <div>
+          <div class="label cyan" style="color:var(--cyan);margin-bottom:7px">Typical MHC Basis Allocation</div>
+          <div class="flex center" style="gap:26px">
+            <svg viewBox="0 0 180 180" style="width:156px;flex:none">
+              <g transform="rotate(-90 90 90)" fill="none" stroke-width="26">
+                <circle cx="90" cy="90" r="64" stroke="#08A4DB" stroke-dasharray="273.4 128.7" stroke-dashoffset="0"/>
+                <circle cx="90" cy="90" r="64" stroke="#7FD3EF" stroke-dasharray="40.2 361.9" stroke-dashoffset="-273.4"/>
+                <circle cx="90" cy="90" r="64" stroke="#172331" stroke-dasharray="20.1 382.0" stroke-dashoffset="-313.6"/>
+                <circle cx="90" cy="90" r="64" stroke="#C8C0B0" stroke-dasharray="68.4 333.7" stroke-dashoffset="-333.7"/>
+              </g>
+              <text x="90" y="84" text-anchor="middle" fill="#08A4DB" font-family="Montserrat" font-weight="800" font-size="30">≈78%</text>
+              <text x="90" y="103" text-anchor="middle" fill="#8C8578" font-family="Montserrat" font-weight="600" font-size="8" letter-spacing="1">BONUS-ELIGIBLE</text>
+            </svg>
+            <div style="font-size:11px;line-height:1.45">
+              <div style="margin-bottom:10px"><span style="color:#08A4DB">●</span> <strong>Land Improvements</strong><br><span class="muted">15-yr · ~68%</span></div>
+              <div style="margin-bottom:10px"><span style="color:#7FD3EF">●</span> <strong>Personal Property</strong><br><span class="muted">5 / 7-yr · ~10%</span></div>
+              <div style="margin-bottom:10px"><span style="color:#172331">●</span> <strong>Building</strong><br><span class="muted">27.5-yr · ~5%</span></div>
+              <div><span style="color:#C8C0B0">●</span> <strong>Land</strong><br><span class="muted">non-depreciable · 15–20%</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="label cyan" style="color:var(--cyan);margin-bottom:7px">Illustrative Example · Homestead MHC <span class="tbd">Preliminary</span></div>
+          <table class="table" style="font-size:10.5px">
+            <thead><tr><th>MACRS Classification</th><th>Life</th><th>Allocated Basis</th><th class="net">% Allocation</th></tr></thead>
+            <tbody>
+              <tr><td>Land</td><td>N/A</td><td><span class="tbd">TBD</span></td><td class="net">~15–20%</td></tr>
+              <tr><td>Building</td><td>27.5-yr</td><td><span class="tbd">TBD</span></td><td class="net">~5%</td></tr>
+              <tr><td>Land Improvements</td><td>15-yr</td><td><span class="tbd">TBD</span></td><td class="net">~68–79%</td></tr>
+              <tr><td>Personal Property</td><td>5-yr</td><td><span class="tbd">TBD</span></td><td class="net">~8–10%</td></tr>
+              <tr><td><strong>Total Basis</strong></td><td></td><td><strong><span class="tbd">TBD</span></strong></td><td class="net"><strong>100%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="grid grid-4 gap-md" style="margin-bottom:16px">
+        <div class="stat stat--sm"><div class="stat__num">100%</div><div class="stat__label">Bonus Depreciation</div><div class="stat__desc">Restored under OBBBA · §168(k)</div></div>
+        <div class="stat stat--sm"><div class="stat__num">1.0–1.2x</div><div class="stat__label">Year-1 Deduction</div><div class="stat__desc">Of invested equity, as an LP paper loss</div></div>
+        <div class="stat stat--sm"><div class="stat__num">Year 1</div><div class="stat__label">Hits Your K-1</div><div class="stat__desc">Pass-through passive loss</div></div>
+        <div class="stat stat--sm"><div class="stat__num">5 + 15</div><div class="stat__label">MACRS Classes</div><div class="stat__desc">Both fully bonus-eligible</div></div>
+      </div>
+      <div style="border-top:1px solid var(--line);padding-top:14px">
+        <div class="label cyan" style="color:var(--cyan);margin-bottom:9px">Why Investors Love Depreciation</div>
+        <div class="grid grid-3 gap-lg body" style="font-size:11.5px;line-height:1.55;align-items:start">
+          <p style="margin:0">Depreciation is a tax deduction that recognizes how physical assets lose value over time. In real estate it lets investors offset income by writing off part of the property's value each year, even as the property itself may rise in market value.</p>
+          <p style="margin:0">In manufactured-housing communities, land improvements such as roads, water lines and sewer systems depreciate over 15 years instead of the standard 27.5, capturing larger deductions earlier. Bonus depreciation writes off up to 100% of eligible improvements in year one, and even passive investors receive their share on a K-1.</p>
+          <p style="margin:0"><strong>Leverage amplifies the benefit.</strong> Depreciation is calculated on the community's full cost, not just the equity invested, so financing part of the purchase with debt pairs every investor dollar with additional depreciable basis, producing a larger year-one paper loss relative to the capital an investor actually contributes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 26 $100K TAX EXAMPLE -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:14px"><span class="eyebrow">Illustrative Tax Impact</span><h1 class="headline headline--h2">A <span class="accent">$100,000</span> Example, Over 10 Years</h1></div>
+      <div class="grid gap-md" style="grid-template-columns:repeat(6,1fr);margin-bottom:22px">
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">$100K</div><div class="stat__label">Investment</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">$115K</div><div class="stat__label">Year-1 Paper Loss</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">7%</div><div class="stat__label">Annual Distribution</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">10 yrs</div><div class="stat__label">Hold Period</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">37%</div><div class="stat__label">RE Pro Tax Rate</div></div>
+        <div class="stat stat--sm"><div class="stat__num" style="font-size:26px">23.8%</div><div class="stat__label">Qual. Dividend Tax</div></div>
+      </div>
+      <div class="grid grid-2 gap-lg grow">
+        <div style="background:#0d7196;color:#fff;border-radius:var(--radius);padding:26px">
+          <div class="flex between center" style="margin-bottom:14px"><div class="mono-cap" style="color:#Bfe6f5">Scenario A</div><div class="serif" style="font-family:var(--display);font-weight:800;font-size:17px">Real Estate Professional</div></div>
+          <p style="font-size:12px;line-height:1.55;color:#E7F4FB">The full $115,000 paper loss offsets <strong style="color:#fff">ordinary income</strong> in Year 1, converting depreciation into a federal tax refund. Ongoing depreciation then shelters the deal's annual cash distributions across the hold.</p>
+          <div class="flex between" style="border-top:1px solid rgba(255,255,255,.25);margin-top:14px;padding-top:10px;font-size:12px"><span style="color:#Cfeaf6">$115,000 paper loss × 37%</span><strong style="color:#fff">$42,550 refund</strong></div>
+          <div class="flex between" style="padding-top:8px;font-size:12px"><span style="color:#Cfeaf6">$7,000/yr distribution × 10 yrs</span><strong style="color:#fff">$70,000 sheltered</strong></div>
+          <div class="flex between center" style="border-top:1px solid rgba(255,255,255,.25);margin-top:12px;padding-top:12px"><span class="label" style="color:#fff">10-Year Tax-Advantaged Total</span><span style="font-family:var(--display);font-weight:800;font-size:26px">$112,550</span></div>
+          <div style="margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.25);font-size:10px;line-height:1.5;color:#Cfeaf6">
+            <div class="mono-cap" style="color:#Bfe6f5;margin-bottom:5px">vs. a Dividend Stock @ $7,000/yr</div>
+            <div class="flex between"><span>$7,000 × 10 yrs dividends</span><span style="color:#fff">$70,000</span></div>
+            <div class="flex between"><span>less qualified-dividend tax @ 23.8%</span><span style="color:#fff">&minus;$16,660</span></div>
+            <div class="flex between" style="border-top:1px solid rgba(255,255,255,.18);margin-top:5px;padding-top:5px"><span>After-tax cash, no depreciation</span><strong style="color:#fff">$53,340</strong></div>
+          </div>
+          <div class="flex between center" style="margin-top:10px;font-size:11px;color:#Cfeaf6"><span>$112,550 &minus; $53,340</span><strong style="color:#fff">+$59,210 advantage</strong></div>
+        </div>
+        <div style="background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px">
+          <div class="flex between center" style="margin-bottom:14px"><div class="mono-cap" style="color:var(--on-navy-mut)">Scenario B</div><div class="serif" style="font-family:var(--display);font-weight:800;font-size:17px">Non-Real Estate Professional</div></div>
+          <p style="font-size:12px;line-height:1.55;color:var(--on-navy-mut)">For most LPs the $115,000 loss <strong style="color:#fff">cannot</strong> offset W-2 or active income, but it immediately shelters the deal's own cash distributions tax-deferred each year. Suspended losses release on disposition, reducing capital-gains exposure.</p>
+          <div class="flex between" style="border-top:1px solid var(--line-dark);margin-top:14px;padding-top:10px;font-size:12px"><span style="color:var(--on-navy-mut)">$7,000/yr distribution × 10 yrs</span><strong style="color:#fff">$70,000 sheltered</strong></div>
+          <div class="flex between center" style="border-top:1px solid var(--line-dark);margin-top:12px;padding-top:12px"><span class="label" style="color:#fff">10-Year Tax-Sheltered Cash Flow</span><span style="font-family:var(--display);font-weight:800;font-size:26px;color:var(--cyan)">$70,000</span></div>
+          <div style="margin-top:11px;padding-top:10px;border-top:1px solid var(--line-dark);font-size:10px;line-height:1.5;color:var(--on-navy-mut)">
+            <div class="mono-cap" style="color:var(--on-navy-mut);margin-bottom:5px">vs. a Dividend Stock @ $7,000/yr</div>
+            <div class="flex between"><span>$7,000 × 10 yrs dividends</span><span style="color:#fff">$70,000</span></div>
+            <div class="flex between"><span>less qualified-dividend tax @ 23.8%</span><span style="color:#fff">&minus;$16,660</span></div>
+            <div class="flex between" style="border-top:1px solid var(--line-dark);margin-top:5px;padding-top:5px"><span>After-tax cash, no depreciation</span><strong style="color:#fff">$53,340</strong></div>
+          </div>
+          <div class="flex between center" style="margin-top:10px;font-size:11px;color:var(--on-navy-mut)"><span>$70,000 tax-deferred &minus; $53,340</span><strong style="color:#fff">+$16,660 advantage</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART 04 · TRACK RECORD & PORTFOLIO  (kept from overview)       -->
+  <!-- ============================================================= -->
+
+  <!-- 28 DIVIDER: PART 04 · TRACK RECORD & PORTFOLIO -->
+  <section class="slide no-footer">
+    <div class="divider">
+      <div class="divider__media"><img src="./assets/hs-cover.jpg" alt=""></div>
+      <div class="divider__body">
+        <img class="divider__mark" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        <span class="divider__eyebrow">Part 04</span>
+        <div class="divider__title">Track Record &amp; <span class="accent">Portfolio</span></div>
+        <div class="divider__inthis"><span class="lead">In this part</span>Realized Performance &nbsp;·&nbsp; Assets Under Management</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 29 ASSETS SOLD & RECAPPED -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:10px"><span class="eyebrow">Track Record</span><h1 class="headline headline--h2">Investment <span class="accent">Performance</span></h1></div>
+      <p class="mono-cap" style="margin-bottom:14px">17 years · 12 fully cycled · 40+ communities · Never Lost Investor Capital · Never Have Had a Capital Call</p>
+      <div class="sumbar" style="margin-bottom:16px">
+        <div><div class="sb-n">2.44x / 2.00x</div><div class="sb-l">Avg Equity Multiple · gross / net</div></div>
+        <div><div class="sb-n">28% / 20%</div><div class="sb-l">Avg Annual Return · gross / net</div></div>
+        <div><div class="sb-n">7%</div><div class="sb-l">Avg Cash-on-Cash</div></div>
+        <div><div class="sb-n">6 yrs</div><div class="sb-l">Avg Hold Period</div></div>
+      </div>
+      <table class="table rtable" style="font-size:11px">
+        <thead><tr><th>Park</th><th>Market</th><th>Hold</th><th>Gross EM</th><th>Gross AAR</th><th class="net">Net EM</th><th class="net">Net AAR</th><th class="net">Avg Net CoC</th></tr></thead>
+        <tbody>
+          <tr><td>Royal Palms</td><td>Mesa, AZ</td><td>'14–'21</td><td>4.93x</td><td>62.2%</td><td class="net">4.04x</td><td class="net">44.4%</td><td class="net">8.8%</td></tr>
+          <tr><td>Cottonwood</td><td>Cottonwood, AZ</td><td>'14–'18</td><td>3.50x</td><td>42.0%</td><td class="net">2.87x</td><td class="net">30.0%</td><td class="net">6.7%</td></tr>
+          <tr><td>Peoria Palms</td><td>Peoria, AZ</td><td>'13–'23</td><td>3.48x</td><td>26.2%</td><td class="net">2.85x</td><td class="net">18.7%</td><td class="net">6.4%</td></tr>
+          <tr><td>Brighton MHC</td><td>Brighton, CO</td><td>'10–'18</td><td>3.21x</td><td>27.9%</td><td class="net">2.63x</td><td class="net">19.9%</td><td class="net">8.5%</td></tr>
+          <tr><td>Catalina Vista</td><td>Tucson, AZ</td><td>'18–'25</td><td>2.98x</td><td>21.6%</td><td class="net">2.44x</td><td class="net">15.4%</td><td class="net">7.5%</td></tr>
+          <tr><td>Lamplighter</td><td>Tucson, AZ</td><td>'16–'23</td><td>2.71x</td><td>27.0%</td><td class="net">2.22x</td><td class="net">19.3%</td><td class="net">6.7%</td></tr>
+          <tr><td>Candlewood</td><td>Las Vegas, NV</td><td>'21–'23</td><td>2.50x</td><td>98.4%</td><td class="net">2.05x</td><td class="net">70.3%</td><td class="net">12.9%</td></tr>
+          <tr><td>Prince Park</td><td>Tucson, AZ</td><td>'16–'24</td><td>2.45x</td><td>20.3%</td><td class="net">2.01x</td><td class="net">14.5%</td><td class="net">7.0%</td></tr>
+          <tr><td>Deserama</td><td>Mesa, AZ</td><td>'17–'25</td><td>2.12x</td><td>15.8%</td><td class="net">1.74x</td><td class="net">11.3%</td><td class="net">5.8%</td></tr>
+          <tr><td>Highland Park</td><td>Bayfield, CO</td><td>'09–'15</td><td>1.89x</td><td>13.7%</td><td class="net">1.55x</td><td class="net">9.8%</td><td class="net">5.7%</td></tr>
+          <tr><td>Desert Valley Oasis</td><td>Mesa, AZ</td><td>'18–'23</td><td>1.79x</td><td>14.3%</td><td class="net">1.47x</td><td class="net">10.2%</td><td class="net">4.0%</td></tr>
+          <tr><td>Ace Village</td><td>Las Vegas, NV</td><td>'18–'23</td><td>1.66x</td><td>13.3%</td><td class="net">1.36x</td><td class="net">9.5%</td><td class="net">5.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 30 ASSETS UNDER MANAGEMENT -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:16px"><span class="eyebrow">Current Portfolio</span><h1 class="headline headline--h2">30 Communities · <span class="accent">$435M+ AUM</span></h1></div>
+      <div class="grid gap-lg grow" style="grid-template-columns:0.82fr 1.18fr">
+        <div class="col" style="justify-content:center">
+          <img class="us-map" src="./assets/us-map-current.svg" style="width:100%" alt="Arizona & Texas footprint">
+          <div class="grid grid-2 gap-md" style="margin-top:22px">
+            <div class="stat stat--sm"><div class="stat__num">3,170+</div><div class="stat__label">Spaces Under Mgmt</div></div>
+            <div class="stat stat--sm"><div class="stat__num">$220M</div><div class="stat__label">Investor Equity</div></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="pl-h">Phoenix MSA · 17 Communities</div>
+          <div class="grid grid-2" style="gap:0 28px">
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Villa Trio Portfolio (3x)</span><span class="pl-num pl-sp">230</span><span class="pl-num pl-lp">$17.8M</span><span class="pl-num pl-px">$28.3M</span></div>
+              <div class="pl-row"><span class="pl-n">West Phoenix Portfolio (2x)</span><span class="pl-num pl-sp">229</span><span class="pl-num pl-lp">$15.9M</span><span class="pl-num pl-px">$20.7M</span></div>
+              <div class="pl-row"><span class="pl-n">Fiesta Village</span><span class="pl-num pl-sp">166</span><span class="pl-num pl-lp">$14.0M</span><span class="pl-num pl-px">$21.2M</span></div>
+              <div class="pl-row"><span class="pl-n">Villa Carmel</span><span class="pl-num pl-sp">146</span><span class="pl-num pl-lp">$6.3M</span><span class="pl-num pl-px">$11.3M</span></div>
+              <div class="pl-row"><span class="pl-n">Phoenix West</span><span class="pl-num pl-sp">110</span><span class="pl-num pl-lp">$9.1M</span><span class="pl-num pl-px">$11.2M</span></div>
+              <div class="pl-row"><span class="pl-n">Flamingo</span><span class="pl-num pl-sp">107</span><span class="pl-num pl-lp">$8.9M</span><span class="pl-num pl-px">$12.9M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Moon Valley</span><span class="pl-num pl-sp">103</span><span class="pl-num pl-lp">$4.7M</span><span class="pl-num pl-px">$9.5M</span></div>
+            </div>
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Royal Glen</span><span class="pl-num pl-sp">95</span><span class="pl-num pl-lp">$8.4M</span><span class="pl-num pl-px">$12.1M</span></div>
+              <div class="pl-row"><span class="pl-n">Paradise View</span><span class="pl-num pl-sp">82</span><span class="pl-num pl-lp">$8.9M</span><span class="pl-num pl-px">$9.2M</span></div>
+              <div class="pl-row"><span class="pl-n">McCoys (Recap)</span><span class="pl-num pl-sp">80</span><span class="pl-num pl-lp">$5.3M</span><span class="pl-num pl-px">$11.0M</span></div>
+              <div class="pl-row"><span class="pl-n">Royal Palms Village (Recap)</span><span class="pl-num pl-sp">78</span><span class="pl-num pl-lp">$4.3M</span><span class="pl-num pl-px">$9.0M</span></div>
+              <div class="pl-row"><span class="pl-n">Christown</span><span class="pl-num pl-sp">57</span><span class="pl-num pl-lp">$1.5M</span><span class="pl-num pl-px">$3.6M</span></div>
+              <div class="pl-row"><span class="pl-n">Covered Wagon RV</span><span class="pl-num pl-sp">52</span><span class="pl-num pl-lp">$1.1M</span><span class="pl-num pl-px">$4.3M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Peoria Palms (Recap)</span><span class="pl-num pl-sp">39</span><span class="pl-num pl-lp">$4.5M</span><span class="pl-num pl-px">$4.3M</span></div>
+            </div>
+          </div>
+          <div class="pl-h" style="margin-top:12px">Tucson MSA · 9 Communities</div>
+          <div class="grid grid-2" style="gap:0 28px">
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Acacia Gardens</span><span class="pl-num pl-sp">193</span><span class="pl-num pl-lp">$10.3M</span><span class="pl-num pl-px">$15.5M</span></div>
+              <div class="pl-row"><span class="pl-n">Romero Estates</span><span class="pl-num pl-sp">112</span><span class="pl-num pl-lp">$4.4M</span><span class="pl-num pl-px">$6.5M</span></div>
+              <div class="pl-row"><span class="pl-n">Palm Vista</span><span class="pl-num pl-sp">106</span><span class="pl-num pl-lp">$5.1M</span><span class="pl-num pl-px">$8.3M</span></div>
+              <div class="pl-row"><span class="pl-n">Carousel Ranch</span><span class="pl-num pl-sp">95</span><span class="pl-num pl-lp">$4.7M</span><span class="pl-num pl-px">$7.2M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Westward Village</span><span class="pl-num pl-sp">79</span><span class="pl-num pl-lp">$3.5M</span><span class="pl-num pl-px">$5.9M</span></div>
+            </div>
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Lamplighter (Recap)</span><span class="pl-num pl-sp">67</span><span class="pl-num pl-lp">$4.9M</span><span class="pl-num pl-px">$4.8M</span></div>
+              <div class="pl-row"><span class="pl-n">Prince Park (Recap)</span><span class="pl-num pl-sp">62</span><span class="pl-num pl-lp">$5.4M</span><span class="pl-num pl-px">$5.3M</span></div>
+              <div class="pl-row"><span class="pl-n">Rancho Del Sol</span><span class="pl-num pl-sp">58</span><span class="pl-num pl-lp">$1.5M</span><span class="pl-num pl-px">$3.5M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Desert Cove</span><span class="pl-num pl-sp">54</span><span class="pl-num pl-lp">$1.4M</span><span class="pl-num pl-px">$1.9M</span></div>
+            </div>
+          </div>
+          <div class="pl-h" style="margin-top:12px">Texas · 4 Communities</div>
+          <div class="grid grid-2" style="gap:0 28px">
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Conroe Estates</span><span class="pl-num pl-sp">422</span><span class="pl-num pl-lp">$32.5M</span><span class="pl-num pl-px">$54.1M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Center Point</span><span class="pl-num pl-sp">167</span><span class="pl-num pl-lp">$15.9M</span><span class="pl-num pl-px">$27.8M</span></div>
+            </div>
+            <div>
+              <div class="pl-colh"><span class="pl-n">Community</span><span class="pl-sp">Sp</span><span class="pl-lp">LP&nbsp;Eq</span><span class="pl-px">Price</span></div>
+              <div class="pl-row"><span class="pl-n">Anna Crossing</span><span class="pl-num pl-sp">100</span><span class="pl-num pl-lp">$8.5M</span><span class="pl-num pl-px">$10.1M</span></div>
+              <div class="pl-row" style="border-bottom:0"><span class="pl-n">Casa Piena</span><span class="pl-num pl-sp">87</span><span class="pl-num pl-lp">$8.8M</span><span class="pl-num pl-px">$14.1M</span></div>
+            </div>
+          </div>
+          <div class="mono-cap" style="margin-top:10px">Sp = spaces · LP&nbsp;Eq = investor (LP) equity · Price = purchase price (offering) · (Recap) = recapitalized</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART 05 · THE TEAM  (kept from overview)                       -->
+  <!-- ============================================================= -->
+
+  <!-- 33 DIVIDER: PART 05 · THE TEAM -->
+  <section class="slide no-footer">
+    <div class="divider">
+      <div class="divider__media"><img src="./assets/hs-aerial.jpg" alt=""></div>
+      <div class="divider__body">
+        <img class="divider__mark" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        <span class="divider__eyebrow">Part 05</span>
+        <div class="divider__title">The <span class="accent">Team</span></div>
+        <div class="divider__inthis"><span class="lead">In this part</span>Leadership &nbsp;·&nbsp; FAQs &nbsp;·&nbsp; Next Steps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 34 LEADERSHIP -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Leadership</span><h1 class="headline headline--h2">Operators With Institutional Pedigree</h1></div>
+      <div class="grid grid-5 lead grow" style="align-content:center;gap:20px">
+        <div><img class="headshot" src="./assets/team-blake.jpg" alt=""><div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Blake Comfort</div><div class="label cyan" style="color:var(--cyan);margin:4px 0 8px">Co-Founder · Principal</div><div class="vc__d">Blake co-founded Comfort Capital in 2009 and leads capital markets, acquisitions and lender relationships. Over 17 years he has guided the acquisition of more than 45 communities and built the firm's broker and banking network across the Southwest. He is a licensed pilot and lives in San Diego with his wife and three children.</div></div>
+        <div><img class="headshot" src="./assets/team-jennifer.jpg" alt=""><div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Jennifer Purcell</div><div class="label cyan" style="color:var(--cyan);margin:4px 0 8px">Co-Founder · Principal</div><div class="vc__d">Jennifer co-founded the firm in 2009 and oversees operations and investor relations. A San Diego State graduate raised in real estate (her father developed over 4,000 residential units), she built Comfort's in-house management team and its base of 400+ investors from the ground up.</div></div>
+        <div><img class="headshot" src="./assets/team-ben.jpg" alt=""><div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Benjamin Schuster</div><div class="label cyan" style="color:var(--cyan);margin:4px 0 8px">Partner · Head of Capital Formation</div><div class="vc__d">Ben leads capital formation and investor relations. He spent seven years at BlackRock on its $10B+ private-equity real-estate team, underwriting and managing institutional assets. He holds an MS in Real Estate from the University of San Diego and a BA in Finance and Economics from CSU Chico.</div></div>
+        <div><img class="headshot" src="./assets/team-tide.jpg" alt=""><div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Tide Eldridge</div><div class="label cyan" style="color:var(--cyan);margin:4px 0 8px">Partner · Chief Operating Officer</div><div class="vc__d">Tide joined Comfort in 2015 and runs day-to-day operations through Comfort Communities. He specializes in repositioning older communities, having overseen hundreds of home installations and more than $1M in annual infrastructure improvements. He serves on the board of the Manufactured Housing Association of Arizona.</div></div>
+        <div><img class="headshot" src="./assets/team-morgan-hampel.jpg" alt=""><div class="thumb-lab" style="font-family:var(--serif);font-size:16px;margin-top:12px">Morgan Hampel</div><div class="label cyan" style="color:var(--cyan);margin:4px 0 8px">VP of Capital Formation</div><div class="vc__d">Morgan serves as Vice President of Capital Formation, leading Comfort Capital's capital raising efforts alongside senior leadership. He grows the firm's investor network and works with investor relations to build long-term partnerships and fund new acquisitions. His background includes 12 years as a Navy Nuclear Surface Warfare Officer and co-founding Hammer &amp; Hampel, which has acquired and manages 1,100+ multifamily units.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 36 FAQ -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Frequently Asked</span><h1 class="headline headline--h2">Investor FAQs</h1></div>
+      <div class="grid grid-2 gap-lg grow">
+        <div>
+          <div class="qa"><div class="qa__q">Can I invest using SDIRA / SD401K funds?</div><div class="qa__a">Yes, so long as your provider permits the use of funds for MHC investing and proper regulations are followed. We advise working closely with your custodian.</div></div>
+          <div class="qa"><div class="qa__q">What is the minimum investment?</div><div class="qa__a">$100,000 is the minimum. Exceptions are at manager discretion.</div></div>
+          <div class="qa"><div class="qa__q">Do you provide investor reporting?</div><div class="qa__a">Yes. A comprehensive quarterly Asset Management Report covering progress and performance.</div></div>
+          <div class="qa" style="border-bottom:0"><div class="qa__q">When and how do I receive distributions?</div><div class="qa__a">Generally 3–6 months after closing. Once underway, distributions are sent monthly on the 10th via ACH direct deposit.</div></div>
+        </div>
+        <div>
+          <div class="qa"><div class="qa__q">What info do I provide my accountant?</div><div class="qa__a">Investors receive a secure Juniper Square portal at onboarding. Each year your K-1 is uploaded for download and delivery to your accountant.</div></div>
+          <div class="qa"><div class="qa__q">What happens after you sell a community?</div><div class="qa__a">We may consolidate neighboring assets and pursue a 1031 exchange into an up-leg property, deferring capital-gains tax while compounding investor capital.</div></div>
+          <div class="qa" style="border-bottom:0"><div class="qa__q">Am I investing in a fund?</div><div class="qa__a">No. Each deal is structured as an individual LLC. Investors own a pro-rata share of the specific property, increasing transparency and reducing blind-pool risk.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 37 NEXT STEPS -->
+  <section class="slide--navy slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">Next Steps</span><h1 class="headline headline--h2">Invest With Us</h1></div>
+      <div class="grid gap-lg" style="grid-template-columns:1fr 1.1fr;margin-top:8px">
+        <div class="col">
+          <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="cl-v">2081 N Marshall Ave, El Cajon, CA 92020</span></div>
+          <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span class="cl-v">(619) 922-7954</span></div>
+          <div class="contact-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span class="cl-v">www.ComfortCapital.com</span></div>
+          <div class="contact-line"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="cl-v">Invest@ComfortCapital.com</span></div>
+          <img src="./assets/team-group.jpg" style="max-height:300px;width:auto;max-width:100%;align-self:flex-start;border-radius:var(--radius);margin-top:16px" alt="">
+        </div>
+        <div class="col" style="justify-content:space-between">
+          <div class="mono-cap" style="color:var(--cyan);letter-spacing:.16em;margin-bottom:4px">Investor Timeline</div>
+          <div class="step"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><div><div class="step__t">Live Webinar &amp; Fundraising Open</div><div class="step__d" style="font-weight:700;color:var(--cyan)">November 5, 2026</div></div></div>
+          <div class="step"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg></div><div><div class="step__t">Documents &amp; Funding Deadline</div><div class="step__d" style="font-weight:700;color:var(--cyan)">December 1, 2026</div></div></div>
+          <div class="step"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div><div><div class="step__t">Property Close</div><div class="step__d" style="font-weight:700;color:var(--cyan)">December 18, 2026</div></div></div>
+          <div class="step" style="border-bottom:0"><div class="chip"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9a3 3 0 0 0-3-2c-1.7 0-3 1-3 2.3 0 3 6 1.7 6 4.7 0 1.4-1.3 2.3-3 2.3a3 3 0 0 1-3-2"/><path d="M12 5v14"/></svg></div><div><div class="step__t">Distributions Start</div><div class="step__d" style="font-weight:700;color:var(--cyan)">June 10, 2027</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 38 DEFINITIONS & CALCULATIONS -->
+  <section class="slide--navy slide">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:20px"><span class="eyebrow">Definitions &amp; Calculations</span><h1 class="headline headline--h2">How We Calculate Returns</h1></div>
+      <div class="defs3 grow">
+        <div>
+          <div class="def"><div class="def__t">Holding Period</div><div class="def__d">Years between acquisition and exit; months are divided by 12 and added to the year count.</div></div>
+          <div class="def"><div class="def__t">Equity Multiple (EM)</div><div class="def__d">How much an investor could make on the initial investment. 2.25x implies $2.25 returned for every $1 invested.</div></div>
+          <div class="def"><div class="def__t">Average Annual Return (AAR)</div><div class="def__d">Total historical return expressed as a single annualized percentage over the holding period.</div></div>
+          <div class="def"><div class="def__t">Cash-on-Cash (CoC)</div><div class="def__d">Annual cash income relative to cash invested; excludes sale proceeds.</div></div>
+          <div class="def"><div class="def__t">Gross Total Return</div><div class="def__d">Sale proceeds plus total distributions, less equity raised, divided by equity raised. Property level.</div></div>
+        </div>
+        <div>
+          <div class="def"><div class="def__t">Gross EM</div><div class="def__d">Total sale proceeds plus distributions, divided by total invested. Property level; includes acquisition/management fees.</div></div>
+          <div class="def"><div class="def__t">Gross AAR</div><div class="def__d">Gross total return divided by the holding period, annualized before investor-level fees and promotes.</div></div>
+          <div class="def"><div class="def__t">Gross CoC</div><div class="def__d">Cash distributed over the investment life divided by initial cash, then by the holding period. Property level.</div></div>
+          <div class="def"><div class="def__t">Gross IRR</div><div class="def__d">The annualized, time-weighted return on all property-level cash flows and sale proceeds, before investor fees and promotes. Unlike AAR, it accounts for the timing of every dollar in and out.</div></div>
+          <div class="def"><div class="def__t">Net Total Return</div><div class="def__d">Total return at the investor level, realized after all sponsor promotes and fees.</div></div>
+          <div class="def"><div class="def__t">Net EM</div><div class="def__d">The equity multiple at the investor level per park, once promotes and fees are removed.</div></div>
+        </div>
+        <div>
+          <div class="def"><div class="def__t">Net AAR</div><div class="def__d">Net total return divided by the holding period; the annualized investor-level return, net of fees and promotes.</div></div>
+          <div class="def"><div class="def__t">Net CoC</div><div class="def__d">The cash-on-cash return for an individual park at the investor level, after promotes.</div></div>
+          <div class="def"><div class="def__t">Net IRR</div><div class="def__d">The annualized, time-weighted return an LP actually earns, after all sponsor fees and promotes. It reflects when capital is contributed and when cash is distributed, and is the headline return on the summary page.</div></div>
+          <div class="def"><div class="def__t">Weighted Average EM / AAR / CoC</div><div class="def__d">Each park's metric weighted by its share of total portfolio equity, summed, then divided by total equity invested.</div></div>
+          <div class="def"><div class="def__t">Average Holding Period</div><div class="def__d">The holding periods of all parks sold, added together and divided by the number of parks sold.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 39 BACK COVER -->
+  <section class="slide no-footer">
+    <div class="endcover">
+      <img class="cover__bg" src="./assets/hs-backcover.jpg" alt="">
+      <div class="cover__scrim" style="background:rgba(15,23,33,.80)"></div>
+      <div style="position:relative;text-align:center;color:#fff">
+        <img src="../../../Design File/brand/logo/cc-lockup-h-white.png" style="height:80px;margin:0 auto 30px" alt="Comfort Capital">
+        <div class="quote quote--italic" style="color:#fff;font-size:24px">Homestead MHC<br><span class="accent">Phoenix, Arizona</span></div>
+        <div class="mono-cap" style="color:#B9C6D2;margin-top:22px">Invest@ComfortCapital.com &nbsp;·&nbsp; (619) 922-7954 &nbsp;·&nbsp; ComfortCapital.com</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var DISC = 'Any projections, opinions, assumptions or estimates used are for example only and do not represent the current or future performance of the property. Interested parties should consult with their independent advisors to determine if investing in any opportunity sponsored by Comfort Communities is suitable for their needs. Source: Comfort Capital, LLC (2026).';
+  var LOGO = '../../../Design File/brand/logo';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  slides.forEach(function(s, i){
+    if (s.classList.contains('no-footer')) return;
+    var pg = String(i+1).padStart(2,'0');
+    var logo = s.classList.contains('slide--navy') ? 'cc-lockup-h-white' : 'cc-lockup-h-color';
+    var disc = s.getAttribute('data-disc') || DISC;
+    s.insertAdjacentHTML('beforeend', '<img class="page-logo" src="'+LOGO+'/'+logo+'.png" alt="">');
+    var html = '<div class="footer"><div class="footer__spacer"></div>'+
+               '<div class="footer__disc">'+disc+'</div>'+
+               '<div class="footer__pg">'+pg+' / '+total+'</div></div>';
+    s.insertAdjacentHTML('beforeend', html);
+  });
+})();
+</script>
+</body>
+</html>

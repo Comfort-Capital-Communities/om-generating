@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Sunday Special — How Did You Do It</title>
+<link rel="stylesheet" href="../../../Design File/brand/fonts.css">
+<style>
+/* =======================================================================
+   THE SUNDAY SPECIAL — weekly brief (portrait letter document)
+   Reuses the Comfort Capital brand tokens (navy/cyan/paper + Montserrat)
+   from Design File/brand, laid out as a flowing document rather than 16:9.
+   Matches the ROAD Act gold-standard edition.
+   ======================================================================= */
+:root{
+  --cyan:#08A4DB; --cyan-deep:#0784B0; --navy:#172331; --navy-2:#223247;
+  --charcoal:#221E1F; --white:#fff;
+  --paper:#FFFFFF; --paper-2:#F1F3F5; --card:#fff; --line:#E4E7EB;
+  --ink:#2A2622; --ink-strong:#151A22; --ink-muted:#5C574E; --ink-faint:#8C8578;
+  --on-navy:#EAF1F6; --on-navy-mut:#9FB2C4;
+  --sans:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ background:#3a3a3a; }
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--paper);
+  -webkit-font-smoothing:antialiased; text-rendering:geometricPrecision;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  font-size:15.5px; line-height:1.7;
+}
+img{ display:block; max-width:100%; }
+a{ color:var(--cyan-deep); text-decoration:none; }
+
+/* ---- page + running footer ---- */
+@page{ size:8.5in 11in; margin:46px 0 44px 0; }
+@page :first{ margin:0 0 44px 0; }
+@media print{ html,body{ background:var(--paper); } }
+.doc{ width:100%; margin:0 auto; padding:0 40px; }
+@media screen{
+  html{ padding:26px 0; background:#3a3a3a; }
+  .doc{ width:816px; background:var(--paper); padding:0 40px 42px; box-shadow:0 10px 40px rgba(0,0,0,.35); }
+}
+/* end-of-document footer (flowed once, after the sign-off) */
+.endfoot{
+  margin-top:26px; padding:18px 0 4px; border-top:1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:9px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); font-weight:600; break-inside:avoid;
+}
+.endfoot img{ height:20px; width:auto; opacity:.92; }
+.endfoot .mid{ letter-spacing:.28em; }
+
+/* ---- masthead ---- */
+.mast{
+  background:var(--navy); color:#fff;
+  padding:44px 40px 30px; margin:0 -40px 30px; position:relative; overflow:hidden;
+}
+.mast::after{ content:""; position:absolute; right:-70px; top:-70px; width:230px; height:230px;
+  border-radius:50%; background:radial-gradient(circle at center, rgba(8,164,219,.22), rgba(8,164,219,0) 70%); }
+.mast__top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; position:relative; z-index:1; }
+.mast__top img{ height:26px; }
+.mast__tag{ border:1px solid rgba(255,255,255,.34); color:#fff; border-radius:100px;
+  padding:5px 14px; font-size:9.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+.mast__title{ font-weight:800; font-size:52px; line-height:.98; letter-spacing:-.03em; position:relative; z-index:1; }
+.mast__title .accent{ color:var(--cyan); font-style:italic; }
+.mast__sub{ margin-top:14px; color:#CFDDE8; font-size:13px; letter-spacing:.02em; position:relative; z-index:1; }
+.mast__sub b{ color:#fff; font-weight:600; }
+.mast__by{ margin-top:9px; font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--cyan); position:relative; z-index:1; }
+.mast__author{ position:absolute; top:80px; right:40px; width:82px; height:82px; border-radius:50%;
+  object-fit:cover; object-position:center 22%; border:2px solid rgba(255,255,255,.6); z-index:2; }
+.mast__subject{ margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.16);
+  font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--on-navy-mut); position:relative; z-index:1; }
+.mast__subject b{ color:var(--cyan); font-weight:600; }
+
+/* ---- section headers ---- */
+.sec{ margin-top:12px; }
+.sec__head{ margin:40px 0 20px; padding-top:26px; border-top:2px solid var(--navy); break-after:avoid; break-inside:avoid; }
+.sec__eyebrow{ display:flex; align-items:center; gap:12px; font-size:10.5px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; }
+.sec__eyebrow .num{ background:var(--cyan); color:#fff; border-radius:4px; padding:2px 8px; letter-spacing:.06em; }
+.sec__title{ font-weight:800; font-size:30px; line-height:1.08; letter-spacing:-.02em; color:var(--ink-strong); }
+.sec__title .accent{ color:var(--cyan); }
+.subhead{ font-weight:800; font-size:18px; letter-spacing:-.01em; color:var(--navy);
+  margin:30px 0 10px; break-after:avoid; }
+.subhead::before{ content:""; display:inline-block; width:20px; height:3px; background:var(--cyan);
+  vertical-align:middle; margin-right:11px; border-radius:2px; }
+/* sections that start their own page */
+.sec--break{ break-before:page; }
+.sec--break .sec__head,
+.sec--first .sec__head{ margin-top:0; padding-top:0; border-top:0; }
+/* first section flows directly under the masthead (no page break, no top rule) */
+.sec--first{ margin-top:0; }
+
+/* ---- body copy ---- */
+.lead{ font-size:16px; color:var(--ink-strong); font-weight:600; letter-spacing:.01em; margin-bottom:6px; }
+p{ margin-bottom:13px; color:var(--ink); }
+p.tight{ margin-bottom:8px; }
+.muted{ color:var(--ink-muted); }
+strong{ font-weight:700; color:var(--ink-strong); }
+a.inline{ color:var(--cyan-deep); font-weight:600; border-bottom:1.5px solid rgba(8,164,219,.4); padding-bottom:1px; }
+
+/* ---- my-take callout ---- */
+.take{ background:rgba(8,164,219,.07); border:1px solid rgba(8,164,219,.22); border-left:4px solid var(--cyan);
+  border-radius:6px; padding:16px 20px; margin:18px 0; break-inside:avoid; }
+.take__lab{ font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan-deep); margin-bottom:6px; }
+.take p{ margin:0; font-size:14px; color:var(--ink); line-height:1.66; }
+
+/* ---- pull quote ---- */
+.pull{ border-left:4px solid var(--cyan); padding:4px 0 4px 20px; margin:22px 0;
+  font-weight:800; font-size:21px; line-height:1.28; letter-spacing:-.01em; color:var(--navy); break-inside:avoid; }
+
+/* ---- figures / photo gallery ---- */
+.figure{ break-inside:avoid; margin:16px 0; }
+.figure__frame{ border-radius:6px; overflow:hidden; border:1px solid var(--line); background:var(--paper-2); box-shadow:0 2px 10px rgba(23,35,49,.08); aspect-ratio:16/9; }
+/* shorter crop so a figure fits on the same page as its section body */
+.figure--fit .figure__frame{ aspect-ratio:auto; height:270px; }
+.figure--fit .figure__frame img{ object-position:center 38%; }
+.figure__frame img{ width:100%; height:100%; object-fit:cover; }
+.figure__cap{ display:flex; gap:8px; margin-top:8px; font-size:10.5px; line-height:1.4; color:var(--ink-faint); letter-spacing:.01em; }
+.figure__cap b{ color:var(--cyan-deep); font-weight:700; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
+.gallery{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px auto 8px; break-inside:avoid; }
+.gallery .figure{ margin:0; }
+
+/* ---- CTA button ---- */
+.btn{ display:inline-flex; align-items:center; gap:10px; border-radius:100px; padding:14px 26px;
+  font-weight:700; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; }
+.btn--navy{ background:var(--navy); color:#fff; }
+.btn .arw{ font-size:13px; color:var(--cyan); }
+
+/* ---- sign-off ---- */
+.signoff{ margin-top:44px; padding-top:24px; border-top:2px solid var(--navy); break-inside:avoid; }
+.signoff .thanks{ font-weight:700; font-size:15.5px; color:var(--ink-strong); margin-bottom:14px; line-height:1.6; }
+.signoff .creed{ font-weight:800; font-size:17px; color:var(--navy); letter-spacing:-.01em; margin:14px 0 18px; }
+.sig__photo{ width:78px; height:78px; border-radius:50%; object-fit:cover; object-position:center 22%;
+  border:2px solid var(--line); margin-bottom:12px; }
+.sig__name{ font-weight:800; font-size:18px; color:var(--ink-strong); letter-spacing:-.01em; }
+.sig__role{ font-size:12.5px; color:var(--cyan-deep); font-weight:600; letter-spacing:.04em; margin-top:2px; }
+.sig__book{ margin-top:18px; }
+.sig__contact{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:11.5px; color:var(--ink-muted); letter-spacing:.02em; display:flex; flex-wrap:wrap; gap:6px 14px; }
+.sig__contact span{ display:inline-flex; align-items:center; gap:8px; }
+.sig__contact .dot{ width:4px; height:4px; border-radius:50%; background:var(--cyan); }
+.disclose{ font-size:9.5px; line-height:1.55; color:var(--ink-faint); margin-top:18px; break-inside:avoid; }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="mast">
+    <div class="mast__top">
+      <img src="../../../Design File/brand/logo/lockup-h-white.png" alt="Comfort Capital">
+      <span class="mast__tag">Weekly Brief</span>
+    </div>
+    <img class="mast__author" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+    <div class="mast__title">The Sunday <span class="accent">Special</span></div>
+    <div class="mast__sub"><b>Markets. Strategy. Leadership.</b> &nbsp;A weekly brief from Comfort Capital.</div>
+    <div class="mast__by">By Morgan Hampel</div>
+    <div class="mast__subject">In this issue &nbsp;·&nbsp; <b>Captain Dave Carey</b> &nbsp;·&nbsp; Four Lines to Live By</div>
+  </header>
+
+  <!-- ============ 01 · THIRTY SECONDS IN 1967 ============ -->
+  <section class="sec sec--first">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">01</span> The Brief</div>
+      <h2 class="sec__title">Thirty Seconds in <span class="accent">1967</span></h2>
+    </div>
+
+    <p>He opened with the airplane.</p>
+    <p>He was flying a combat mission over North Vietnam when the first surface-to-air missile came up at him. He dodged it. Then he picked up the second one and understood the problem immediately.</p>
+    <p>It wasn&rsquo;t moving. <strong>CBDR.</strong></p>
+    <p>Any pilot or any mariner knows what that means. Constant bearing, decreasing range. If a contact is closing on you and holding the same spot in your windscreen, the bearing is constant, and decreasing range means collision. The ones that appear to be tracking somewhere else are the ones that miss you. The one that looks frozen in place is the one with your name on it.</p>
+
+    <p class="pull">The one that looks frozen in place is the one with your name on it.</p>
+
+    <p>He rolled hoping for it to pass underneath but it clipped him. He ejected. His wingman saw him come down and could not get to him.</p>
+    <p>Soon later he was captured. He did not come home until 1973.</p>
+
+    <figure class="figure figure--fit">
+      <div class="figure__frame"><img src="assets/fig-carey-speaking.jpg" alt="Captain Dave Carey speaking at Jets and Vets"></div>
+      <figcaption class="figure__cap"><b>Fig. 1</b><span>Capt. Dave Carey, USN (Ret.), speaking at Jets and Vets. San Diego, 2026.</span></figcaption>
+    </figure>
+
+    <p>Here is where the room expected the story to go dark. It did not.</p>
+  </section>
+
+  <!-- ============ 02 · THE ALPHABET IN A BOX ============ -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">02</span> The Playbook</div>
+      <h2 class="sec__title">The Alphabet in a <span class="accent">Box</span></h2>
+    </div>
+
+    <h3 class="subhead">Shave and a Haircut</h3>
+    <p>The first problem in confinement isn&rsquo;t just loneliness. It is that you do not know who is next to you.</p>
+    <p>So he would tap on the wall. Five beats. <em>Shave and a haircut.</em></p>
+    <p>If two beats came back &mdash; <em>two bits</em> &mdash; he had an American.</p>
+    <p>Sit with that for a second. The thing that identified him was a rhythm every American alive in 1967 had somewhere in his body, and that no guard in Hanoi had any reason to recognize. They were held in separate cells specifically so they could not become a group. It took five taps to defeat that.</p>
+
+    <h3 class="subhead">The Alphabet in a Box</h3>
+    <p>Once you have found each other, you need language.</p>
+    <p>They built it out of a grid. Put the alphabet into rows and columns, and every letter becomes two numbers. Tap the row, pause, tap the column. That is one letter. Start again for the next one.</p>
+    <p>It is slow. It is also a working communications network built by men in isolation, using a wall and a knuckle &mdash; and they used it to run a school. Get caught with calluses and you&rsquo;d get beat.</p>
+    <p>Whatever a man knew, he taught, because what was in their heads was the only raw material anybody had. Math. History. Engineering. Carey knew French. So Carey taught French.</p>
+
+    <p class="pull">&ldquo;By the end of it,&rdquo; he said, &ldquo;I had six men fluent in French.&rdquo; Then he paused. &ldquo;According to me.&rdquo;</p>
+
+    <p>The room burst into laughter.</p>
+    <p>That is the whole talk in three words. A man describing a prison, getting a room of business people to laugh out loud, never once asking anybody to feel sorry for him. He did that for an hour. It was not a technique he was recommending. You got the sense it is how he got out.</p>
+    <p>When he says faith in your teammates, this is what he is pointing at. Not a sentiment. A system, built letter by letter, at two taps a character.</p>
+
+    <div class="gallery">
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig-room.jpg" alt="Jets and Vets audience and stage"></div>
+        <figcaption class="figure__cap"><b>Fig. 2</b><span>Jets and Vets, hosted with the University of San Diego.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig-welcome.jpg" alt="Captain Carey welcomed to the stage"></div>
+        <figcaption class="figure__cap"><b>Fig. 3</b><span>Capt. Carey (right) welcomed to the stage.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig-carey-mic.jpg" alt="Captain Carey addressing the room"></div>
+        <figcaption class="figure__cap"><b>Fig. 4</b><span>Forty-five minutes, and the room never sat still.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure__frame"><img src="assets/fig-hangar.jpg" alt="Vintage trainer aircraft in the hangar"></div>
+        <figcaption class="figure__cap"><b>Fig. 5</b><span>The hangar &mdash; where Jets and Vets was held.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 · HOW DID YOU DO IT ============ -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__eyebrow"><span class="num">03</span> The Answer</div>
+      <h2 class="sec__title">How Did You <span class="accent">Do It</span></h2>
+    </div>
+
+    <p>Someone asked him the question everyone in the room was holding. Everything in the hour had circled back to the same four answers, and he gave them plainly.</p>
+    <p><strong>Do what you have to do.</strong> The least heroic of the four, and it comes first. Not do something extraordinary. Do the next thing in front of you, and then do it again tomorrow, for a length of time nobody is going to tell you in advance.</p>
+    <p><strong>Do your best.</strong> Notice what that is not. It is not <em>win.</em> Best is the part you own, and in a cell it was the only part he owned.</p>
+    <p><strong>Keep your sense of humor.</strong> He had already proven this one on stage before he said it out loud.</p>
+    <p><strong>Keep the faith.</strong> In yourself, in your teammates and in God.</p>
+    <p>No framework. No acronym. Nothing you would put on a slide. Four lines simple enough to hold onto for 2,000 days.</p>
+
+    <p class="pull">Do what you have to do. Do your best. Keep your sense of humor. Keep the faith.</p>
+
+    <h3 class="subhead">The Part I Keep Thinking About</h3>
+    <p>He was dating a girl before he deployed. He had told her that if anything ever happened to him, she should go meet his parents.</p>
+    <p>Something happened to him. She went and met his parents.</p>
+    <p>Five and a half years later he came home. They got married.</p>
+    <p>I do not have a business lesson for that. I just have not stopped thinking about it &mdash; what love can do, and what hope and keeping the faith can carry.</p>
+
+    <h3 class="subhead">What I&rsquo;m Not Going to Do</h3>
+    <p>I am not going to draw a straight line from a prison in Hanoi to a real estate portfolio. Nothing we do compares, and reaching for that comparison would cheapen what he lived through.</p>
+    <p>But there is one honest piece of it that travels, and it is not the suffering. It is the not knowing.</p>
+    <p>Nobody told him it would be five and a half years. Not in 1967, not in 1969, not in 1971. He woke up every one of those mornings without a date, and the four things are what you use when you cannot see the end of the thing you are in.</p>
+
+    <div class="take">
+      <div class="take__lab">My take</div>
+      <p>We hold assets for years. We underwrite a business plan and then find out what the business plan was actually going to be. Rates move, insurance moves, a market cools, a crew walks off a job. Most of what decides the outcome is not up to us on any given Tuesday. What <em>is</em> up to us is whether we do the next thing, do it well, stay human while we do it, and keep faith.</p>
+    </div>
+
+    <p>He wrote a book about it in 2000, <em>The Ways We Choose.</em> The title is the argument: you do not pick the circumstance, you pick the response.</p>
+
+    <p class="pull">You do not pick the circumstance. You pick the response.</p>
+
+    <p><a class="inline" href="https://www.amazon.com/s?k=The+Ways+We+Choose+Dave+Carey">The Ways We Choose: Lessons for Life from a POW&rsquo;s Experience &mdash; on Amazon</a>.</p>
+
+    <figure class="figure">
+      <div class="figure__frame"><img src="assets/fig-program.jpg" alt="Jets and Vets event program"></div>
+      <figcaption class="figure__cap"><b>Fig. 6</b><span>The evening&rsquo;s program &mdash; &ldquo;Light the way for our military-connected community.&rdquo;</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ SIGN-OFF ============ -->
+  <div class="signoff">
+    <div class="thanks">Thank you to Captain Carey for giving us his afternoon, and to the University of San Diego for building this one with us. We&rsquo;ll do it again.</div>
+    <div class="creed">Do what you have to do. Do your best. Keep your sense of humor. Keep the faith.</div>
+    <p class="tight">See you next Sunday,</p>
+    <img class="sig__photo" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+    <div class="sig__name">Morgan Hampel</div>
+    <div class="sig__role">VP of Capital Formation</div>
+    <div><a class="btn btn--navy sig__book" href="https://api.leadconnectorhq.com/widget/group/zjnxgL0Tbf2DwpcEOsBg">Book a Call with Morgan <span class="arw">&rarr;</span></a></div>
+    <div class="sig__contact">
+      <span><span class="dot"></span>619-639-0313</span>
+      <span><span class="dot"></span><a href="mailto:mhampel@comfortcapital.com">mhampel@comfortcapital.com</a></span>
+      <span><span class="dot"></span>2081 N. Marshall Ave., El Cajon, CA 92020</span>
+    </div>
+
+    <div class="disclose">
+      This material is for informational and educational purposes only and reflects the personal views of the author. It is not investment, tax, legal or accounting advice, and it is not an offer to sell or a solicitation of an offer to buy any security; any such offer is made only to accredited investors through definitive offering documents. Past performance is not indicative of future results.
+    </div>
+  </div>
+
+  <div class="endfoot">
+    <img src="../../../Design File/brand/logo/lockup-h-charcoal.png" alt="Comfort Capital">
+    <span class="mid">The Sunday Special</span>
+    <span>Comfort Capital</span>
+  </div>
+
+</div>
+</body>
+</html>

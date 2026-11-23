@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comfort Capital — Tucson & Yuma Portfolio</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  .cover__title{ letter-spacing:-.012em; line-height:1.02; }
+  .footer__logo{ height:16px; opacity:.95; }
+  .footer__pg{ text-align:right; min-width:60px; }
+
+  /* ---- deal page ---- */
+  .ds{ padding:34px 48px 58px; }
+  .ds-photos{ display:grid; gap:9px; height:168px; margin-bottom:15px; }
+  .ds-ph{ overflow:hidden; border-radius:var(--radius); background:var(--paper-2); }
+  .ds-ph img{ width:100%; height:100%; object-fit:cover; }
+  .ds-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
+    border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px; }
+  .ds-name{ font-family:var(--display); font-weight:800; font-size:30px; letter-spacing:-.02em; color:var(--ink-strong); line-height:1; }
+  .ds-addr{ font-size:12.5px; color:var(--ink-muted); margin-top:7px; letter-spacing:.01em; }
+  .ds-tag{ font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan);
+    background:rgba(8,164,219,.10); padding:7px 13px; border-radius:100px; white-space:nowrap; }
+  .ds-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:16px; }
+  .ds-stats .stat{ padding-top:12px; }
+  .ds-stats .stat__num{ font-size:30px; }
+  .ds-stats .stat__label{ margin-top:9px; }
+  .ds-stats .stat__desc{ margin-top:5px; font-size:10.5px; }
+  .ds-tables{ display:grid; grid-template-columns:1.18fr 1fr; gap:26px; align-items:start; }
+  .ds-mini{ font-weight:700; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--cyan); margin-bottom:7px; }
+  .ds-t{ font-size:10.5px; }
+  .ds-t thead th{ padding:7px 9px; font-size:8.5px; }
+  .ds-t tbody td{ padding:4.5px 9px; }
+  .ds-t tbody tr.ds-sub td{ font-weight:700; color:var(--ink-strong); background:rgba(8,164,219,.06); }
+  .ds-t tbody tr.ds-tot td{ font-weight:800; color:var(--ink-strong);
+    border-top:2px solid var(--navy); border-bottom:0; background:var(--paper-2); }
+  .ds-u{ font-size:9.5px; table-layout:fixed; }
+  .ds-u thead th{ font-size:8px; padding:7px 10px; text-align:left; }
+  .ds-u tbody td{ padding:5px 10px; text-align:left; vertical-align:top; }
+  .ds-u tbody td:first-child{ font-weight:700; color:var(--ink-strong); line-height:1.25; }
+  .ds-u th:nth-child(1), .ds-u td:nth-child(1){ width:66px; }
+  .ds-u th:nth-child(2), .ds-u td:nth-child(2){ width:36%; }
+  .ds-u th:nth-child(3), .ds-u td:nth-child(3){ width:70px; }
+  .ds-u td:nth-child(3){ white-space:nowrap; font-weight:600; }
+  .ds-memo{ margin-top:9px; font-size:10.5px; color:var(--ink-muted); }
+  .ds-memo b{ color:var(--cyan); font-weight:800; }
+  .ds-memo span{ color:var(--ink-faint); }
+  .table--totals tbody tr.ds-tot td{ border-top:2px solid var(--navy); border-bottom:0; font-weight:800; color:var(--ink-strong); background:var(--paper-2); }
+
+  /* ---- confidentiality / NDA page ---- */
+  .nda-lead{ border:1px solid var(--cyan); border-left:4px solid var(--cyan);
+    background:rgba(8,164,219,.05); border-radius:var(--radius); padding:18px 22px; margin-bottom:24px; }
+  .nda-lead .kick{ font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:7px; }
+  .nda-lead p{ font-size:12.5px; line-height:1.62; color:var(--ink-muted); }
+  .nda{ display:grid; grid-template-columns:1fr 1fr; gap:4px 48px; }
+  .nda-item{ display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .nda-n{ font-family:var(--display); font-weight:800; font-size:21px; color:var(--cyan); min-width:30px; line-height:1.05; }
+  .nda-t{ font-weight:800; font-size:14px; color:var(--ink-strong); letter-spacing:-.005em; }
+  .nda-d{ font-size:11.5px; line-height:1.52; color:var(--ink-muted); margin-top:4px; }
+  .nda-ack{ margin-top:20px; display:flex; align-items:center; gap:14px; }
+  .nda-ack .bar{ flex:none; width:4px; align-self:stretch; background:var(--navy); border-radius:2px; }
+  .nda-ack p{ font-size:11px; line-height:1.55; color:var(--ink-faint); }
+  .nda-ack b{ color:var(--ink-strong); }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 01 COVER -->
+  <section class="slide no-footer">
+    <div class="cover">
+      <img class="cover__bg" src="./assets/cover-hero.jpg" alt="">
+      <div class="cover__scrim" style="background:linear-gradient(105deg, rgba(13,20,29,.92) 0%, rgba(13,20,29,.78) 48%, rgba(13,20,29,.58) 100%)"></div>
+      <div class="cover__in">
+        <div class="flex center">
+          <span class="cover__eyebrow">Confidential Offering Memorandum</span>
+          <span class="cover__badge">9-Park Portfolio</span>
+        </div>
+        <div class="mt-auto">
+          <div class="cover__title">Tucson &amp; Yuma<br><span class="accent">Portfolio</span></div>
+        </div>
+        <div class="cover__foot">
+          <div>Comfort Capital, LLC &nbsp;·&nbsp; 2081 N Marshall Ave, El Cajon, CA 92020 &nbsp;·&nbsp; (619) 536-0521 &nbsp;·&nbsp; ComfortCapital.com</div>
+          <img class="cover__logo" src="../../../Design File/brand/logo/cc-lockup-h-white.png" alt="Comfort Capital">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CONFIDENTIALITY & NON-DISCLOSURE -->
+  <section class="slide" data-disc="Confidentiality &amp; non-disclosure. Comfort Capital, LLC (2026). This memorandum is confidential and may not be reproduced or distributed.">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:16px">
+        <span class="eyebrow eyebrow--plain">Confidential — Do Not Distribute</span>
+        <h1 class="headline headline--h2">Confidentiality &amp; <span class="accent">Non-Disclosure</span></h1>
+      </div>
+      <div class="nda-lead">
+        <div class="kick">Please read before proceeding</div>
+        <p>This memorandum is delivered on a strictly confidential basis to a limited number of pre-qualified parties for the sole purpose of evaluating a potential acquisition of the Tucson &amp; Yuma portfolio. By accepting it, the recipient agrees to the terms below. <strong>Do not copy, forward, post, or disclose this document or its contents without Comfort Capital’s prior written consent.</strong></p>
+      </div>
+      <div class="nda grow">
+        <div class="nda-item"><div class="nda-n">01</div><div><div class="nda-t">Confidential Purpose</div><div class="nda-d">The information herein is proprietary and confidential, and is provided solely to evaluate this opportunity — not for any other purpose or transaction.</div></div></div>
+        <div class="nda-item"><div class="nda-n">02</div><div><div class="nda-t">No Reproduction or Distribution</div><div class="nda-d">This memorandum may not be copied, forwarded, photographed, posted, or reproduced, in whole or in part, by any means without prior written consent.</div></div></div>
+        <div class="nda-item"><div class="nda-n">03</div><div><div class="nda-t">Need-to-Know Only</div><div class="nda-d">Contents may be shared only with the recipient’s own principals and advisors who need the information to evaluate the opportunity and are bound by these same terms.</div></div></div>
+        <div class="nda-item"><div class="nda-n">04</div><div><div class="nda-t">No Unauthorized Contact</div><div class="nda-d">The recipient will not contact the communities’ residents, on-site staff, employees, lenders, vendors, or municipal officials regarding this offering without prior written consent.</div></div></div>
+        <div class="nda-item"><div class="nda-n">05</div><div><div class="nda-t">Return or Destroy on Request</div><div class="nda-d">If the recipient elects not to proceed, or upon request, all copies — physical and electronic — will be promptly returned or permanently destroyed.</div></div></div>
+        <div class="nda-item" style="border-bottom:0"><div class="nda-n">06</div><div><div class="nda-t">No Offer · No Reliance</div><div class="nda-d">Figures are management-basis and unaudited. This is not an offer to sell or a solicitation; the recipient will rely solely on its own independent due diligence.</div></div></div>
+      </div>
+      <div class="nda-ack">
+        <div class="bar"></div>
+        <p>By accepting and retaining this memorandum, the recipient acknowledges and agrees to each of the foregoing. Unauthorized disclosure may cause substantial and irreparable competitive harm to Comfort Capital and its communities. <b>Comfort Capital, LLC · (619) 536-0521 · ComfortCapital.com</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SUMMARY -->
+  <section class="slide" data-disc="Confidential — Tucson/Yuma Portfolio snapshot. Census Sep-2026 cross-referenced to Rent Manager (Rent Roll MR26 + GL) as-of 09/30/2026. Management-basis & unaudited.">
+    <div class="slide__body">
+      <div class="head-block" style="margin-bottom:18px">
+        <span class="eyebrow">Portfolio at a Glance</span>
+        <h1 class="headline headline--h2">Nine communities, <span class="accent">one portfolio</span></h1>
+      </div>
+      <div class="grid grid-4 gap-md" style="margin-bottom:20px">
+        <div class="stat"><div class="stat__num">9</div><div class="stat__label">Communities</div><div class="stat__desc">8 Tucson · 1 Yuma, AZ</div></div>
+        <div class="stat"><div class="stat__num">849</div><div class="stat__label">Total Units</div><div class="stat__desc">652 occupied</div></div>
+        <div class="stat"><div class="stat__num">77%</div><div class="stat__label">Occupancy</div><div class="stat__desc">Blended, as-of 09/30/26</div></div>
+        <div class="stat"><div class="stat__num">$662</div><div class="stat__label">Avg In-Place Rent</div><div class="stat__desc">Weighted by occupied homes</div></div>
+      </div>
+      <table class="table table--totals" style="font-size:12.5px">
+        <thead><tr><th>Community</th><th style="text-align:left">Market</th><th>Total Units</th><th>Occupied</th><th>Occ %</th><th>POH</th><th class="net">Avg Lot Rent</th></tr></thead>
+        <tbody><tr><td>Acacia Gardens</td><td style='text-align:left'>Tucson</td><td>191</td><td>148</td><td>77%</td><td>47</td><td class='net'>$680</td></tr><tr><td>Carousel Ranch</td><td style='text-align:left'>Tucson</td><td>93</td><td>77</td><td>83%</td><td>26</td><td class='net'>$710</td></tr><tr><td>Desert Cove</td><td style='text-align:left'>Tucson</td><td>47</td><td>38</td><td>81%</td><td>10</td><td class='net'>$575</td></tr><tr><td>Lamplighter</td><td style='text-align:left'>Tucson</td><td>67</td><td>57</td><td>85%</td><td>7</td><td class='net'>$700</td></tr><tr><td>Palm Vista</td><td style='text-align:left'>Tucson</td><td>106</td><td>86</td><td>81%</td><td>16</td><td class='net'>$670</td></tr><tr><td>Prince Park</td><td style='text-align:left'>Tucson</td><td>62</td><td>48</td><td>77%</td><td>19</td><td class='net'>$700</td></tr><tr><td>Rancho Del Sol</td><td style='text-align:left'>Tucson</td><td>57</td><td>45</td><td>79%</td><td>14</td><td class='net'>$600</td></tr><tr><td>Romero Estates</td><td style='text-align:left'>Tucson</td><td>113</td><td>73</td><td>65%</td><td>12</td><td class='net'>$655</td></tr><tr><td>Westward Village</td><td style='text-align:left'>Yuma</td><td>113</td><td>80</td><td>71%</td><td>3</td><td class='net'>$580</td></tr><tr class='ds-tot'><td>Portfolio Total</td><td style='text-align:left'>8 Tucson · 1 Yuma</td><td>849</td><td>652</td><td>77%</td><td>154</td><td class='net'>—</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+  <!-- DEAL 01: Acacia Gardens -->
+  <section class="slide" data-disc="Confidential — Acacia Gardens, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/acacia-1.jpg" alt="Acacia Gardens"></div><div class="ds-ph"><img src="./assets/acacia-2.jpg" alt="Acacia Gardens"></div><div class="ds-ph"><img src="./assets/acacia-3.jpg" alt="Acacia Gardens"></div><div class="ds-ph"><img src="./assets/acacia-4.jpg" alt="Acacia Gardens"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Acacia Gardens</div>
+          <div class="ds-addr">5505 N Shannon Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 01 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">191</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">77%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$680</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">47</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>131</td><td>108</td><td>23</td><td>82%</td><td class='net'>$680</td></tr><tr><td>Double-Wide</td><td>30</td><td>29</td><td>1</td><td>97%</td><td class='net'>$680</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>161</td><td>137</td><td>24</td><td>85%</td><td class='net'>$680</td></tr><tr><td>RV Sites</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr><td>RV on MH Pad</td><td>11</td><td>11</td><td>0</td><td>100%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>18</td><td>0</td><td>18</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>191</td><td>148</td><td>43</td><td>77%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Garbage</td><td>Waste Management</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 02: Carousel Ranch -->
+  <section class="slide" data-disc="Confidential — Carousel Ranch, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/carousel-1.jpg" alt="Carousel Ranch"></div><div class="ds-ph"><img src="./assets/carousel-2.jpg" alt="Carousel Ranch"></div><div class="ds-ph"><img src="./assets/carousel-3.jpg" alt="Carousel Ranch"></div><div class="ds-ph"><img src="./assets/carousel-4.jpg" alt="Carousel Ranch"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Carousel Ranch</div>
+          <div class="ds-addr">4315 N Flowing Wells Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 02 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">93</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">83%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$710</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">26</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>61</td><td>52</td><td>9</td><td>85%</td><td class='net'>$710</td></tr><tr><td>Double-Wide</td><td>20</td><td>18</td><td>2</td><td>90%</td><td class='net'>$710</td></tr><tr><td>Triple-Wide</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>$710</td></tr><tr><td>Residential Home</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>83</td><td>71</td><td>12</td><td>86%</td><td class='net'>$710</td></tr><tr><td>RV Sites</td><td>7</td><td>4</td><td>3</td><td>57%</td><td class='net'>—</td></tr><tr><td>Apartments</td><td>2</td><td>2</td><td>0</td><td>100%</td><td class='net'>$710</td></tr><tr><td>Vacant MH Pads</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>93</td><td>77</td><td>16</td><td>83%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson, Flowing Wells Irrigation District</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Garbage</td><td>Republic Services #845</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 03: Desert Cove -->
+  <section class="slide" data-disc="Confidential — Desert Cove, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/desertcove-1.jpg" alt="Desert Cove"></div><div class="ds-ph"><img src="./assets/desertcove-2.jpg" alt="Desert Cove"></div><div class="ds-ph"><img src="./assets/desertcove-3.jpg" alt="Desert Cove"></div><div class="ds-ph"><img src="./assets/desertcove-4.jpg" alt="Desert Cove"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Desert Cove</div>
+          <div class="ds-addr">3610 S Aldon Rd, Tucson, AZ 85735</div>
+        </div>
+        <div class="ds-tag">PARK 03 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">47</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">81%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$575</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">10</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>25</td><td>20</td><td>5</td><td>80%</td><td class='net'>$575</td></tr><tr><td>Double-Wide</td><td>9</td><td>8</td><td>1</td><td>89%</td><td class='net'>$575</td></tr><tr><td>Park Model</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>35</td><td>28</td><td>7</td><td>80%</td><td class='net'>$575</td></tr><tr><td>RV Sites</td><td>8</td><td>7</td><td>1</td><td>88%</td><td class='net'>$430</td></tr><tr><td>RV on MH Pad</td><td>3</td><td>3</td><td>0</td><td>100%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>47</td><td>38</td><td>9</td><td>81%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Trico Electric Cooperative</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>—</td><td>Public</td><td>Common-area only / not separately billed</td></tr><tr><td>Garbage</td><td>Republic Services #845</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 04: Lamplighter -->
+  <section class="slide" data-disc="Confidential — Lamplighter, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/lamplighter-1.jpg" alt="Lamplighter"></div><div class="ds-ph"><img src="./assets/lamplighter-2.jpg" alt="Lamplighter"></div><div class="ds-ph"><img src="./assets/lamplighter-3.jpg" alt="Lamplighter"></div><div class="ds-ph"><img src="./assets/lamplighter-4.jpg" alt="Lamplighter"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Lamplighter</div>
+          <div class="ds-addr">3431 N Flowing Wells Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 04 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">67</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">85%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$700</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">7</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>59</td><td>50</td><td>9</td><td>85%</td><td class='net'>$700</td></tr><tr><td>Double-Wide</td><td>3</td><td>3</td><td>0</td><td>100%</td><td class='net'>$700</td></tr><tr><td>Triple-Wide</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>$700</td></tr><tr><td>Park Model</td><td>3</td><td>3</td><td>0</td><td>100%</td><td class='net'>$700</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>66</td><td>57</td><td>9</td><td>86%</td><td class='net'>$700</td></tr><tr><td>Vacant MH Pads</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>67</td><td>57</td><td>10</td><td>85%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson, Flowing Wells Irrigation District</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Common-area only / not separately billed</td></tr><tr><td>Garbage</td><td>City of Tucson</td><td>Public</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 05: Palm Vista -->
+  <section class="slide" data-disc="Confidential — Palm Vista, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/palmvista-1.jpg" alt="Palm Vista"></div><div class="ds-ph"><img src="./assets/palmvista-2.jpg" alt="Palm Vista"></div><div class="ds-ph"><img src="./assets/palmvista-3.jpg" alt="Palm Vista"></div><div class="ds-ph"><img src="./assets/palmvista-4.jpg" alt="Palm Vista"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Palm Vista</div>
+          <div class="ds-addr">5445 N Shannon Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 05 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">106</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">81%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$670</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">16</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>91</td><td>80</td><td>11</td><td>88%</td><td class='net'>$670</td></tr><tr><td>Double-Wide</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>$670</td></tr><tr><td>Park Model</td><td>9</td><td>5</td><td>4</td><td>56%</td><td class='net'>$670</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>101</td><td>86</td><td>15</td><td>85%</td><td class='net'>$670</td></tr><tr><td>RV Sites</td><td>2</td><td>0</td><td>2</td><td>0%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>3</td><td>0</td><td>3</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>106</td><td>86</td><td>20</td><td>81%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Garbage</td><td>Republic Services #845, RAMP</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 06: Prince Park -->
+  <section class="slide" data-disc="Confidential — Prince Park, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/prince-1.jpg" alt="Prince Park"></div><div class="ds-ph"><img src="./assets/prince-2.jpg" alt="Prince Park"></div><div class="ds-ph"><img src="./assets/prince-3.jpg" alt="Prince Park"></div><div class="ds-ph"><img src="./assets/prince-4.jpg" alt="Prince Park"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Prince Park</div>
+          <div class="ds-addr">38 W Prince Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 06 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">62</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">77%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$700</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">19</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>38</td><td>32</td><td>6</td><td>84%</td><td class='net'>$700</td></tr><tr><td>Park Model</td><td>18</td><td>16</td><td>2</td><td>89%</td><td class='net'>$701</td></tr><tr><td>Residential Home</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>57</td><td>48</td><td>9</td><td>84%</td><td class='net'>$700</td></tr><tr><td>RV Sites</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr><td>Apartments</td><td>3</td><td>0</td><td>3</td><td>0%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>62</td><td>48</td><td>14</td><td>77%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Common-area only / not separately billed</td></tr><tr><td>Garbage</td><td>Republic Services #845</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 07: Rancho Del Sol -->
+  <section class="slide" data-disc="Confidential — Rancho Del Sol, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/rancho-1.jpg" alt="Rancho Del Sol"></div><div class="ds-ph"><img src="./assets/rancho-2.jpg" alt="Rancho Del Sol"></div><div class="ds-ph"><img src="./assets/rancho-3.jpg" alt="Rancho Del Sol"></div><div class="ds-ph"><img src="./assets/rancho-4.jpg" alt="Rancho Del Sol"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Rancho Del Sol</div>
+          <div class="ds-addr">3120 N Romero Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 07 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">57</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">79%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$600</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">14</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>44</td><td>33</td><td>11</td><td>75%</td><td class='net'>$600</td></tr><tr><td>Double-Wide</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>$600</td></tr><tr><td>Park Model</td><td>11</td><td>10</td><td>1</td><td>91%</td><td class='net'>$600</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>56</td><td>44</td><td>12</td><td>79%</td><td class='net'>$600</td></tr><tr><td>Apartments</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>57</td><td>45</td><td>12</td><td>79%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Tucson, Flowing Wells Irrigation District</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Garbage</td><td>Republic Services #845</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 08: Romero Estates -->
+  <section class="slide" data-disc="Confidential — Romero Estates, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/romero-1.jpg" alt="Romero Estates"></div><div class="ds-ph"><img src="./assets/romero-2.jpg" alt="Romero Estates"></div><div class="ds-ph"><img src="./assets/romero-3.jpg" alt="Romero Estates"></div><div class="ds-ph"><img src="./assets/romero-4.jpg" alt="Romero Estates"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Romero Estates</div>
+          <div class="ds-addr">3000 N Romero Rd, Tucson, AZ 85705</div>
+        </div>
+        <div class="ds-tag">PARK 08 / 09 &nbsp;·&nbsp; Tucson, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">113</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">65%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$655</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">12</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>67</td><td>64</td><td>3</td><td>96%</td><td class='net'>$655</td></tr><tr><td>Double-Wide</td><td>1</td><td>1</td><td>0</td><td>100%</td><td class='net'>$655</td></tr><tr><td>Park Model</td><td>6</td><td>3</td><td>3</td><td>50%</td><td class='net'>$655</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>74</td><td>68</td><td>6</td><td>92%</td><td class='net'>$655</td></tr><tr><td>RV Sites</td><td>34</td><td>5</td><td>29</td><td>15%</td><td class='net'>$655</td></tr><tr><td>Apartments</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>4</td><td>0</td><td>4</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>113</td><td>73</td><td>40</td><td>65%</td><td class='net'>—</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>Flowing Wells Irrigation District, City of Tucson</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Electric</td><td>Tucson Electric Power (TEP)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Garbage</td><td>Republic Services #845</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DEAL 09: Westward Village -->
+  <section class="slide" data-disc="Confidential — Westward Village, Tucson/Yuma Portfolio. Comfort Capital, LLC (2026). Figures management-basis & unaudited.">
+    <div class="slide__body ds">
+      <div class="ds-photos" style="grid-template-columns:repeat(4,1fr)"><div class="ds-ph"><img src="./assets/westward-1.jpg" alt="Westward Village"></div><div class="ds-ph"><img src="./assets/westward-2.jpg" alt="Westward Village"></div><div class="ds-ph"><img src="./assets/westward-3.jpg" alt="Westward Village"></div><div class="ds-ph"><img src="./assets/westward-4.jpg" alt="Westward Village"></div></div>
+      <div class="ds-head">
+        <div>
+          <div class="ds-name">Westward Village</div>
+          <div class="ds-addr">3300 S 8th Ave, Yuma, AZ 85365</div>
+        </div>
+        <div class="ds-tag">PARK 09 / 09 &nbsp;·&nbsp; Yuma, AZ</div>
+      </div>
+      <div class="ds-stats">
+        <div class="stat stat--sm"><div class="stat__num">113</div><div class="stat__label">Total Units</div></div>
+        <div class="stat stat--sm"><div class="stat__num">71%</div><div class="stat__label">Occupancy</div></div>
+        <div class="stat stat--sm"><div class="stat__num">$580</div><div class="stat__label">Avg In-Place Rent</div></div>
+        <div class="stat stat--sm"><div class="stat__num">3</div><div class="stat__label">Park-Owned Homes</div></div>
+      </div>
+      <div class="ds-tables">
+        <div>
+          <div class="ds-mini">Unit Mix &amp; Occupancy</div>
+          <table class="table ds-t">
+            <thead><tr><th>Unit Type</th><th>Units</th><th>Occ.</th><th>Vac.</th><th>Occ %</th><th class="net">Avg Rent</th></tr></thead>
+            <tbody><tr><td>Single-Wide</td><td>38</td><td>33</td><td>5</td><td>87%</td><td class='net'>$580</td></tr><tr><td>Double-Wide</td><td>28</td><td>23</td><td>5</td><td>82%</td><td class='net'>$580</td></tr><tr><td>Park Model</td><td>10</td><td>6</td><td>4</td><td>60%</td><td class='net'>$580</td></tr><tr class="ds-sub"><td>MH HOMES SUBTOTAL</td><td>76</td><td>62</td><td>14</td><td>82%</td><td class='net'>$580</td></tr><tr><td>RV Sites</td><td>22</td><td>8</td><td>14</td><td>36%</td><td class='net'>$163</td></tr><tr><td>Commercial</td><td>14</td><td>10</td><td>4</td><td>71%</td><td class='net'>—</td></tr><tr><td>Vacant MH Pads</td><td>1</td><td>0</td><td>1</td><td>0%</td><td class='net'>—</td></tr><tr class="ds-tot"><td>TOTAL UNIT COUNT</td><td>113</td><td>80</td><td>33</td><td>71%</td><td class='net'>—</td></tr></tbody>
+          </table><div class="ds-memo"><b>+ 26</b> RV / vehicle storage sites <span>&mdash; ancillary income; not included in the unit count</span></div>
+        </div>
+        <div>
+          <div class="ds-mini">Utilities</div>
+          <table class="table ds-t ds-u">
+            <thead><tr><th>Utility</th><th>Provider</th><th>Public / Private</th><th>Billing Method</th></tr></thead>
+            <tbody><tr><td>Water / Sewer</td><td>City of Yuma</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Electric</td><td>APS (Arizona Public Service)</td><td>Public</td><td>Master-metered; billed back to tenants</td></tr><tr><td>Gas</td><td>Southwest Gas Corp.</td><td>Public</td><td>Direct — tenant pays provider (park covers common area)</td></tr><tr><td>Garbage</td><td>Republic Services #466</td><td>Private</td><td>Contracted; billed back to tenants</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+(function(){
+  var DISC = 'Confidential — Tucson/Yuma Portfolio. Prepared by Comfort Capital, LLC. Figures are management-basis and unaudited. Not an offer to sell or a solicitation to buy any security. Source: Comfort Capital, LLC (2026).';
+  var LOGO = '../../../Design File/brand/logo';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  slides.forEach(function(s, i){
+    if (s.classList.contains('no-footer')) return;
+    var pg = String(i+1).padStart(2,'0');
+    var logo = s.classList.contains('slide--navy') ? 'cc-lockup-h-white' : 'cc-lockup-h-color';
+    var disc = s.getAttribute('data-disc') || DISC;
+    var h = '<div class="footer">'+
+            '<img class="footer__logo" src="'+LOGO+'/'+logo+'.png" alt="Comfort Capital">'+
+            '<div class="footer__disc">'+disc+'</div>'+
+            '<div class="footer__pg">'+pg+' / '+total+'</div></div>';
+    s.insertAdjacentHTML('beforeend', h);
+  });
+})();
+</script>
+</body>
+</html>

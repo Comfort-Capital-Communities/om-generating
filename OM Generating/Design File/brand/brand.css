@@ -1,0 +1,359 @@
+/* =========================================================================
+   COMFORT CAPITAL — BRAND DESIGN SYSTEM  (brand.css)
+   The single reusable "design file" for all Deal OMs and Overview Decks.
+   Direction: Conroe editorial base (warm paper, Playfair serif, whitespace)
+   + Comfort brand injection (official navy / cyan, house-C logo, navy dividers).
+   Canvas: 1280 x 720 px  (16:9 widescreen)  ->  13.333in x 7.5in @ 96dpi.
+   ========================================================================= */
+
+@import url("./fonts.css");
+
+/* -------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------------------- */
+:root{
+  /* --- Official brand palette (sampled from master logo file) --- */
+  --cyan:      #08A4DB;   /* Comfort Cyan  — accent, italic words, stats, rules */
+  --cyan-deep: #0784B0;   /* darker cyan for text-on-light contrast if needed   */
+  --navy:      #172331;   /* Comfort Navy  — dividers, dark panels, footer       */
+  --navy-2:    #223247;   /* lifted navy for cards/panels on dark               */
+  --charcoal:  #221E1F;   /* Comfort Charcoal — primary ink                     */
+  --white:     #FFFFFF;
+
+  /* --- Neutrals / paper (Conroe editorial base) --- */
+  --paper:     #F5F2EA;   /* warm cream page ground        */
+  --paper-2:   #EFEBE0;   /* slightly deeper cream for panels */
+  --card:      #FFFFFF;   /* white cards on paper          */
+  --line:      #DED8CA;   /* hairlines / borders on paper  */
+  --line-dark: #33455C;   /* hairlines on navy             */
+
+  /* --- Text roles --- */
+  --ink:       #221E1F;   /* body / headlines on light     */
+  --ink-strong:#151A22;   /* near-black headline           */
+  --ink-muted: #6A6459;   /* secondary copy on paper       */
+  --ink-faint: #8C8578;   /* captions / disclaimers        */
+  --on-navy:   #EAF1F6;   /* body text on navy             */
+  --on-navy-mut:#9FB2C4;  /* muted text on navy            */
+
+  /* --- Type families --- */
+  /* Single-typeface system: titles + body share Montserrat (differentiated by weight/size).
+     --display kept as its own token so a future serif can be swapped in one place. */
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --serif:   "Montserrat", "Helvetica Neue", Arial, sans-serif;  /* alias -> display */
+  --sans:    "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- Type scale (px on the 720-tall canvas) --- */
+  --fs-cover:   84px;
+  --fs-h1:      50px;
+  --fs-h2:      40px;
+  --fs-h3:      27px;
+  --fs-stat:    46px;
+  --fs-stat-sm: 34px;
+  --fs-dek:     17px;
+  --fs-body:    14.5px;
+  --fs-small:   12.5px;
+  --fs-label:   11px;
+  --fs-eyebrow: 12px;
+  --fs-foot:    8px;
+
+  /* --- Rhythm --- */
+  --pad:   64px;          /* standard slide padding */
+  --pad-y: 56px;
+  --gap:   24px;
+  --radius: 4px;          /* crisp, editorial (not pill-soft) */
+  --shadow: 0 1px 3px rgba(23,35,49,.06), 0 8px 24px rgba(23,35,49,.05);
+}
+
+/* -------------------------------------------------------------------------
+   2. RESET & BASE
+   ------------------------------------------------------------------------- */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ background:#3a3a3a; }
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+img{ display:block; max-width:100%; }
+strong,b{ font-weight:700; color:var(--ink-strong); }
+
+/* -------------------------------------------------------------------------
+   3. PAGE / SLIDE MODEL
+   ------------------------------------------------------------------------- */
+.deck{ display:flex; flex-direction:column; align-items:center; gap:22px; padding:22px 0; }
+
+.slide{
+  position:relative;
+  width:1280px; height:720px;
+  background:var(--paper);
+  overflow:hidden;
+  flex:0 0 auto;
+}
+.slide__body{                      /* standard padded content area */
+  position:absolute; inset:0;
+  padding:var(--pad-y) var(--pad);
+  display:flex; flex-direction:column;
+}
+.slide--pad-tight .slide__body{ padding:44px 56px; }
+
+/* Dark + photo variants */
+.slide--navy{ background:var(--navy); color:var(--on-navy); }
+.slide--navy .headline,.slide--navy h1,.slide--navy h2,.slide--navy h3{ color:var(--white); }
+.slide--charcoal{ background:var(--charcoal); color:var(--on-navy); }
+
+/* -------------------------------------------------------------------------
+   4. PRINT
+   ------------------------------------------------------------------------- */
+@page{ size:13.333in 7.5in; margin:0; }
+@media print{
+  html,body{ background:#fff; }
+  .deck{ display:block; gap:0; padding:0; }
+  .slide{ page-break-after:always; break-after:page; box-shadow:none; }
+  .slide:last-child{ page-break-after:auto; }
+}
+
+/* -------------------------------------------------------------------------
+   5. TYPOGRAPHY PRIMITIVES
+   ------------------------------------------------------------------------- */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:12px;
+  font-family:var(--sans); font-weight:600; font-size:var(--fs-eyebrow);
+  letter-spacing:.22em; text-transform:uppercase; color:var(--cyan);
+  margin-bottom:18px;
+}
+.eyebrow::before{ content:""; width:26px; height:2px; background:var(--cyan); display:inline-block; }
+.eyebrow--plain::before{ display:none; }
+.slide--navy .eyebrow{ color:var(--cyan); }
+
+.headline{
+  font-family:var(--display); font-weight:800; color:var(--ink-strong);
+  font-size:var(--fs-h1); line-height:1.06; letter-spacing:-.022em;
+}
+.headline .accent{ font-style:normal; font-weight:800; color:var(--cyan); }
+.headline--h2{ font-size:var(--fs-h2); }
+.headline--h3{ font-size:var(--fs-h3); line-height:1.12; }
+
+.dek{
+  font-family:var(--sans); font-weight:400; font-size:var(--fs-dek);
+  line-height:1.5; color:var(--ink-muted); max-width:640px; margin-top:16px;
+}
+.slide--navy .dek{ color:var(--on-navy-mut); }
+
+.body{ font-size:var(--fs-body); line-height:1.62; color:var(--ink-muted); }
+.slide--navy .body{ color:var(--on-navy-mut); }
+.body p + p{ margin-top:11px; }
+
+.label{
+  font-family:var(--sans); font-weight:600; font-size:var(--fs-label);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint);
+}
+.mono-cap{ font-family:var(--sans); font-weight:500; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+
+/* -------------------------------------------------------------------------
+   6. LAYOUT HELPERS
+   ------------------------------------------------------------------------- */
+.grid{ display:grid; gap:var(--gap); }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+.grid-5{ grid-template-columns:repeat(5,1fr); }
+.flex{ display:flex; }
+.col{ display:flex; flex-direction:column; }
+.between{ justify-content:space-between; }
+.center{ align-items:center; }
+.gap-sm{ gap:14px; } .gap-md{ gap:24px; } .gap-lg{ gap:40px; }
+.grow{ flex:1 1 auto; }
+.mt-auto{ margin-top:auto; }
+.head-block{ margin-bottom:28px; }
+
+/* -------------------------------------------------------------------------
+   7. RULES & DIVIDERS
+   ------------------------------------------------------------------------- */
+.rule{ height:1px; background:var(--line); border:0; }
+.slide--navy .rule{ background:var(--line-dark); }
+.rule-cyan{ height:2px; width:48px; background:var(--cyan); border:0; }
+
+/* -------------------------------------------------------------------------
+   8. STAT CARD  (Conroe signature: cyan top rule, serif figure, label, desc)
+   ------------------------------------------------------------------------- */
+.stat{ padding-top:16px; border-top:2px solid var(--cyan); }
+.stat__num{ font-family:var(--display); font-weight:800; font-size:var(--fs-stat); line-height:1; letter-spacing:-.02em; color:var(--cyan); }
+.stat--ink .stat__num{ color:var(--ink-strong); }
+.slide--navy .stat--ink .stat__num{ color:var(--white); }
+.stat__label{ font-family:var(--sans); font-weight:600; font-size:var(--fs-label); letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin-top:12px; }
+.stat__desc{ font-size:12px; line-height:1.45; color:var(--ink-muted); margin-top:9px; }
+.slide--navy .stat__label{ color:var(--on-navy-mut); }
+.slide--navy .stat__desc{ color:var(--on-navy-mut); }
+.stat--sm .stat__num{ font-size:var(--fs-stat-sm); }
+
+/* Inline hero stat strip (big number over caption, no card) */
+.figure-stat{ }
+.figure-stat__num{ font-family:var(--serif); font-weight:700; font-size:40px; color:var(--cyan); line-height:1; }
+.figure-stat__cap{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px; }
+
+/* -------------------------------------------------------------------------
+   9. CARDS
+   ------------------------------------------------------------------------- */
+.card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); }
+.card--flat{ box-shadow:none; }
+.card--pad-sm{ padding:18px; }
+.slide--navy .card{ background:var(--navy-2); border-color:var(--line-dark); box-shadow:none; }
+.card__title{ font-family:var(--serif); font-weight:700; font-size:18px; color:var(--ink-strong); }
+.slide--navy .card__title{ color:var(--white); }
+.card__body{ font-size:13px; line-height:1.55; color:var(--ink-muted); margin-top:8px; }
+.slide--navy .card__body{ color:var(--on-navy-mut); }
+
+/* Icon chip (replaces old clip-art icons with a restrained cyan circle) */
+.chip{ width:44px; height:44px; border-radius:50%; background:rgba(8,164,219,.10);
+  display:flex; align-items:center; justify-content:center; color:var(--cyan); }
+.chip svg{ width:22px; height:22px; stroke:var(--cyan); fill:none; stroke-width:1.6; }
+
+/* -------------------------------------------------------------------------
+   10. PILL / TAG / BUTTON
+   ------------------------------------------------------------------------- */
+.tag{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:10px;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--cyan);
+  background:rgba(8,164,219,.10); padding:6px 12px; border-radius:100px; }
+.tag--navy{ color:var(--white); background:var(--navy); }
+.btn{ display:inline-flex; align-items:center; gap:12px; background:var(--navy); color:var(--white);
+  font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  padding:16px 30px; border-radius:100px; }
+.btn .arw{ font-size:14px; }
+
+/* -------------------------------------------------------------------------
+   11. FIGURES / PHOTO FRAMES
+   ------------------------------------------------------------------------- */
+.figure{ position:relative; overflow:hidden; border-radius:var(--radius); background:var(--paper-2); }
+.figure img{ width:100%; height:100%; object-fit:cover; }
+.figure__cap{ position:absolute; left:0; bottom:0; padding:8px 12px; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase; color:#fff; background:rgba(23,35,49,.72); }
+/* placeholder for images not yet supplied (template affordance) */
+.placeholder{ display:flex; align-items:center; justify-content:center; text-align:center;
+  background:repeating-linear-gradient(45deg,#EDE8DC 0 14px,#F2EEE4 14px 28px);
+  color:var(--ink-faint); border:1px dashed var(--line); border-radius:var(--radius); }
+.placeholder span{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
+.slide--navy .placeholder{ background:repeating-linear-gradient(45deg,#1c2a3b 0 14px,#20303f 14px 28px); border-color:var(--line-dark); color:var(--on-navy-mut); }
+
+/* -------------------------------------------------------------------------
+   12. QUOTE
+   ------------------------------------------------------------------------- */
+.quote{ font-family:var(--display); font-weight:600; font-style:normal; font-size:25px;
+  line-height:1.34; letter-spacing:-.01em; color:var(--ink-strong); }
+.slide--navy .quote{ color:var(--white); }
+.quote .accent{ color:var(--cyan); font-weight:700; }
+.quote--italic{ font-style:italic; }   /* opt-in flourish (back cover) */
+
+/* -------------------------------------------------------------------------
+   13. LISTS
+   ------------------------------------------------------------------------- */
+.ul{ list-style:none; }
+.ul li{ position:relative; padding-left:22px; font-size:var(--fs-body); line-height:1.5; color:var(--ink-muted); margin-bottom:10px; }
+.ul li::before{ content:""; position:absolute; left:0; top:.55em; width:8px; height:8px; border:2px solid var(--cyan); border-radius:50%; }
+.ul--check li::before{ content:"✓"; border:0; color:var(--cyan); font-size:13px; top:0; width:auto; height:auto; }
+.slide--navy .ul li{ color:var(--on-navy-mut); }
+
+/* Numbered steps */
+.steps{ counter-reset:step; }
+.step{ display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+.step:last-child{ border-bottom:0; }
+.step__n{ font-family:var(--serif); font-weight:700; font-size:20px; color:var(--cyan); min-width:34px; }
+.step__t{ font-weight:700; font-size:14px; color:var(--ink-strong); }
+.step__d{ font-size:12.5px; line-height:1.5; color:var(--ink-muted); margin-top:3px; }
+.slide--navy .step{ border-color:var(--line-dark); }
+.slide--navy .step__t{ color:var(--white); }
+.slide--navy .step__d{ color:var(--on-navy-mut); }
+
+/* -------------------------------------------------------------------------
+   14. TABLES  (navy header, zebra, cyan net columns)
+   ------------------------------------------------------------------------- */
+.table{ width:100%; border-collapse:collapse; font-size:12px; }
+.table thead th{ background:var(--navy); color:#fff; font-family:var(--sans); font-weight:600;
+  font-size:10px; letter-spacing:.08em; text-transform:uppercase; text-align:right; padding:10px 12px; }
+.table thead th:first-child{ text-align:left; }
+.table tbody td{ padding:9px 12px; text-align:right; color:var(--ink-muted); border-bottom:1px solid var(--line); }
+.table tbody td:first-child{ text-align:left; font-weight:600; color:var(--ink-strong); }
+.table tbody tr:nth-child(even){ background:rgba(23,35,49,.03); }
+.table .net{ color:var(--cyan-deep); font-weight:600; }
+.table thead th.net{ background:#0d3247; }
+.table--totals tbody tr:last-child td{ border-top:2px solid var(--navy); border-bottom:0; font-weight:700; color:var(--ink-strong); background:var(--paper-2); }
+
+/* compact key/value table (sources & uses style) */
+.kv{ width:100%; border-collapse:collapse; font-size:12.5px; }
+.kv td{ padding:7px 0; border-bottom:1px solid var(--line); }
+.kv td:last-child{ text-align:right; font-weight:600; color:var(--ink-strong); }
+.kv td:first-child{ color:var(--ink-muted); }
+.kv__head{ font-weight:700; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); padding-bottom:6px; }
+
+/* -------------------------------------------------------------------------
+   15. COVER
+   ------------------------------------------------------------------------- */
+.cover{ position:absolute; inset:0; }
+.cover img.cover__bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.cover__scrim{ position:absolute; inset:0;
+  background:linear-gradient(105deg, rgba(15,23,33,.86) 0%, rgba(15,23,33,.62) 45%, rgba(15,23,33,.34) 100%); }
+.cover__in{ position:absolute; inset:0; padding:56px 64px; display:flex; flex-direction:column; }
+.cover__eyebrow{ color:var(--cyan); font-weight:600; font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:12px; }
+.cover__eyebrow::before{ content:""; width:26px; height:2px; background:var(--cyan); }
+.cover__badge{ margin-left:auto; border:1px solid rgba(255,255,255,.4); color:#fff; border-radius:100px;
+  padding:6px 16px; font-size:12px; font-weight:600; letter-spacing:.1em; }
+.cover__title{ font-family:var(--display); font-weight:800; color:#fff; font-size:var(--fs-cover); line-height:1; letter-spacing:-.03em; }
+.cover__title .accent{ font-style:normal; font-weight:800; color:var(--cyan); }
+.cover__sub{ color:#DCE6EE; font-size:16px; letter-spacing:.02em; margin-top:18px; max-width:560px; line-height:1.5; }
+.cover__foot{ margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end;
+  color:#B9C6D2; font-size:11px; letter-spacing:.04em; padding-top:20px; border-top:1px solid rgba(255,255,255,.16); }
+.cover__logo{ height:34px; }
+
+/* Center-logo closing cover */
+.endcover{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.endcover img.cover__bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+/* -------------------------------------------------------------------------
+   16. SECTION DIVIDER  (photo half + navy half, PART 0X)
+   ------------------------------------------------------------------------- */
+.divider{ position:absolute; inset:0; background:var(--navy); }
+.divider__media{ position:absolute; inset:0; overflow:hidden; }
+.divider__media img{ width:100%; height:100%; object-fit:cover; }
+.divider__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(23,35,49,0) 0%, rgba(23,35,49,.38) 16%, rgba(23,35,49,.86) 32%, rgba(23,35,49,1) 44%); }
+.divider__body{ position:absolute; top:0; right:0; bottom:0; width:58%; color:#fff; padding:64px 60px; display:flex; flex-direction:column; justify-content:center; }
+.divider__eyebrow{ color:var(--cyan); font-weight:600; font-size:13px; letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px; }
+.divider__title{ font-family:var(--display); font-weight:800; font-size:60px; line-height:1.04; letter-spacing:-.024em; color:#fff; }
+.divider__title .accent{ font-style:normal; font-weight:800; color:var(--cyan); }
+.divider__mark{ width:200px; opacity:1; margin-bottom:40px; }   /* full lockup (house + wordmark) */
+.divider__inthis{ margin-top:34px; padding-top:20px; border-top:1px solid var(--line-dark); color:var(--on-navy-mut); font-size:12.5px; letter-spacing:.02em; }
+.divider__inthis .lead{ color:var(--cyan); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:10px; margin-right:14px; }
+
+/* -------------------------------------------------------------------------
+   17. FOOTER  (auto-injected on every content slide)
+   ------------------------------------------------------------------------- */
+.footer{ position:absolute; left:0; right:0; bottom:0; height:40px;
+  display:flex; align-items:center; gap:20px; padding:0 26px;
+  border-top:1px solid var(--line); }
+.footer__pg{ font-size:9px; letter-spacing:.16em; color:var(--ink-faint); font-weight:600; min-width:60px; }
+.footer__disc{ flex:1; text-align:center; font-size:var(--fs-foot); line-height:1.35; color:var(--ink-faint); }
+.footer__logo{ height:15px; opacity:.9; }
+.slide--navy .footer{ border-color:var(--line-dark); }
+.slide--navy .footer__pg,.slide--navy .footer__disc{ color:var(--on-navy-mut); }
+/* keep padded body clear of footer */
+.slide__body{ padding-bottom:64px; }
+
+/* -------------------------------------------------------------------------
+   18. TOC
+   ------------------------------------------------------------------------- */
+.toc__item{ display:flex; align-items:baseline; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); }
+.toc__num{ font-family:var(--serif); font-weight:700; font-size:24px; color:var(--cyan); min-width:46px; }
+.toc__title{ font-family:var(--serif); font-weight:600; font-size:24px; color:var(--ink-strong); }
+.toc__meta{ margin-left:auto; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+
+/* -------------------------------------------------------------------------
+   19. UTILITIES
+   ------------------------------------------------------------------------- */
+.tc{ text-align:center; } .tr{ text-align:right; }
+.cyan{ color:var(--cyan); } .navy{ color:var(--navy); } .muted{ color:var(--ink-muted); }
+.serif{ font-family:var(--serif); } .sans{ font-family:var(--sans); }
+.mt8{ margin-top:8px; } .mt16{ margin-top:16px; } .mt24{ margin-top:24px; } .mt32{ margin-top:32px; }
+.mb8{ margin-bottom:8px; } .mb16{ margin-bottom:16px; } .mb24{ margin-bottom:24px; }
+.w-60{ width:60%; } .w-50{ width:50%; } .w-40{ width:40%; }
+.full-h{ height:100%; }

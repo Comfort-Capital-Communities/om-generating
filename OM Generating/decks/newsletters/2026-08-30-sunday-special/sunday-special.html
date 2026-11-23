@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sunday Special — The Best Offense Is a Good Defense</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  /* =====================================================================
+     THE SUNDAY SPECIAL — weekly brief format (Letter portrait, white)
+     Matches the house Sunday Special: navy hero masthead on page 1,
+     clean white body, numbered cyan section badges, cyan-dash subheads,
+     cyan-bar pull quotes, "MY TAKE" callouts, sign-off + navy CTA.
+     ===================================================================== */
+  @page{ size:8.5in 11in; margin:0.5in 0; }
+  @page :first{ margin:0 0 0.5in 0; }   /* page 1: zero top margin so the navy masthead bleeds to the edge */
+
+  html,body{ background:#fff; }
+  @media print{ html,body{ background:#fff; } }
+  body{ font-family:var(--sans); color:#23272E; }
+
+  a{ color:var(--cyan); text-decoration:none; }
+
+  /* body content sits inside side padding; masthead full-bleeds horizontally */
+  .content-wrap{ padding:0 0.6in; }
+
+  /* ---------- HERO MASTHEAD (page 1, full-bleed navy) ---------- */
+  .masthead{
+    position:relative;
+    margin:0 0 30px;
+    padding:46px 0.6in 22px;
+    background:
+      radial-gradient(120% 150% at 88% 8%, rgba(8,164,219,.42) 0%, rgba(8,164,219,0) 42%),
+      var(--navy);
+    color:#fff;
+    overflow:hidden;
+  }
+  .mh-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; }
+  .mh-logo{ height:34px; width:auto; }
+  .mh-badge{
+    border:1px solid rgba(255,255,255,.5); color:#fff; border-radius:100px;
+    padding:7px 18px; font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  }
+  .mh-title{
+    font-family:var(--display); font-weight:800; font-size:54px; line-height:1;
+    letter-spacing:-.03em; color:#fff; padding-right:150px;
+  }
+  .mh-title i{ font-style:italic; font-weight:800; color:var(--cyan); }
+  .mh-tag{ margin-top:16px; font-size:15px; letter-spacing:.01em; }
+  .mh-tag b{ color:#fff; font-weight:700; }
+  .mh-tag span{ color:#9FB2C4; }
+  .mh-by{ margin-top:9px; font-size:13.5px; font-weight:700; color:var(--cyan); letter-spacing:.02em; }
+  .mh-photo{
+    position:absolute; top:84px; right:0.6in;
+    width:116px; height:116px; border-radius:50%; object-fit:cover; object-position:50% 22%;
+    border:3px solid rgba(255,255,255,.9); box-shadow:0 6px 22px rgba(0,0,0,.35);
+  }
+  .mh-rule{ height:1px; background:rgba(255,255,255,.18); border:0; margin:24px 0 16px; }
+  .mh-toc{ font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:#8CA0B4; }
+  .mh-toc b{ color:var(--cyan); font-weight:700; }
+  .mh-toc .sep{ color:#5C7188; margin:0 10px; }
+
+  /* ---------- BODY TYPE ---------- */
+  .greeting{ font-weight:700; font-size:16px; color:#1A1D22; margin-bottom:14px; }
+  p.body{ font-size:14.6px; line-height:1.72; color:#2E333B; margin-bottom:14px; }
+  p.body strong{ color:#1A1D22; font-weight:700; }
+  p.body em{ font-style:italic; }
+  p.leadin{ font-size:14.6px; line-height:1.6; font-weight:700; color:#1A1D22; margin-bottom:14px; }
+
+  /* ---------- SECTION HEAD (numbered) ---------- */
+  .sec-rule{ height:2px; background:#1A1D22; border:0; margin:30px 0 22px; }
+  .sec-head{ break-after:avoid; margin-bottom:6px; }
+  .sec-kicker{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .sec-num{
+    width:26px; height:26px; border-radius:5px; background:var(--cyan); color:#fff;
+    font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .sec-eyebrow{ font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); }
+  .sec-title{
+    font-family:var(--display); font-weight:800; font-size:34px; line-height:1.08;
+    letter-spacing:-.02em; color:#14171C;
+  }
+  .sec-title .accent{ color:var(--cyan); }
+
+  /* ---------- SUBHEAD (cyan dash) ---------- */
+  .subhead{
+    display:flex; align-items:center; gap:12px; margin:24px 0 12px; break-after:avoid;
+    font-family:var(--display); font-weight:800; font-size:18px; color:#14171C; letter-spacing:-.01em;
+  }
+  .subhead::before{ content:""; width:22px; height:3px; background:var(--cyan); flex:0 0 auto; }
+
+  /* ---------- PULL QUOTE ---------- */
+  .pull{
+    margin:22px 0; padding:2px 0 2px 22px; border-left:4px solid var(--cyan);
+    font-family:var(--display); font-weight:800; font-size:23px; line-height:1.3;
+    color:#14171C; letter-spacing:-.015em; break-inside:avoid;
+  }
+
+  /* ---------- MY TAKE / CALLOUT ---------- */
+  .mytake{
+    background:#EAF6FB; border-left:4px solid var(--cyan); border-radius:4px;
+    padding:16px 20px; margin:18px 0; break-inside:avoid;
+  }
+  .mytake .lbl{ font-size:10px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan-deep); margin-bottom:7px; }
+  .mytake p{ font-size:13.6px; line-height:1.6; color:#2E333B; margin:0; }
+  .mytake p + p{ margin-top:9px; }
+  .mytake .ask{ font-family:var(--display); font-weight:700; font-size:15px; line-height:1.5; color:#14171C; }
+
+  /* ---------- CALC CARD ---------- */
+  .calc{
+    border:1px solid #E3E6EA; border-radius:8px; padding:22px 24px; margin:20px 0;
+    box-shadow:0 1px 2px rgba(20,23,28,.04), 0 10px 26px rgba(20,23,28,.05); break-inside:avoid;
+  }
+  .calc .lbl{ font-size:10px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan-deep); margin-bottom:14px; }
+  .crow{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #EDEFF2; }
+  .crow .k{ font-size:13px; color:#4A5059; line-height:1.4; }
+  .crow .v{ font-family:var(--display); font-weight:800; font-size:22px; color:#14171C; letter-spacing:-.01em; white-space:nowrap; }
+  .crow.total{ border-bottom:0; border-top:2px solid var(--cyan); margin-top:4px; padding-top:14px; }
+  .crow.total .k{ color:#14171C; font-weight:700; }
+  .crow.total .v{ color:var(--cyan); font-size:27px; }
+  .calc .note{ font-size:11.5px; line-height:1.55; color:#6A6F77; margin-top:12px; }
+
+  /* ---------- CTA PILL ---------- */
+  a.cta{
+    display:inline-flex; align-items:center; gap:12px;
+    background:var(--navy); color:#fff; font-weight:700; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    padding:15px 30px; border-radius:100px;
+  }
+  a.cta .arw{ font-size:14px; color:var(--cyan); }
+
+  /* ---------- SIGN-OFF / CLOSING ---------- */
+  .signrule{ height:2px; background:#1A1D22; border:0; margin:34px 0 22px; }
+  .signoff-lead{ font-weight:700; font-size:16px; color:#14171C; margin-bottom:16px; }
+  .signoff-until{ font-size:14.6px; color:#2E333B; margin-bottom:12px; }
+  .sign-photo{ width:78px; height:78px; border-radius:50%; object-fit:cover; object-position:50% 22%; border:2px solid #E3E6EA; }
+  .sign-name{ font-family:var(--display); font-weight:800; font-size:22px; color:#14171C; margin-top:12px; letter-spacing:-.01em; }
+  .sign-title{ font-size:13px; font-weight:700; color:var(--cyan); margin-top:2px; }
+  .sign-cta{ margin-top:20px; }
+  .contact-line{ margin-top:24px; padding-top:16px; border-top:1px solid #E3E6EA; font-size:12.5px; color:#4A5059; display:flex; flex-wrap:wrap; align-items:center; gap:6px 6px; }
+  .contact-line .dot{ color:var(--cyan); font-weight:800; margin:0 8px; }
+  .foot{
+    margin-top:22px; padding-top:16px; border-top:1px solid #E3E6EA;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#8A9099;
+  }
+  .foot img{ height:22px; width:auto; }
+  .disclose{ font-size:9.5px; line-height:1.55; color:#9096A0; margin-top:18px; }
+  .closing{ break-inside:avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============================= HERO MASTHEAD ============================= -->
+<div class="masthead">
+  <div class="mh-top">
+    <img class="mh-logo" src="assets/logo-white.png" alt="Comfort Capital">
+    <span class="mh-badge">Weekly Brief</span>
+  </div>
+  <div class="mh-title">The Sunday <i>Special</i></div>
+  <div class="mh-tag"><b>Markets. Strategy. Leadership.</b> <span>A weekly brief from Comfort Capital.</span></div>
+  <div class="mh-by">By Ben Schuster</div>
+  <img class="mh-photo" src="assets/ben-schuster.jpg" alt="Ben Schuster">
+  <hr class="mh-rule">
+  <div class="mh-toc">In This Issue <span class="sep">·</span> <b>How Real Estate Creates the Loss</b> <span class="sep">·</span> Can You Actually Use It</div>
+</div>
+
+<div class="content-wrap">
+
+<!-- ============================= INTRO ============================= -->
+<p class="greeting">How the tax strategy actually works.</p>
+<p class="body">Real estate depreciation, 100% bonus depreciation, and Real Estate Professional status — in plain English. For the right investor, real estate can do something pretty unique:</p>
+
+<div class="pull">Produce actual cash flow while simultaneously creating a tax loss on paper.</div>
+
+<p class="body">And for certain investors, those paper losses may potentially be used against income far beyond the income generated by the real estate itself. That's where this gets really interesting.</p>
+
+<div class="mytake">
+  <div class="lbl">Only Two Questions That Matter</div>
+  <p class="ask">1. How does the real estate create the tax loss?<br>2. Can you actually use it?</p>
+  <p>Everything else is mostly for your CPA.</p>
+</div>
+
+<!-- ============================= PART 01 ============================= -->
+<div class="sec-head">
+  <div class="sec-kicker"><span class="sec-num">01</span><span class="sec-eyebrow">The Playbook</span></div>
+  <div class="sec-title">How Real Estate Creates the <span class="accent">Tax Loss</span></div>
+</div>
+
+<p class="body">When you buy real estate, you don't get to immediately deduct the entire purchase price. Land isn't depreciable. Buildings and improvements are generally written off over many years. But here's where it gets interesting: <strong>not every part of a property has the same tax life.</strong></p>
+<p class="body">A building is different from a road. A road is different from a water line. Landscaping, fencing, utility systems, equipment, and site improvements can all receive different depreciation treatment. That's where a <strong>cost segregation study</strong> comes in — it essentially takes a property apart for tax purposes and identifies which components can be depreciated over shorter periods of time.</p>
+<p class="body">Manufactured housing communities are particularly interesting because of the individual components that make up the purchase price. Unlike an apartment investment, where a large portion of the value may be tied to a physical vertical building, an MHC has substantial value in roads, utility systems, site improvements, landscaping, and other infrastructure.</p>
+<p class="body">In the MHC cost segregation studies we have completed and reviewed, we have commonly seen roughly <strong>70%–85% of the purchase price</strong> allocated to property with a 15-year tax life or less, with much of the remaining value allocated to non-depreciable land. By comparison, in a typical mid-rise apartment cost segregation study, the shorter-life components may be closer to <strong>20%–30% of the depreciable basis</strong>, depending on the property. That difference matters if you're an investor looking to generate a large upfront paper loss.</p>
+<p class="body">Under current federal law, qualifying property with a tax recovery period of 20 years or less may be eligible for 100% bonus depreciation. In plain English: instead of deducting those qualifying assets gradually over 5, 7, or 15 years, you may be able to deduct the entire eligible amount in Year 1. That's how a property can be producing cash flow, growing in value, and still showing a substantial tax loss on your K-1. There's no contradiction there — <strong>depreciation is a non-cash tax deduction.</strong></p>
+
+<div class="subhead">Why the Depreciation Can Be as Large as Your Investment</div>
+<p class="body">Leverage. Imagine you invest $100,000 into a property, but investor equity isn't the only capital used to buy it — the investment also uses debt. Your depreciation allocation is driven by your share of the depreciable tax basis in the underlying real estate, <strong>not simply by the amount of cash you wrote a check for.</strong></p>
+<p class="body">Across our manufactured housing investments, we have historically seen Year 1 depreciation around 100% of invested equity in many cases, and sometimes approximately <strong>100%–120% or more</strong>, depending on the property, leverage, land allocation, cost segregation study, and timing. Here's a simple example:</p>
+
+<div class="calc">
+  <div class="lbl">Illustrative Example</div>
+  <div class="crow"><div class="k">You invest</div><div class="v">$100,000</div></div>
+  <div class="crow"><div class="k">Assumed Year 1 depreciation</div><div class="v">$110,000</div></div>
+  <div class="crow"><div class="k">Assumed federal tax rate</div><div class="v">37%</div></div>
+  <div class="crow total"><div class="k">Potential current federal tax savings</div><div class="v">$40,700</div></div>
+  <div class="note">That $40,700 is <em>not</em> an investment return. It is potential current federal tax savings, assuming the investor is able to use the entire deduction against income otherwise taxed at that rate. But economically it matters: if that $40,700 would otherwise have left your balance sheet and gone to the IRS, but instead stays with you, that capital can potentially remain invested, earn income, and continue compounding.</div>
+</div>
+
+<div class="pull">Good defense creates offense.</div>
+
+<!-- ============================= PART 02 ============================= -->
+<hr class="sec-rule">
+<div class="sec-head">
+  <div class="sec-kicker"><span class="sec-num">02</span><span class="sec-eyebrow">The Big Question</span></div>
+  <div class="sec-title">Can You Actually <span class="accent">Use the Loss?</span></div>
+</div>
+
+<p class="body">This is the part people frequently miss. Creating depreciation is one thing. Being able to use it against the income you want to offset is another. For most investors, rental real estate losses are considered <strong>passive.</strong> That doesn't mean the depreciation is worthless — passive losses can generally offset passive income, and unused losses may carry forward for future use.</p>
+<p class="body">But what if you're trying to offset income from a business, a high-paying career, or another source of nonpassive income? That's where <strong>Real Estate Professional status</strong> can become incredibly important.</p>
+
+<div class="subhead">What Is a Real Estate Professional?</div>
+<p class="body">Real Estate Professional, or REP, is simply a tax classification. You do not need to be a Realtor. You do not need a real estate license. Generally, an individual must satisfy two main requirements during the year:</p>
+<p class="body">Spend <strong>more than 750 hours</strong> in qualifying real estate trades or businesses in which they materially participate, and spend <strong>more than half of their total working time</strong> in those qualifying real estate activities. Those activities can include things like acquiring, renting, operating, and managing real estate.</p>
+
+<div class="subhead">Only One Spouse Needs to Qualify</div>
+<p class="body">Here's the part I think a lot of married couples completely miss. Imagine one spouse owns a business, practices medicine, works as an attorney, or earns substantial income elsewhere. The other spouse may be retired, stay home with the kids, work part time, or simply have the flexibility to actively manage rental properties. <strong>Only one spouse needs to independently qualify as the Real Estate Professional.</strong> If that spouse legitimately meets the requirements, the couple may potentially benefit from REP treatment on their joint tax return. The high-income spouse does not also need to become a Real Estate Professional.</p>
+<p class="body">One important distinction: spouses generally cannot combine their hours to meet the REP qualification itself. But a spouse's participation can count when determining material participation in the rental activity.</p>
+
+<div class="pull">One spouse can qualify. The tax benefit can potentially benefit the entire household.</div>
+
+<p class="body">This is one of the first things I would ask your CPA about if this remotely sounds like your family.</p>
+
+<div class="subhead">REP Is Step One — There's One More Piece</div>
+<p class="body">Qualifying as a Real Estate Professional does not automatically make every real estate loss nonpassive. You also need to satisfy the <strong>material participation rules.</strong> This is where an important election can come into play. If you own multiple rental properties, your CPA may recommend an election that allows qualifying rental real estate interests to be treated as <strong>one combined rental activity</strong> rather than looking at each property separately. And importantly, that can potentially include certain rental real estate interests you own through partnerships and LLCs — not just rental properties you own directly.</p>
+<p class="body">Imagine you actively manage four rental properties and also own interests in several real estate LLCs, including an investment with Comfort. Without the appropriate election, your CPA may need to look at those rental activities separately. With the election, qualifying rental real estate interests may potentially be treated as one combined rental real estate activity, allowing the CPA to evaluate your participation across the portfolio as a whole. Instead of potentially having to establish material participation separately in Property A, Property B, Property C, and Property D, your legitimate participation across the combined rental activity may be evaluated together. That can make a big difference.</p>
+<p class="body">There is one very important distinction: <strong>simply investing in an LLC does not create hours toward the 750-hour REP requirement.</strong> The hours still need to come from actual work you perform in qualifying real estate activities — things like acquiring property, leasing, managing rentals, overseeing repairs, dealing with tenants, and operating properties. But once you legitimately qualify as a Real Estate Professional, the appropriate election may allow your CPA to look at your rental real estate portfolio much more holistically, including certain rental real estate interests held through LLCs.</p>
+<p class="body">This is also where I would stop trying to turn you into a CPA. You don't need to understand every rule. You need to know enough to ask:</p>
+<div class="mytake">
+  <div class="lbl">The Question to Ask</div>
+  <p class="ask">"Should we be treating all of my rental real estate interests — including my partnership and LLC investments — as one activity for material participation purposes?"</p>
+  <p>Let your CPA take it from there.</p>
+</div>
+
+<div class="subhead">What About an Investment With Comfort?</div>
+<p class="body">This is usually the next question. Assume you or your spouse qualifies as a Real Estate Professional, actively participates in rental real estate, and has made the appropriate election with your CPA. You then invest in one of our manufactured housing communities and receive a substantial depreciation allocation on your K-1. Can that depreciation potentially become part of your broader rental real estate activity and be used against other household income?</p>
+<p class="body"><strong>Potentially, yes.</strong> And I'm intentionally saying <em>potentially.</em> I'm not a CPA, and this is where your individual facts really matter. We have spent significant time working through these rules with experienced real estate CPAs and tax advisors because this can be extremely important to our investors. One thing we have learned is that an investment through an LLC should not automatically be assumed to receive the exact same treatment as a traditional limited partnership interest simply because the investor isn't personally managing that particular property every day.</p>
+<p class="body">The investment structure matters. Your REP status matters. Your participation matters. The elections you've made matter. And your individual tax situation matters. Depending on those facts, there may be a path for the depreciation from an investment like ours to become part of your combined rental real estate activity and potentially be treated as nonpassive. That's the part your CPA needs to determine.</p>
+<p class="body">And if your CPA wants to understand how one of our investments is structured, what depreciation we have historically seen, or the guidance we've received from experienced real estate tax professionals — call me. I'm happy to help you have that conversation.</p>
+
+<div class="subhead">Who Should Pay Attention to This?</div>
+<p class="body">If any of this sounds like your household, I would have the conversation with your CPA. Maybe you or your spouse owns rental real estate. Maybe one spouse is retired, stays home with the kids, works part time, or simply has meaningful flexibility to manage the family's properties. Maybe you have significant taxable income, are selling a business, or expect an unusually high-income year. Maybe you're planning to make a meaningful real estate investment before year-end. Or maybe you already receive large depreciation losses on K-1s and aren't actually sure what happens to them once they hit your tax return.</p>
+<p class="leadin">You don't need to know whether you qualify before making the call. You just need to know enough to ask the question.</p>
+
+<div class="subhead">There Are Still Guardrails</div>
+<p class="body">This isn't a magic button. Even if someone qualifies as a REP, other tax rules can affect how much of a loss is currently usable. <strong>Basis matters. At-risk rules matter. Passive-activity rules matter.</strong> Very large losses can run into the Excess Business Loss rules. And if you live in California, remember that California does not follow the federal 100% bonus depreciation rules, so your federal and California results can look very different. Depreciation can also reduce your tax basis and affect future taxes when a property is eventually sold. Those rules matter — but they're your CPA's job. Your job is to understand the opportunity well enough to plan for it.</p>
+
+<div class="subhead">Never Buy a Bad Investment for a Tax Deduction</div>
+<div class="pull">Never buy a bad investment for a tax deduction.</div>
+<p class="body">This is one rule I don't want anyone to lose sight of. The investment has to make sense first. We want high-quality real estate, strong markets, durable cash flow, appropriate leverage, and assets we are comfortable owning for a long time. But if I already want to own the asset and the tax code provides a meaningful incentive for putting capital into it? I'm going to pay attention.</p>
+<p class="body">Manufactured housing happens to sit at a particularly interesting intersection: private investor capital goes into real assets providing some of the most affordable non-subsidized housing in America. Those assets can produce income. They can participate in long-term appreciation. And for the right investor, they can potentially generate substantial depreciation. That's a pretty compelling combination.</p>
+
+<!-- ============================= CLOSING ============================= -->
+<hr class="signrule">
+<p class="signoff-lead">The one question I want you to ask.</p>
+<p class="body">If any of this sounds remotely like your situation, send this page to your CPA and ask:</p>
+<div class="mytake">
+  <div class="lbl">The Question to Ask Your CPA</div>
+  <p class="ask">"Could Real Estate Professional status apply to our household, and if so, could the depreciation from my real estate investments potentially be used against our other income?"</p>
+</div>
+<p class="body">That's it. Let your CPA work through the details. And if the answer is <em>maybe</em>, bring me into the conversation — we can provide information about our investment structure, our historical depreciation experience, and the guidance we've received from experienced real estate tax professionals. You don't need to become a tax expert; you just need to understand the roadmap well enough to ask the right questions. <strong>And don't wait until April.</strong> The tax return records history — tax planning happens before history is written.</p>
+
+<div class="closing">
+<p class="signoff-until" style="margin-top:22px;">Until next Sunday,</p>
+<img class="sign-photo" src="assets/ben-schuster.jpg" alt="Ben Schuster">
+<div class="sign-name">Ben Schuster</div>
+<div class="sign-title">Comfort Capital · Comfort Communities</div>
+<div class="sign-cta">
+  <a class="cta" href="https://api.leadconnectorhq.com/widget/group/O7onm3yocaGwKUR3YmA9">Book a Call With Ben <span class="arw">→</span></a>
+</div>
+
+<div class="contact-line">
+  <span class="dot">•</span> (619) 922-7954
+  <span class="dot">•</span> <a href="mailto:ben@comfortcapital.com">ben@comfortcapital.com</a>
+  <span class="dot">•</span> 2081 N. Marshall Ave., El Cajon, CA 92020
+</div>
+
+<div class="foot">
+  <img src="assets/logo-charcoal.png" alt="Comfort Capital">
+  <span>The Sunday Special</span>
+  <span>Comfort Capital</span>
+</div>
+
+<div class="disclose">
+  This material is for educational purposes only and is not tax, legal, or accounting advice. Tax results depend on each investor's individual facts and circumstances. Depreciation estimates are not guarantees, and any illustrative figures shown are hypothetical and for educational purposes only. Consult your own CPA or tax advisor before implementing any tax strategy. This is not an offer to sell or a solicitation of an offer to buy any security; any such offer is made only to accredited investors through definitive offering documents.
+</div>
+
+</div><!-- /closing -->
+
+</div><!-- /content-wrap -->
+
+</body>
+</html>

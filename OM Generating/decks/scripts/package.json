@@ -1,0 +1,8 @@
+{
+  "name": "comfort-om-build",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Comfort Capital OM / Overview deck HTML->PDF render pipeline (Chrome headless, no deps).",
+  "scripts": { "render": "node render.mjs" }
+}

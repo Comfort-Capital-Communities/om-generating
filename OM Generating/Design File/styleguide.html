@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comfort Capital — Brand Styleguide</title>
+<link rel="stylesheet" href="./brand/brand.css">
+<style>
+  .sw{ height:104px; border-radius:6px; display:flex; align-items:flex-end; padding:12px; color:#fff; font-weight:600; font-size:12px; }
+  .sw small{ display:block; font-weight:400; opacity:.85; font-size:10px; letter-spacing:.04em; margin-top:2px; }
+  .type-row{ display:flex; align-items:baseline; gap:20px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .type-row .tk{ width:150px; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .logo-tile{ background:var(--paper-2); border:1px solid var(--line); border-radius:6px; height:120px; display:flex; align-items:center; justify-content:center; }
+  .logo-tile.dark{ background:var(--navy); border-color:var(--line-dark); }
+  .logo-tile img{ max-height:64px; max-width:80%; }
+  .cap{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- Cover -->
+  <section class="slide no-footer slide--navy">
+    <div class="slide__body center col" style="justify-content:center;align-items:flex-start">
+      <img src="./brand/logo/lockup-v-white.png" style="height:120px;margin-bottom:34px" alt="">
+      <span class="eyebrow">Brand System · v1.0 · 2026</span>
+      <h1 class="headline" style="font-size:64px;color:#fff">The Comfort Capital<br><span class="accent">design system.</span></h1>
+      <p class="dek" style="max-width:720px">The single reusable design file behind every Deal OM and Overview Deck — Conroe editorial layout, official navy &amp; cyan, a single Montserrat type system. Build in HTML, render to PDF.</p>
+    </div>
+  </section>
+
+  <!-- Colors -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">01 · Color</span><h1 class="headline headline--h2">Official <span class="accent">palette.</span></h1></div>
+      <div class="grid grid-4 gap-md">
+        <div><div class="sw" style="background:#08A4DB">Comfort Cyan<small>#08A4DB · accent</small></div></div>
+        <div><div class="sw" style="background:#172331">Comfort Navy<small>#172331 · dividers / dark</small></div></div>
+        <div><div class="sw" style="background:#221E1F">Comfort Charcoal<small>#221E1F · primary ink</small></div></div>
+        <div><div class="sw" style="background:#F5F2EA;color:#221E1F;border:1px solid var(--line)">Paper<small>#F5F2EA · page ground</small></div></div>
+      </div>
+      <div class="grid grid-4 gap-md mt24">
+        <div><div class="sw" style="background:#FFFFFF;color:#221E1F;border:1px solid var(--line)">White<small>#FFFFFF · cards</small></div></div>
+        <div><div class="sw" style="background:#223247">Navy Lift<small>#223247 · panels on dark</small></div></div>
+        <div><div class="sw" style="background:#6A6459">Ink Muted<small>#6A6459 · body copy</small></div></div>
+        <div><div class="sw" style="background:#DED8CA;color:#221E1F">Hairline<small>#DED8CA · borders / rules</small></div></div>
+      </div>
+      <p class="body mt24" style="font-size:12.5px;max-width:820px">Cyan is used sparingly — for italic accent words, eyebrows, stat figures, rules and net-return columns. Navy grounds dividers, dark data panels and footers. Everything else sits on warm paper with charcoal ink.</p>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">02 · Typography</span><h1 class="headline headline--h2">One type system <span class="accent">— Montserrat.</span></h1></div>
+      <div class="grid grid-2 gap-lg grow">
+        <div>
+          <div class="type-row"><div class="tk">Headline · 800</div><div class="headline" style="font-size:34px">Cash flow, <span class="accent">compounded.</span></div></div>
+          <div class="type-row"><div class="tk">Eyebrow · 600</div><span class="eyebrow" style="margin:0">The Market</span></div>
+          <div class="type-row"><div class="tk">Quote · 600</div><div class="quote" style="font-size:18px">"A rock-solid foundation."</div></div>
+          <div class="type-row" style="border:0"><div class="tk">Stat · 800</div><div class="stat__num" style="font-size:34px">2.44x</div></div>
+        </div>
+        <div>
+          <div class="type-row"><div class="tk">Dek · Sans 400</div><p class="dek" style="margin:0;font-size:15px">A vertically integrated operator of manufactured-housing communities.</p></div>
+          <div class="type-row"><div class="tk">Body · Sans 400</div><p class="body" style="margin:0;font-size:13px">Comfort Capital acquires, improves and operates MHCs — delivering durable cash flow and tax-advantaged upside.</p></div>
+          <div class="type-row" style="border:0"><div class="tk">Label · Sans 600</div><span class="label">Assets Under Management</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">03 · Logo</span><h1 class="headline headline--h2">The house-C <span class="accent">mark &amp; lockups.</span></h1></div>
+      <div class="grid grid-4 gap-md">
+        <div><div class="logo-tile"><img src="./brand/logo/mark-cyan.png"></div><div class="cap">Mark · Cyan</div></div>
+        <div><div class="logo-tile"><img src="./brand/logo/mark-navy.png"></div><div class="cap">Mark · Navy</div></div>
+        <div><div class="logo-tile dark"><img src="./brand/logo/mark-white.png"></div><div class="cap">Mark · White</div></div>
+        <div><div class="logo-tile dark"><img src="./brand/logo/lockup-v-white.png"></div><div class="cap">Vertical lockup</div></div>
+      </div>
+      <div class="grid grid-3 gap-md mt24">
+        <div><div class="logo-tile"><img src="./brand/logo/lockup-h-charcoal.png"></div><div class="cap">Horizontal · Charcoal (on paper)</div></div>
+        <div><div class="logo-tile dark"><img src="./brand/logo/lockup-h-white.png"></div><div class="cap">Horizontal · White (on navy / photo)</div></div>
+        <div><div class="logo-tile"><img src="./brand/logo/wordmark-navy.png"></div><div class="cap">Wordmark · Navy</div></div>
+      </div>
+      <p class="body mt16" style="font-size:12px">Keep clear space ≥ the height of the house-mark around all lockups. Cyan or charcoal mark on paper; white mark on navy or photography. Never recolor, stretch, or add effects.</p>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="slide">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">04 · Components</span><h1 class="headline headline--h2">The <span class="accent">building blocks.</span></h1></div>
+      <div class="grid grid-3 gap-md">
+        <div class="stat"><div class="stat__num">$350M+</div><div class="stat__label">Stat Card</div><div class="stat__desc">Cyan top rule, serif figure, label, description.</div></div>
+        <div class="card card--pad-sm"><div class="card__title" style="font-size:15px">Card</div><div class="card__body">White surface, hairline border, soft shadow — for grouped content.</div></div>
+        <div class="col gap-sm">
+          <div><span class="tag">Tag / Pill</span></div>
+          <div><span class="btn" style="padding:12px 22px">Button <span class="arw">→</span></span></div>
+          <div class="flex gap-sm center"><span class="chip"><svg class="icn" style="width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:1.6" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7" fill="none"/><path d="M5 10v9h14v-9" fill="none"/></svg></span><span class="label">Icon chip</span></div>
+        </div>
+      </div>
+      <table class="table mt24">
+        <thead><tr><th>Park</th><th>Location</th><th>Gross EM</th><th>Gross AAR</th><th class="net">Net EM</th><th class="net">Net AAR</th></tr></thead>
+        <tbody>
+          <tr><td>Cottonwood</td><td>Cottonwood, AZ</td><td>3.54x</td><td>40.8%</td><td class="net">2.87x</td><td class="net">30.0%</td></tr>
+          <tr><td>Royal Palms</td><td>Mesa, AZ</td><td>5.00x</td><td>58.4%</td><td class="net">4.04x</td><td class="net">44.4%</td></tr>
+        </tbody>
+      </table>
+      <p class="body mt8" style="font-size:11px">Table — navy header, zebra rows, cyan "net" (investor-level) columns.</p>
+    </div>
+  </section>
+
+  <!-- Page architecture -->
+  <section class="slide slide--navy">
+    <div class="slide__body">
+      <div class="head-block"><span class="eyebrow">05 · Page architecture</span><h1 class="headline headline--h2">Five page <span class="accent">types.</span></h1></div>
+      <div class="grid grid-5 gap-md grow" style="align-content:center">
+        <div class="card"><div class="card__title" style="font-size:14px">Cover</div><div class="card__body">Full-bleed photo, navy scrim, serif title with cyan accent, white lockup, contact footer.</div></div>
+        <div class="card"><div class="card__title" style="font-size:14px">Divider</div><div class="card__body">Photo half + navy half, big cyan mark, PART 0X, "in this part" list.</div></div>
+        <div class="card"><div class="card__title" style="font-size:14px">Content · Light</div><div class="card__body">Paper ground, eyebrow + headline, grids of stats / cards / photos.</div></div>
+        <div class="card"><div class="card__title" style="font-size:14px">Content · Navy</div><div class="card__body">Dark emphasis pages — advantage, distributions, definitions.</div></div>
+        <div class="card"><div class="card__title" style="font-size:14px">Footer</div><div class="card__body">Auto-injected: page NN / TT, disclaimer, logo. On every content page.</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var DISC='Comfort Capital — Brand System v1.0. Confidential. © Comfort Capital, LLC (2026).';
+  var LOGO='./brand/logo';
+  var s=[].slice.call(document.querySelectorAll('.slide')); var t=s.length;
+  s.forEach(function(el,i){ if(el.classList.contains('no-footer'))return;
+    var lg=el.classList.contains('slide--navy')?'lockup-h-white':'lockup-h-charcoal';
+    el.insertAdjacentHTML('beforeend','<div class="footer"><div class="footer__pg">'+String(i+1).padStart(2,'0')+' / '+t+'</div><div class="footer__disc">'+DISC+'</div><img class="footer__logo" src="'+LOGO+'/'+lg+'.png"></div>');
+  });
+})();
+</script>
+</body>
+</html>

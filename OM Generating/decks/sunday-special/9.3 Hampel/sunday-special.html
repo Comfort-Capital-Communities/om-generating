@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sunday Special — Houston's Housing Gap</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  /* =====================================================================
+     THE SUNDAY SPECIAL — weekly brief format (Letter portrait, white)
+     Issue 02 — Morgan Hampel. Navy hero masthead on page 1, clean white
+     body, numbered cyan section badge, cyan-dash subheads, cyan-bar pull
+     quotes, comparison table, sign-off + navy CTA.
+     ===================================================================== */
+  @page{ size:8.5in 11in; margin:0.5in 0; }
+  @page :first{ margin:0 0 0.5in 0; }   /* page 1: zero top margin so the navy masthead bleeds to the edge */
+
+  html,body{ background:#fff; }
+  @media print{ html,body{ background:#fff; } }
+  body{ font-family:var(--sans); color:#23272E; }
+
+  a{ color:var(--cyan); text-decoration:none; }
+
+  /* body content sits inside side padding; masthead full-bleeds horizontally */
+  .content-wrap{ padding:0 0.6in; }
+
+  /* ---------- HERO MASTHEAD (page 1, full-bleed navy) ---------- */
+  .masthead{
+    position:relative;
+    margin:0 0 30px;
+    padding:46px 0.6in 22px;
+    background:
+      radial-gradient(120% 150% at 88% 8%, rgba(8,164,219,.42) 0%, rgba(8,164,219,0) 42%),
+      var(--navy);
+    color:#fff;
+    overflow:hidden;
+  }
+  .mh-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; }
+  .mh-logo{ height:34px; width:auto; }
+  .mh-badge{
+    border:1px solid rgba(255,255,255,.5); color:#fff; border-radius:100px;
+    padding:7px 18px; font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  }
+  .mh-title{
+    font-family:var(--display); font-weight:800; font-size:54px; line-height:1;
+    letter-spacing:-.03em; color:#fff; padding-right:150px;
+  }
+  .mh-title i{ font-style:italic; font-weight:800; color:var(--cyan); }
+  .mh-tag{ margin-top:16px; font-size:15px; letter-spacing:.01em; }
+  .mh-tag b{ color:#fff; font-weight:700; }
+  .mh-tag span{ color:#9FB2C4; }
+  .mh-by{ margin-top:9px; font-size:13.5px; font-weight:700; color:var(--cyan); letter-spacing:.02em; }
+  .mh-by span{ color:#9FB2C4; font-weight:600; }
+  .mh-photo{
+    position:absolute; top:84px; right:0.6in;
+    width:116px; height:116px; border-radius:50%; object-fit:cover; object-position:50% 22%;
+    border:3px solid rgba(255,255,255,.9); box-shadow:0 6px 22px rgba(0,0,0,.35);
+  }
+  .mh-rule{ height:1px; background:rgba(255,255,255,.18); border:0; margin:24px 0 16px; }
+  .mh-toc{ font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:#8CA0B4; }
+  .mh-toc b{ color:var(--cyan); font-weight:700; }
+  .mh-toc .sep{ color:#5C7188; margin:0 10px; }
+
+  /* ---------- BODY TYPE ---------- */
+  .greeting{ font-weight:700; font-size:16px; color:#1A1D22; margin-bottom:14px; }
+  p.body{ font-size:14.6px; line-height:1.72; color:#2E333B; margin-bottom:14px; }
+  p.body strong{ color:#1A1D22; font-weight:700; }
+  p.body em{ font-style:italic; }
+  p.leadin{ font-size:14.6px; line-height:1.6; font-weight:700; color:#1A1D22; margin-bottom:14px; }
+
+  /* ---------- SECTION HEAD (numbered) ---------- */
+  .sec-rule{ height:2px; background:#1A1D22; border:0; margin:30px 0 22px; }
+  .sec-head{ break-after:avoid; margin-bottom:6px; }
+  .sec-kicker{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .sec-num{
+    width:26px; height:26px; border-radius:5px; background:var(--cyan); color:#fff;
+    font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .sec-eyebrow{ font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); }
+  .sec-title{
+    font-family:var(--display); font-weight:800; font-size:33px; line-height:1.1;
+    letter-spacing:-.02em; color:#14171C;
+  }
+  .sec-title .accent{ color:var(--cyan); }
+
+  /* ---------- SUBHEAD (cyan dash) ---------- */
+  .subhead{
+    display:flex; align-items:baseline; gap:12px; margin:24px 0 12px; break-after:avoid;
+    font-family:var(--display); font-weight:800; font-size:18px; color:#14171C; letter-spacing:-.01em;
+  }
+  .subhead::before{ content:""; width:22px; height:3px; background:var(--cyan); flex:0 0 auto; position:relative; top:-4px; }
+
+  /* ---------- PULL QUOTE ---------- */
+  .pull{
+    margin:22px 0; padding:2px 0 2px 22px; border-left:4px solid var(--cyan);
+    font-family:var(--display); font-weight:800; font-size:23px; line-height:1.3;
+    color:#14171C; letter-spacing:-.015em; break-inside:avoid;
+  }
+
+  /* ---------- FIG. 1 COMPARISON TABLE ---------- */
+  .figcap{ font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan-deep); margin:22px 0 9px; break-after:avoid; }
+  .figcap span{ color:#4A5059; font-weight:700; letter-spacing:.01em; text-transform:none; }
+  .cmp{ width:100%; border-collapse:collapse; margin:0 0 12px; font-size:12.5px; break-inside:avoid; box-shadow:0 1px 2px rgba(20,23,28,.04), 0 8px 22px rgba(20,23,28,.05); }
+  .cmp thead th{
+    background:var(--navy); color:#fff; font-weight:700; text-align:left; vertical-align:bottom;
+    padding:11px 12px; font-size:11px; letter-spacing:.04em; line-height:1.25; text-transform:uppercase;
+  }
+  .cmp thead th.hl{ background:#0E2A3A; }
+  .cmp thead th.hl::after{ content:""; display:block; height:3px; background:var(--cyan); margin:8px -12px -11px; }
+  .cmp tbody th{ text-align:left; font-weight:700; color:#14171C; padding:10px 12px; border-bottom:1px solid #ECEFF2; background:#FAFBFC; width:34%; }
+  .cmp tbody td{ padding:10px 12px; border-bottom:1px solid #ECEFF2; color:#2E333B; font-variant-numeric:tabular-nums; }
+  .cmp tbody td.hl{ background:#EAF6FB; color:#0B4A63; font-weight:700; }
+  .cmp tbody tr:last-child th, .cmp tbody tr:last-child td{ border-bottom:0; }
+  .fignote{ font-size:10.5px; line-height:1.55; color:#6A6F77; margin:0 0 6px; }
+
+  /* ---------- CTA PILL ---------- */
+  a.cta{
+    display:inline-flex; align-items:center; gap:12px;
+    background:var(--navy); color:#fff; font-weight:700; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    padding:15px 30px; border-radius:100px;
+  }
+  a.cta .arw{ font-size:14px; color:var(--cyan); }
+
+  /* ---------- SIGN-OFF / CLOSING ---------- */
+  .signrule{ height:2px; background:#1A1D22; border:0; margin:34px 0 22px; }
+  .signoff-lead{ font-weight:700; font-size:16px; color:#14171C; margin-bottom:16px; }
+  .signoff-until{ font-size:14.6px; color:#2E333B; margin-bottom:12px; }
+  .sign-photo{ width:78px; height:78px; border-radius:50%; object-fit:cover; object-position:50% 22%; border:2px solid #E3E6EA; }
+  .sign-name{ font-family:var(--display); font-weight:800; font-size:22px; color:#14171C; margin-top:12px; letter-spacing:-.01em; }
+  .sign-title{ font-size:13px; font-weight:700; color:var(--cyan); margin-top:2px; }
+  .sign-cta{ margin-top:20px; }
+  .contact-line{ margin-top:24px; padding-top:16px; border-top:1px solid #E3E6EA; font-size:12.5px; color:#4A5059; display:flex; flex-wrap:wrap; align-items:center; gap:6px 6px; }
+  .contact-line .dot{ color:var(--cyan); font-weight:800; margin:0 8px; }
+  .foot{
+    margin-top:22px; padding-top:16px; border-top:1px solid #E3E6EA;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#8A9099;
+  }
+  .foot img{ height:22px; width:auto; }
+  .disclose{ font-size:9.5px; line-height:1.55; color:#9096A0; margin-top:18px; }
+  .closing{ break-inside:avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============================= HERO MASTHEAD ============================= -->
+<div class="masthead">
+  <div class="mh-top">
+    <img class="mh-logo" src="assets/logo-white.png" alt="Comfort Capital">
+    <span class="mh-badge">September 6, 2026</span>
+  </div>
+  <div class="mh-title">The Sunday <i>Special</i></div>
+  <div class="mh-tag"><b>Markets. Strategy. Leadership.</b> <span>A weekly brief from Comfort Capital.</span></div>
+  <div class="mh-by">By Morgan Hampel <span>· VP of Capital Formation</span></div>
+  <img class="mh-photo" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+  <hr class="mh-rule">
+  <div class="mh-toc">In This Issue <span class="sep">·</span> <b>Houston's Housing Gap</b> <span class="sep">·</span> Terafab &amp; The Phoenix Playbook</div>
+</div>
+
+<div class="content-wrap">
+
+<!-- ============================= SECTION 01 · THE BRIEF ============================= -->
+<div class="sec-head">
+  <div class="sec-kicker"><span class="sec-num">01</span><span class="sec-eyebrow">The Brief</span></div>
+  <div class="sec-title">Houston Is Booming. Most of It <span class="accent">Can't Afford a House.</span></div>
+</div>
+
+<p class="leadin"><em>That gap is our business, which is why</em> we bought 422 pads in Conroe, and why we intend to keep buying across Texas.</p>
+
+<p class="body">Between 2024 and 2025, the Houston metro added 126,720 people, the largest increase of any metropolitan area in the country, and the fastest percentage growth among the twenty most populous metros. The region is home to 7.9 million people now, more than 37 states, and Montgomery County, where we just bought, added the fourth-most residents of any county in America.</p>
+
+<p class="body">Now the other half of that sentence.</p>
+
+<p class="body">Only 40% of Houston-area households can afford a median-priced home. To buy one, a family needs to earn about $102,000 a year, in a market where the median price is roughly $331,500 and the monthly payment runs $2,400. Renting a single-family home isn't much better: the average lease is $2,150, which takes about $86,000 a year to carry, and just 45% of households clear that bar.</p>
+
+<p class="body">So you have a metro adding 100,000 people a year to a housing stock that six out of ten of them cannot buy into.</p>
+
+<div class="pull">This isn't a downturn. It's the market we are in business to serve.</div>
+
+<!-- ---- Own the Home, Lease the Lot ---- -->
+<div class="subhead">Own the Home, Lease the Lot</div>
+<p class="body">Our resident owns their home and leases the lot underneath it, and that single structural difference is what makes the payment work: they don't finance the dirt, the entitlements, or the sticks and bricks of a $331,500 house.</p>
+
+<div class="figcap">Fig. 1 &nbsp;<span>— Three ways to house a family in the Houston metro.</span></div>
+<table class="cmp">
+  <thead>
+    <tr>
+      <th>Houston Metro</th>
+      <th>Buy a<br>Median Home</th>
+      <th>Rent a<br>House</th>
+      <th class="hl">Own in Our<br>Community</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><th>Monthly housing cost</th><td>$2,400</td><td>$2,150</td><td class="hl">$1,150</td></tr>
+    <tr><th>Income needed</th><td>$102,000</td><td>$86,000</td><td class="hl">$46,000</td></tr>
+    <tr><th>Share of households who qualify</th><td>40%</td><td>45%</td><td class="hl">~70%</td></tr>
+    <tr><th>Builds equity?</th><td>Yes</td><td>No</td><td class="hl">Yes</td></tr>
+  </tbody>
+</table>
+<p class="fignote">Community all-in cost assumes a $50,000 home with $40,000 financed over 20 years (chattel loan, ~9%), about $360 per month, plus $800 monthly lot rent. Income needed applies the same ~30% housing-cost-to-income standard used for the buy and rent columns.</p>
+<p class="fignote">Purchase and rental figures per the Houston Association of Realtors, Q2 2026. Community figures are illustrative of our portfolio and are not an offer or projection.</p>
+
+<p class="body">And almost nobody is adding supply. New manufactured-housing communities are effectively not being built, and zoning sees to that. When a city does plan for affordable housing, it steers that housing into multifamily, which generates more tax revenue on less land than a manufactured-housing community requires. Add the stigma many MH parks still carry, and cities have little reason to incentivize or push through new ones, so few (if any) ever get approved. Meanwhile site-built construction can't reach this price point at today's costs. The existing communities are the inventory, and that is the entire supply picture. It doesn't change with a rate cut.</p>
+
+<p class="body">So we buy the communities that already exist, in the places people are already moving, and we invest in better roads, better utilities, and new homes on vacant lots. We are building a place a family wants to stay in for twenty years, because the alternative for that family is a two-hour commute or a rental they will never own.</p>
+
+<!-- ---- The $16.8 Billion Neighbor ---- -->
+<div class="subhead">The $16.8 Billion Neighbor We Didn't Plan For</div>
+<p class="body">We closed Conroe on August 5, and the very next day Governor Abbott announced that SpaceX and Tesla will build Terafab: $16.8 billion, more than 100 million square feet, at least 3,000 jobs, in Grimes County, less than an hour away from Conroe Estates.</p>
+
+<p class="body">We didn't know it was coming, and we didn't need it. But look at what it lands on: Grimes County has 34,252 residents, and median household income is $69,803, or $51,276 in Navasota, the county's largest town. The median home listing in that county is $423,000.</p>
+
+<p class="body">That's three thousand permanent jobs, thousands more in construction, plus the suppliers and the service economy that follows, all arriving in a county where the housing math is already broken. SpaceX will pay Grimes County $20 million a year for 35 years, and two school districts have already signed agreements: money that circulates through schools, roads, clinics, and every business that hires locally.</p>
+
+<p class="body">None of those workers can live in a $423,000 house on a $70,000 income. So they will need what we own.</p>
+
+<div class="pull">Terafab didn't create our thesis. It arrived twenty-four hours after we acted on it, and simply made the case louder.</div>
+
+<!-- ---- Phoenix Already Ran This Play ---- -->
+<div class="subhead">Phoenix Already Ran This Play</div>
+<p class="body">We own 25 communities in Arizona, and we've operated them through the largest foreign direct investment in American history. TSMC announced a $12 billion Phoenix fab in May 2020; that's now $265 billion across ten fabs, and Arizona has drawn more than seventy semiconductor expansions worth over $314 billion since 2020, the most of any state.</p>
+
+<p class="body">What we watched wasn't the engineers. It was everyone else: the technicians, the contractors, the drivers, the people who staff the businesses that serve a boom. They earn $50,000 to $80,000, they were priced out of for-sale housing, and they came to communities like ours.</p>
+
+<p class="body">Which is why Conroe won't be the last of these. Dallas–Fort Worth added 123,557 residents over the same twelve months, just behind Houston, with Collin County second only to Harris among all U.S. counties. The same arithmetic holds there, and in every Texas market where population is arriving faster than attainable housing.</p>
+
+<p class="body">We intend to keep buying in Houston and Dallas, and in comparable markets where that gap is widest, not because a chip plant might show up, but because ten million people are going to need somewhere to live that they can actually afford, and someone has to own it and run it well.</p>
+
+<!-- ============================= CLOSING ============================= -->
+<div class="closing">
+<hr class="signrule">
+<p class="signoff-lead">Someone has to own the housing that works, and run it well.</p>
+<p class="body">If you'd like to walk through the Conroe thesis, the Texas pipeline, or how we underwrite these markets, I'd welcome the conversation. Grab a time on my calendar below.</p>
+
+<p class="signoff-until" style="margin-top:22px;">Until next Sunday,</p>
+<img class="sign-photo" src="assets/morgan-hampel.jpg" alt="Morgan Hampel">
+<div class="sign-name">Morgan Hampel</div>
+<div class="sign-title">VP of Capital Formation · Comfort Capital</div>
+<div class="sign-cta">
+  <a class="cta" href="https://api.leadconnectorhq.com/widget/group/zjnxgL0Tbf2DwpcEOsBg">Book a Call With Morgan <span class="arw">→</span></a>
+</div>
+
+<div class="contact-line">
+  <span class="dot">•</span> 619-639-0313
+  <span class="dot">•</span> <a href="mailto:mhampel@comfortcapital.com">mhampel@comfortcapital.com</a>
+  <span class="dot">•</span> 2081 N. Marshall Ave., El Cajon, CA 92020
+</div>
+
+<div class="foot">
+  <img src="assets/logo-charcoal.png" alt="Comfort Capital">
+  <span>The Sunday Special</span>
+  <span>Comfort Capital</span>
+</div>
+
+<div class="disclose">
+  This material is for informational and educational purposes only and reflects the views of the author as of the date written. It is not investment, tax, legal, or accounting advice, and it is not a research report. Market, population, and housing figures are drawn from third-party sources believed reliable but not independently verified, and are subject to change. Any figures describing our communities are illustrative of our portfolio, are not projections or guarantees of future results, and are not an offer to sell or a solicitation of an offer to buy any security; any such offer is made only to accredited investors through definitive offering documents. Statements about future acquisition activity are forward-looking and subject to change.
+</div>
+
+</div><!-- /closing -->
+
+</div><!-- /content-wrap -->
+
+</body>
+</html>

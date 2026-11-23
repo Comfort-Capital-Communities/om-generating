@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Comfort Capital — Homestead MHC Investment Teaser</title>
+<link rel="stylesheet" href="../../../Design File/brand/brand.css">
+<style>
+  /* ===== one-page teaser — tightened padding so everything breathes on a single page ===== */
+  .teaser{ padding:30px 34px 26px; display:flex; flex-direction:column; gap:16px; height:100%; }
+
+  /* header */
+  .t-head{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .t-head .eyebrow{ margin-bottom:6px; }
+  .t-addr{ font-size:11px; letter-spacing:.02em; color:var(--ink-muted); margin-top:7px; }
+  .t-logo{ height:30px; width:auto; }
+
+  /* body split */
+  .t-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:26px; flex:1; min-height:0; }
+  .t-col{ display:flex; flex-direction:column; gap:14px; min-height:0; }
+
+  /* left imagery */
+  .t-aerial{ width:100%; height:288px; object-fit:cover; object-position:center 56%; border-radius:var(--radius); box-shadow:var(--shadow); }
+  .t-sign{ width:100%; flex:1; min-height:0; object-fit:cover; object-position:center 50%; border-radius:var(--radius); box-shadow:var(--shadow); }
+  .t-cap{ font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; }
+
+  /* key facts strip (on paper) */
+  .t-facts{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow); }
+  .t-facts > div{ padding:12px 14px; text-align:center; border-right:1px solid var(--line); }
+  .t-facts > div:last-child{ border-right:0; }
+  .tf-num{ font-family:var(--display); font-weight:800; font-size:27px; color:var(--navy); line-height:1; }
+  .tf-lab{ font-size:8.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); font-weight:800; margin-top:7px; }
+
+  /* section eyebrow */
+  .t-eye{ font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); font-weight:800; padding-bottom:6px; border-bottom:2px solid var(--line); margin-bottom:12px; }
+
+  /* navy returns panel */
+  .ret-panel{ background:var(--navy); border-radius:var(--radius); padding:16px 16px 13px; }
+  .rp-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .rp-tile{ text-align:center; }
+  .rp-num{ font-family:var(--display); font-weight:800; font-size:23px; color:var(--cyan); line-height:1; letter-spacing:-.01em; }
+  .rp-num small{ font-size:12px; font-weight:700; }
+  .rp-lab{ font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; color:#fff; font-weight:800; margin-top:6px; }
+  /* business plan steps — 5 exactly-equal rows (grid 1fr) for identical spacing */
+  .t-biz{ display:flex; flex-direction:column; }
+  .t-steps{ flex:1; display:grid; grid-template-rows:repeat(5,1fr); }
+  .bizstep{ display:flex; gap:13px; align-items:center; min-height:0; border-top:1px solid var(--line); }
+  .bizstep:first-child{ border-top:0; }
+  .bizstep .step__n{ flex:0 0 26px; width:26px; height:26px; min-width:26px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; align-self:center;
+    font-size:11px; font-weight:800; color:#fff; line-height:1; }
+  .bizstep .step__n svg{ display:none; }
+  .step__t{ font-weight:800; font-size:12.5px; color:var(--ink-strong); }
+  .step__d{ font-size:10px; line-height:1.42; color:var(--ink-muted); margin-top:3px; }
+</style>
+</head>
+<body>
+
+  <section class="slide no-footer">
+    <div class="teaser">
+
+      <!-- header -->
+      <div class="t-head">
+        <div>
+          <span class="eyebrow">Confidential · Investment Teaser</span>
+          <h1 class="headline headline--h2">Homestead <span class="accent">MHC</span></h1>
+          <div class="t-addr">16601 N 29th St, Phoenix, AZ 85032 &nbsp;·&nbsp; Maricopa County &nbsp;·&nbsp; Phoenix MSA</div>
+        </div>
+        <img class="t-logo" src="../../../Design File/brand/logo/cc-lockup-h-color.png" alt="Comfort Capital">
+      </div>
+
+      <!-- body -->
+      <div class="t-grid">
+
+        <!-- left: imagery + key facts -->
+        <div class="t-col">
+          <img class="t-aerial" src="./assets/hs-aerial.jpg" alt="Aerial of Homestead MHC">
+          <div class="t-facts">
+            <div><div class="tf-num">116</div><div class="tf-lab">Total Sites</div></div>
+            <div><div class="tf-num">96%</div><div class="tf-lab">Occupancy</div></div>
+            <div><div class="tf-num">$675</div><div class="tf-lab">Avg In-Place Lot Rent</div></div>
+          </div>
+          <img class="t-sign" src="./assets/hs-sign.jpg" alt="Homestead MHC entrance signage">
+        </div>
+
+        <!-- right: returns + business plan -->
+        <div class="t-col">
+          <div>
+            <div class="t-eye">Targeted Investor Returns · 10-Year Hold</div>
+            <div class="ret-panel">
+              <div class="rp-grid">
+                <div class="rp-tile"><div class="rp-num">10.41<small>%</small></div><div class="rp-lab">IRR</div></div>
+                <div class="rp-tile"><div class="rp-num">13.80<small>%</small></div><div class="rp-lab">AAR</div></div>
+                <div class="rp-tile"><div class="rp-num">2.38<small>x</small></div><div class="rp-lab">Equity Mult.</div></div>
+                <div class="rp-tile"><div class="rp-num">5.00<small>%</small></div><div class="rp-lab">Start CoC</div></div>
+                <div class="rp-tile"><div class="rp-num">5.98<small>%</small></div><div class="rp-lab">Avg CoC</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="t-biz" style="flex:1">
+            <div class="t-eye">Business Plan</div>
+            <div class="t-steps">
+              <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">1</div><div><div class="step__t">Mark Rents To Market</div><div class="step__d">In-place rents average $675 vs ~$950 market today, proven by our 17 Phoenix comps, with 40%+ upside toward a stabilized $1,100.</div></div></div>
+              <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">2</div><div><div class="step__t">Targeted Capital Improvements</div><div class="step__d">~$860K into roads, signage, common areas and infrastructure that lift curb appeal and long-term value.</div></div></div>
+              <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">3</div><div><div class="step__t">Operational Efficiencies</div><div class="step__d">Plug into the regional team running our 17 nearby Phoenix communities, with shared management, maintenance and sales, plus full utility billbacks.</div></div></div>
+              <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">4</div><div><div class="step__t">Floor Inventory</div><div class="step__d">Add 8 homes, 4 on vacant pads and 4 replacing temporary RVs, sold factory-direct to residents as lot-paying sites.</div></div></div>
+              <div class="bizstep"><div class="step__n chip" style="background:var(--cyan)">5</div><div><div class="step__t">Distribute Cash Flow</div><div class="step__d">Monthly distributions from June 2027: 5% starting cash-on-cash, ~6% average, rising toward 7.6% by year 10.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
